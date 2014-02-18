@@ -90,18 +90,14 @@ captionpos=b}
 \chapter{Introduction}
 \minitoc
 
-\section{Introduction}
+\section{Statement of the problem}
+The first step of creating an online auction is mostly to take pictures of the corresponding item. This help the buyers to get information about the state and quality of the article. After that the item needs a short and clear description, some properties (category, state) and a starting offer. If the seller wants to create a lot of different auctions, the whole procedure is time consuming and boring. A price estimation of an article can be difficult, because the background knowledge is missing and other auctions to compare aren't available at any time. Machines aren't able to solve all these steps by themself, because the spectrum of the articles is huge and image processing methodes aren't capable to classify them all correctly. To get all the needed parts of an online auction, a human powered approach is necessary. Crowdsourcing platforms provide the possibility to solve tasks, which are difficult to handle for a computer. 
 
-The number of new tweets per second on the social media platform Twitter\footnote{https://www.twitter.com} is huge (over hundred thousand per second). To handle such a big amount of data, a scalable, fault-tolerant real-time framework has to be used. Storm was benchmarked at processing one million 100 byte messages per second per node. It allows to classify every new tweet, for example with a fuzzy logic approach. The so called ''Spout'' is responsible for fetching the tweets and the ''Bolts'' can do some transformation on the received data or persist them in some sort of storage. Cassandra\footnote{http://cassandra.apache.org} is an ideal solution for the given scenario, because it is a distributed, elastically scalable, highly available, fault-tolerant and column-oriented database.
+\section{Existing research}
 
-\subsection{Problem Statement}
+\section{Goals and objectives}
 
-\subsubsection{Research Questions}\label{research_questions}
-\vspace{0.5cm}
-\begin{itemize}
-\item How can fuzzy classifications be applied to Twitter feeds using Storm?\cite{platemate}
-\item How can the results of such classifications be stored in a Cassandra column store?
-\end{itemize}
+\section{Evaluation}
 
 \clearpage
 

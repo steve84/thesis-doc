@@ -30,6 +30,8 @@
 *.vrb
 *.xdy
 *.tdo
+*.mtc*
+*.lol
 
 # ignore tmp-files
 *.*~
