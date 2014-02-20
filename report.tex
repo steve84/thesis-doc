@@ -88,45 +88,52 @@ captionpos=b}
 \lstlistoflistings
 
 \chapter{Introduction}
-eBay Inc.\footnote{http://www.ebay.com} is one of the world's largest online marketplaces and reported 128 million active users worldwide during the last quarter of the year 2013. Online auction platforms make consumer-to-consumer transactions possible. The seller can present articles by uploading pictures and describing them. The creation of an auction is time consuming and needs a lot of investigations. Searching for descriptions on the internet or finding a selling price for the same or similar article, for example. In 2005, Jeff Howe and Mark Robinson created a term called 'Crowdsourcing' which is a combination of the words crowd and outsourcing. The idea behind the term is to outsource different tasks, which are difficult to solve by machines, to the crowd. To reduce the costs of collecting information for an article to sell on an auction platform, tasks will be created and outsourced to the crowd.
-\minitoc
+eBay Inc.\footnote{http://www.ebay.com} is one of the world's largest online marketplaces and reported 128 million active users worldwide during the last quarter of the year 2013. Online auction platforms make consumer-to-consumer transactions possible. The seller can present articles by uploading pictures and describing them. The creation of an auction is time consuming and needs a lot of investigations. Searching for descriptions on the internet or finding a selling price for the same or similar article, for example. In 2005, Jeff Howe and Mark Robinson created a term called 'Crowdsourcing' which is a combination of the words crowd and outsourcing. The idea behind the term is to outsource different tasks, which are difficult to solve by machines, to the crowd. To reduce the costs of collecting information for an article to sell on an auction platform, tasks will be created and outsourced to the crowd. Amazon Mechanical Turk\footnote{http://www.mturk.com}, short MTurk, is a crowdsourcing marketplace which enables requesters to publish human intelligence tasks (HITs). The workers can solve these tasks and earn money for good work.
 
 \section{Statement of the problem}
-The first step of creating an online auction is mostly to take pictures of the corresponding item. This help the buyers to get information about the state and quality of the article. After that the item needs a short and clear description, some properties (category, state) and a starting offer. If the seller wants to create a lot of different auctions, the whole procedure is time consuming and boring. A price estimation of an article can be difficult, because the background knowledge is missing and other auctions to compare aren't available at any time. Machines aren't able to solve all these steps by themself, because the spectrum of the articles is huge and image processing methodes aren't capable to classify them all correctly. To get all the needed parts of an online auction, a human powered approach is necessary. Crowdsourcing platforms provide the possibility to solve tasks, which are difficult to handle for a computer. 
+The first step of creating an online auction is mostly to take pictures of the corresponding item. This help the buyers to get information about the state and quality of the article. After that the item needs a short and clear description, some properties (category, state) and a starting offer. If the seller wants to create a lot of different auctions, the whole procedure is time consuming and boring. A price estimation of an article can be difficult, because the background knowledge is missing and other auctions to compare aren't available at any time. Machines aren't able to solve all these steps by them self, because the spectrum of the articles is huge and image processing methods aren't capable to classify them all correctly. To get all the needed parts of an online auction, a human powered approach is necessary. Crowdsourcing platforms provide the possibility to solve tasks, which are difficult to handle for a computer.
 
 \section{Existing research}
 tbd
 
 \section{Goals and objectives}
-The thesis will have the following goals and their corresponding objectives:
+The thesis has the following goals and their corresponding objectives:
 \begin{itemize}
 	\item \textbf{Collect auction item properties by the crowd}
 	\begin{itemize}
-		\item Analyze the composition of an auction item and select the parts which can be crowdsourced
-		\item Form a ground truth including different auctions created by real online auction platform users
-		\item Design and publish tasks to gather data from the crowd
+		\item Analyse the composition of an auction item on eBay and select the parts which can be crowdsourced
+		\item Form a ground truth including different auctions created by real online auction platform users by using the eBay API
+		\item Study literature which covers similar crowdsourcing problems
+		\item Design and publish tasks on Amazon Mechanical Turk to gather data from the crowd
 		\item Evaluate the quality of the generated content
 	\end{itemize}
-	\item \textbf{Try to improve the initial solution by implementing a hyprid approach}
+	\item \textbf{Try to improve the initial solution by implementing a hybrid approach}
 	\begin{itemize}
-		\item Search for image processing methodes which can simplify and/or support a human intelligence task
-		\item Implement the methodes and adapt the task design
+		\item Search for image processing or machine learning methods which can simplify and/or support a human intelligence task
+		\item Implement the methods and adapt the design of the tasks
 		\item Publish the new tasks on the same crowdsourcing platform
-		\item Evalutate the results and compare them to the first solution 
+		\item Evaluate the results and compare them to the first solution 
 	\end{itemize}
 \end{itemize}
 
-If the main goals of the thesis are fulfilled, some optional goals can be covered by the thesis:
+If the main goals of the thesis are fulfilled, some \textit{optional} goals can be covered by the thesis:
 \begin{itemize}
 	\item \textbf{Implement a web application which combines the created subtasks to a complete workflow}
 	\begin{itemize}
-		\item Find a web application framework and a crowdsourcing platform which provide APIs in the same programming language
+		\item Find a web application framework which provide an API in the same programming language as the Amazon Mechanical Turk API
 		\item Create a workflow which put all the subtasks together to an overall solution
 		\item The user can manage the items (upload pictures to create new items, edit and remove items) and directly create an online auction
 	\end{itemize}
 \end{itemize}
 
-\section{Evaluation}
+\section{Organization}
+The thesis is splited into several chapters:
+\begin{itemize}
+	\item eBay online marketplace
+	\item Crowdsourcing
+	\item Evaluation
+	\item Conclusion
+\end{itemize}
 
 \clearpage
 
