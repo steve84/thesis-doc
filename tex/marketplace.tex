@@ -49,3 +49,62 @@ The Finding API provides access to the next generation search capabilities on th
 \end{itemize}
 
 \subsection{Example}
+The following listing in Python illustrate the functionality of the Finding API. The developer has to register to the eBay developers program first. After that, a application ID can be created. This is necessary to get access to the eBay databases. A functioning Python environment and the additional eBay Python SDK are requirements to successfully execute the example
+\lstset{language=Python,caption={eBay Finding API example},label=findingapi_example}
+\begin{lstlisting}
+from ebaysdk.finding import Connection as Finding
+from ebaysdk.exception import ConnectionError
+import json
+
+try:
+    api = Finding(appid='Universi-3c25-4b4e-b3e6-8c2568808b12')
+    api.execute('findCompletedItems', {
+        'keywords': 'ford mustang',
+        'itemFilter': [
+            {'name': 'ListingType',
+             'value': 'Auction'},
+            {'name': 'Currency',
+             'value': 'USD'},                
+            {'name': 'SoldItemsOnly',
+             'value': 'true'},                 
+        ],        
+        'sortOrder': 'StartTimeNewest',
+        })
+    response = json.loads(api.response_json())
+    
+    print response['searchResult']['item'][0]
+    
+except ConnectionError as e:
+    raise e  
+\end{lstlisting}
+The initialisation of the application is done on line 6. A correct application ID is required. Then the API call \textit{findCompletedItems()} is executed with some keywords and filter options. Only the newest auctions with at least one bidder and a payment in US dollar will be returned. The function \textit{response\_json()} (on line 19) returns the first 100 items by default. At the end, the first result will be printed to the console. Here is a shorter simplified version with the most important fields of the output:
+\begin{table}[h!]
+	\begin{center}
+	\begin{tabular}{| l | l |}
+		\hline
+		\textbf{Name} & \textbf{Value} \\
+		\hline
+		itemId & 281273507096 \\
+		\hline
+		title & 2014 Hot Wheels Super Treasure Hunt 71 Mustang Mach 1 \\
+		\hline
+		categoryName & Diecast-Modern Manufacture \\
+		\hline
+		shippingType & Calculated \\
+		\hline
+		currentPrice & 18.5 USD \\
+		\hline
+		bidCount & 1 \\
+		\hline
+		paymentMethod & PayPal \\
+		\hline
+		conditionDisplayName & New \\
+		\hline
+		startTime & 2014-02-25T04:32:17.000Z \\
+		\hline
+		endTime & 2014-02-25T05:27:14.000Z \\
+		\hline
+	\end{tabular}
+	\end{center}
+	\caption{eBay Finding API example output}
+\end{table}
