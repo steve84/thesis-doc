@@ -2,20 +2,25 @@
 % Encoding: UTF-8
 
 
-@Article{platemate,
-  Title                    = {PlateMate: Crowdsourcing Nutrition Analysis from Food Photographs},
-  Author                   = {Jon Noronha and Eric Hysen and Haoqi Zhang and Krzysztof Z. Gajos},
+@InProceedings{Kittur:2011:CCC:2047196.2047202,
+  Title                    = {CrowdForge: Crowdsourcing Complex Work},
+  Author                   = {Kittur, Aniket and Smus, Boris and Khamkar, Susheel and Kraut, Robert E.},
+  Booktitle                = {Proceedings of the 24th Annual ACM Symposium on User Interface Software and Technology},
   Year                     = {2011},
-  Pages                    = {1--12},
 
   Address                  = {New York, NY, USA},
-  Booktitle                = {Proceedings of the 24th annual ACM symposium on User interface software and technology},
-  ISBN                     = {978-1-4503-0716-1},
-  Location                 = {Santa Barbara, California, USA},
-  Numpages                 = {12},
-  Owner                    = {Steve},
+  Pages                    = {43--52},
   Publisher                = {ACM},
   Series                   = {UIST '11},
-  Timestamp                = {2013.12.17}
+
+  Acmid                    = {2047202},
+  Doi                      = {10.1145/2047196.2047202},
+  ISBN                     = {978-1-4503-0716-1},
+  Keywords                 = {coordination, crowdsourcing, distributed processing, human computation, mapreduce, mechanical turk},
+  Location                 = {Santa Barbara, California, USA},
+  Numpages                 = {10},
+  Owner                    = {steve},
+  Timestamp                = {2014.02.14},
+  Url                      = {http://doi.acm.org/10.1145/2047196.2047202}
 }
 
