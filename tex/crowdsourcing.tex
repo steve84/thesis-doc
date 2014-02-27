@@ -30,9 +30,28 @@ MTurk best practices, Iteration, Very important, Instructions are the key
 \subsection{Honey pots}
 
 \section{Workflow}
-The process of decomposing complex tasks into simpler ones is not always easy and need a lot of clarifications. The developers of the Turkomatic \cite{turkomatic} tool had an obvious idea and source the workflow decomposition out to the crowd. The workers should decide how the final workflow should look like and what are the single tasks. The system consists of two major parts. The meta-workflow
-CrowdWeaver, CrowdForge
+A workflow is a set of tasks which are interconnected and easier to solve by crowd. The output of a single subtask will be used for one or multiple subsequent subtask. The output of the last element of the flow is the result of the entire complex task. It exists a lot of literature which covers the problematic of finding and interconnect subtask:\\
+
+The process of decomposing complex tasks into simpler ones is not always easy and need a lot of clarifications. The developers of the Turkomatic\cite{turkomatic} tool had an obvious idea and source the workflow  decomposition out to the crowd. The workers should decide how the final workflow should look like and what are the belonging tasks. The system consists of two major parts. The meta-workflow is used to design and execute workflows by applying the price-divide-solve (PDS) procedure. The workers has to recursively divide the complex task into smaller ones until they are simple enough. After this step the workers will solve the generated tasks and other workers are asked to check the solutions. At the end, the results are combined into a cohesive answer. The second part of the Turkomatic system allows a visualisation of the created workflows and an edit function to manually adapt the crowdsourced results.\\
+
+Another idea pursues the developers of CrowdForge\cite{crowdforge}. They designed a framework to create a workflow by using several partition, map and reduce steps. The partition step split a larger task into smaller subtasks, the map step let one or more workers process a specified task. The results of the workers are merged into a single output during the reduce step. For example, the workers should write an encyclopaedia article about a given topic (Figure \ref{crowdforgeflow}). The authors of the paper solved this problem by the presented partition/map/reduce steps. First, the partition step asks the workers to create an outline of the article by defining section headings (e.g. ''History'', ''Geography''). During the map phase, multiple workers are asked to provide a single fact about the section (e.g. ''The Empire State Building celebrated its 75th Anniversary on May 1, 2006'' if it's an encyclopaedia article about ''New York'' and the section heading is ''Attractions''). The workers has to piece the collected facts together to a completed paragraph during the reduction step.\\
+The CrowdForge prototype is written in Python using the Django web framework and Boto, an interface to the Amazon Web Services which is available in Python. The user can define complex flows by creating HIT templates (which can be either a partition, map or reduce task) and dependencies between the templates to define a flow. Flows are implemented as Python classes. The prototype is also responsible for the sequential coordination between the HITs (including data transfer). Multiple independent flows can be executed simultaneously. One of the limitations is that CrowdForge does not support iteration or recursion. The further development of the project was suspended in 2011.
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{images/crowdforge-article.png}
+\caption{CrowdForge example workflow}
+\label{crowdforgeflow}
+\end{figure}
+
+The same crew developed CrowdWeaver\cite{crowdweaver} which is an advancement of the CrowdForge project. They use CrowdFlower, an other crowdsourcing platform, instead of Amazon Mechanical Turk. On CrowdFlower, the requester can create tasks on multiple markets (including MTurk). Flows can be created visually and doesn't assume any programming skills. Another feature is the tracking and notification of crowd factors, for example latency or price.
+
+Jabberwocky
 
 \section{Incentives}
-ESP, Money, Financial Incentives and the ''Performance of Crowds''
+
+\subsection{Game}
+The ESP game\cite{esp} makes the labelling of any kind of images on the web possible. There are no guidelines to provide images and no computer vision method exists which can handle the diversity of all images. Search engines are dependent on accurate image descriptions to represent relevant results. Therefore, another approach was introduced by the article. A online, web-based game was developed to attract workers. Two players are randomly assigned to label the same image simultaneously. There is no possibility to communicate with the game partner. Now, every player has to guess the description of the image independently without using the 'Taboo words'. These words are evaluated by a prior round and will be ignored for the actual turn. If there is a match between both players, the score will be increased and another image description was detected. The discovered word will only be taken as a valid description and 'Taboo word' if a predefined number of players had the same agreement.  The duration of the whole game is 150 seconds and both parties can guess as many images as possible within this time. 
+During a period of four months, the game was played by 13'630 people and 1'271'451 labels for 293'760 images were generated. These numbers show the power of the idea. The players (crowd) didn't know what's going on behind the scenes and they also didn't realise the purpose of their inputs.
+
+Money, Financial Incentives and the ''Performance of Crowds''
 

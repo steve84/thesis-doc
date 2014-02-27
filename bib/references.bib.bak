@@ -2,7 +2,73 @@
 % Encoding: UTF-8
 
 
-@InProceedings{Kittur:2011:CCC:2047196.2047202,
+@InProceedings{vonAhn:2004:LIC:985692.985733,
+  Title                    = {Labeling Images with a Computer Game},
+  Author                   = {von Ahn, Luis and Dabbish, Laura},
+  Booktitle                = {Proceedings of the SIGCHI Conference on Human Factors in Computing Systems},
+  Year                     = {2004},
+
+  Address                  = {New York, NY, USA},
+  Pages                    = {319--326},
+  Publisher                = {ACM},
+  Series                   = {CHI '04},
+
+  Acmid                    = {985733},
+  Doi                      = {10.1145/985692.985733},
+  ISBN                     = {1-58113-702-8},
+  Keywords                 = {World Wide Web, distributed knowledge acquisition, image labeling, online games},
+  Location                 = {Vienna, Austria},
+  Numpages                 = {8},
+  Owner                    = {steve},
+  Timestamp                = {2014.02.27},
+  Url                      = {http://doi.acm.org/10.1145/985692.985733}
+}
+
+@InProceedings{soylent,
+  Title                    = {Soylent: A Word Processor with a Crowd Inside},
+  Author                   = {Bernstein, Michael S. and Little, Greg and Miller, Robert C. and Hartmann, Bj\"{o}rn and Ackerman, Mark S. and Karger, David R. and Crowell, David and Panovich, Katrina},
+  Booktitle                = {Proceedings of the 23Nd Annual ACM Symposium on User Interface Software and Technology},
+  Year                     = {2010},
+
+  Address                  = {New York, NY, USA},
+  Pages                    = {313--322},
+  Publisher                = {ACM},
+  Series                   = {UIST '10},
+
+  Acmid                    = {1866078},
+  Doi                      = {10.1145/1866029.1866078},
+  ISBN                     = {978-1-4503-0271-5},
+  Keywords                 = {crowdsourcing, mechanical turk, outsourcing},
+  Location                 = {New York, New York, USA},
+  Numpages                 = {10},
+  Owner                    = {steve},
+  Timestamp                = {2014.02.26},
+  Url                      = {http://doi.acm.org/10.1145/1866029.1866078}
+}
+
+@InProceedings{crowdweaver,
+  Title                    = {CrowdWeaver: Visually Managing Complex Crowd Work},
+  Author                   = {Kittur, Aniket and Khamkar, Susheel and Andr{\'e}, Paul and Kraut, Robert},
+  Booktitle                = {Proceedings of the ACM 2012 Conference on Computer Supported Cooperative Work},
+  Year                     = {2012},
+
+  Address                  = {New York, NY, USA},
+  Pages                    = {1033--1036},
+  Publisher                = {ACM},
+  Series                   = {CSCW '12},
+
+  Acmid                    = {2145357},
+  Doi                      = {10.1145/2145204.2145357},
+  ISBN                     = {978-1-4503-1086-4},
+  Keywords                 = {coordination, crowdsourcing, visualization, workflow},
+  Location                 = {Seattle, Washington, USA},
+  Numpages                 = {4},
+  Owner                    = {steve},
+  Timestamp                = {2014.02.27},
+  Url                      = {http://doi.acm.org/10.1145/2145204.2145357}
+}
+
+@InProceedings{crowdforge,
   Title                    = {CrowdForge: Crowdsourcing Complex Work},
   Author                   = {Kittur, Aniket and Smus, Boris and Khamkar, Susheel and Kraut, Robert E.},
   Booktitle                = {Proceedings of the 24th Annual ACM Symposium on User Interface Software and Technology},
@@ -22,5 +88,49 @@
   Owner                    = {steve},
   Timestamp                = {2014.02.14},
   Url                      = {http://doi.acm.org/10.1145/2047196.2047202}
+}
+
+@InProceedings{turkomatic,
+  Title                    = {Collaboratively Crowdsourcing Workflows with Turkomatic},
+  Author                   = {Kulkarni, Anand and Can, Matthew and Hartmann, Bj\"{o}rn},
+  Booktitle                = {Proceedings of the ACM 2012 Conference on Computer Supported Cooperative Work},
+  Year                     = {2012},
+
+  Address                  = {New York, NY, USA},
+  Pages                    = {1003--1012},
+  Publisher                = {ACM},
+  Series                   = {CSCW '12},
+
+  Acmid                    = {2145354},
+  Doi                      = {10.1145/2145204.2145354},
+  ISBN                     = {978-1-4503-1086-4},
+  Keywords                 = {crowdsourcing, task decomposition, workflows},
+  Location                 = {Seattle, Washington, USA},
+  Numpages                 = {10},
+  Owner                    = {steve},
+  Timestamp                = {2014.02.26},
+  Url                      = {http://doi.acm.org/10.1145/2145204.2145354}
+}
+
+@InProceedings{turkit,
+  Title                    = {TurKit: Human Computation Algorithms on Mechanical Turk},
+  Author                   = {Little, Greg and Chilton, Lydia B. and Goldman, Max and Miller, Robert C.},
+  Booktitle                = {Proceedings of the 23Nd Annual ACM Symposium on User Interface Software and Technology},
+  Year                     = {2010},
+
+  Address                  = {New York, NY, USA},
+  Pages                    = {57--66},
+  Publisher                = {ACM},
+  Series                   = {UIST '10},
+
+  Acmid                    = {1866040},
+  Doi                      = {10.1145/1866029.1866040},
+  ISBN                     = {978-1-4503-0271-5},
+  Keywords                 = {human computation, mturk, toolkit},
+  Location                 = {New York, New York, USA},
+  Numpages                 = {10},
+  Owner                    = {steve},
+  Timestamp                = {2014.02.26},
+  Url                      = {http://doi.acm.org/10.1145/1866029.1866040}
 }
 
