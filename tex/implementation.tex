@@ -9,3 +9,39 @@ The macro task of generating an auction on eBay is splited into four simpler mic
 [Create image of workflow]
 
 \section{Task design}
+\subsection{Price estimation}
+Another idea to estimate the starting price is inspired by a German TV game show. The candidate has to predict the cost of an article. After the first guess, the game master answers with 'higher' or 'lower' until the right guess occur or the time is running out. If the player finds out the correct price then she/he will win the object.  
+The idea of the show is modified to implement a game with a purpose, similar to the ESP game project \cite{esp}. The general procedure of the game is the following: 
+\begin{enumerate}
+	\item The system waits until two independent players are connected and ready to play 
+	\item A few pictures, title and description of the article are displayed and the players had to read them first 
+	\item Then the game starts and a first guess of the price will be shown by the system 
+	\item Both users have to decide if the real price is higher or lower than the displayed one 
+	\item Dependent on the previous response, the system will present a higher or lower price until the countdown is expired or there are no guesses left 
+	\item The players will receive a score dependent on the difference of the price estimation. A smaller difference leads to a higher score, a higher one to a lower score 
+\end{enumerate}
+The first guess of the system will be the mean value \( \mu \) of a large number of sold items on eBay. The value can be determined by the eBay API. The guessing structure will be implemented as a directed binary tree. The root node represents the mean value and every following child node will have a lower (left child) \( v_l \) or higher (right child) value  \( v_r \), determined by the value of the parent node  \( v_p \) and the depth  \( d \) of the tree. The following formula calculates the values  of the nodes: 
+\begin{equation}
+v_l(v_p,d) = v_p - \frac{\mu}{2^d}
+\end{equation}
+\begin{equation}
+v_r(v_p,d) = v_p + \frac{\mu}{2^d}
+\end{equation}
+The leafs are integer values which can't be divided by two and represents the final guess of a player. If the time is up and the guesser doesn't reach a leaf node, the value of the actual node is taken. 
+The score of the price prediction is determined by a scoring function \( s \), where \( x_1 \) and \( x_2 \) are the price estimations of player 1 and 2.
+\begin{equation}
+s(x_1,x_2) = 1 - |\varphi(x_1) - \varphi(x_2)|
+\end{equation}
+The function \( \varphi \) is responsible to normalise the estimations (interval from 0 to 1).
+\begin{equation}
+\varphi(x) = \frac{x}{2\mu}
+\end{equation}
+The function is also used to weight the different estimations for the same product. If \( n \) rounds are played for a given object, the final price \( t \) is calculated:
+\begin{equation}
+t = \frac{1}{\sum_{k=1}^{n} s(x_{k1},x_{k2})}\left(\sum_{i=1}^{n} s(x_{i1},x_{i2})\frac{x_{i1}+x_{i2}}{2}\right)
+\end{equation}
+The reliability \( r \) of the price estimation is the mean score of all played games for the same object:
+\begin{equation}
+r = \frac{1}{n}\left(\sum_{i=1}^{n} s(x_{i1},x_{i2})\right)
+\end{equation}
+
