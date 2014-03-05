@@ -1,10 +1,16 @@
 \section{Introduction}
 
+\section{Platforms}
+\subsection{Amazon Mechanical Turk}
+The project was introduced in 2005 and is part of the Amazon Web Services. Requesters can post tasks known as HITs (Human Intelligence Tasks) which can be solved by workers (Amazon uses another term: Turkers) 
+
+\subsection{Crowdflower}
+
 \section{Patterns}
 
 \subsection{Find-Fix-Verify}
 The Find-Fix-Verify pattern was introduced by the Soylent paper \cite{soylent}. The pattern divide the overall task into three stages. During the Find stage, the workers will identify patches of work done by the crowd or create new patches. For example, the workers has to select a sentence which seems to be incorrect and will need further investigations during the Fix phase. Some workers will revise the identified patches and try to provide some alternatives. The last step of the pattern will present the generated alternatives during the Fix stage to a few new workers in a randomize order. The answer with the most votes (plurality voting) will be used to replace the identified patch during the first phase. The creators of the new suggestions will be suspended so that they can't vote for their own input. To illustrate the meaning of the Find-Fix-Verify pattern, the implementation of Soylent will be discussed (Figure \ref{fixfindverify}). The approach begins by splitting a text into paragraphs. During the Find stage, the workers has to identify candidate areas for shortening in each paragraph. If a certain number of workers has selected the same area then this patch goes to the next stage. Every worker in the Fix stage has to present a shorter version of the identified patch if possible. He has also the possibility to say that the text can't be reduced. During the last step, the crowd has to select rewrites which has significant spelling, style or grammar problems or change the meaning of the sentence significantly. At the end they remove these patches by majority voting.
-\begin{figure}
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.25]{images/soylent_system_overview.png}
 \caption{Soylent Fix-Find-Verify pattern}
@@ -21,13 +27,36 @@ Most of the published assignments on MTurk are independent, parallel tasks. But 
 \end{figure}
 
 \section{Design}
+If requesters want to create new HITs then they have to consider some design guidelines\cite{crowdsourcing_tutorial}\cite{mturk_bestpractices}: 
+\begin{itemize}
+\item \textbf{Be as specific as possible in the instructions} If the requesters ask the workers 'Is a Ford Mustang a sports car?' is not the same as they ask 'Can a Ford Mustang accelerate from 0 to 100 km/h in 3 seconds or less?', because the second one is clearer and more precise. Sometimes it is useful to hire a technical writer for phrasing task instructions 
+\item \textbf{Instructions have to be easy to read} Instructions should be split into multiple subtasks and presented as a bulleted list entries 
+\item \textbf{Provide examples} The best way to present the idea of a task is to show one or multiple examples. This can help to avoid uncertainties, for example if instructions are misinterpreted or the workers have wrong expectations 
+\item \textbf{Mention what won't be accepted} If a worker should write a paragraph about an  encyclopaedia article, the requester can allude in the instructions that copying contents from other website are prohibited  
+\item \textbf{Tell the workers which tools they should use} 
+\item \textbf{Give the workers the possibility to write down a feedback about the task} This is important to improve the design of the tasks or can help to detect spammers 
+\item \textbf{Iterative and incremental development} of tasks The first draft of a task will never be perfect. With the feedbacks and results of the previous iterations, the next one will contain improvements which should avoid foregoing mistakes or design failures
+\end{itemize}
 MTurk best practices, Iteration, Very important, Instructions are the key
 
 \section{Hybrid}
+A lot of information systems use a hybrid crowdsourcing technology. The combination of human intelligence and machine algorithms can lead to powerful information systems which can't be realised by a pure machine approach. In most cases, the crowd is responsible to process the created content of machine algorithms or generate input data for them. 
+A closer look at the CrowdSearch \cite{crowdsearch} project helps to illustrate the idea of hybrid systems. The developers implemented an image search system for cell phones. First, the system uses an automated image search to generate a set of candidate pictures. These are packed into multiple identical tasks for validation by humans and published on Amazon Mechanical Turk (Figure \ref{crowdsearch}). A simple majority voting is used to eliminating errors. After the validation of the results, the resulting image will be presented to the user. The drawbacks of such systems are that the hybrid approach generates additional costs for involving humans and the delay between publishing the tasks and receiving the corresponding results. The users of CrowdSearch can define a deadline before they query an image and the system will always return a result after the time is expired, independent if the crowd sourced tasks are completed or not. 
+\begin{figure}
+\centering
+\includegraphics[scale=0.35]{images/crowdsearch_hybrid.png}
+\caption{CrowdSearch hybrid image search approach}
+\label{crowdsearch}
+\end{figure}
 
 \section{Quality control}
-
-\subsection{Honey pots}
+Determine the quality of completed tasks by the crowd is a very important. Workers can be lazy or are spammers which want to earn the money for free or a minimal amount of work. To evaluate the performance of a single worker, several techniques are available. 
+\subsection{Majority voting }
+To reduce the errors of single workers, majority voting can be used. If a majority has the same answer to a question, the requester can assume that the answer is correct. To break tie situations, a expert is necessary. 
+\subsection{Honey pots }
+The requesters include trap questions where they know the correct answer. If the answer of a single worker is incorrect, the requester can exclude the results or reject the task. But it's not always possible to generate honey pots. 
+\subsection{Qualification test }
+MTurk provides the possibility to include a qualification test at the beginning of tasks. The worker has to pass the test to have access to the real tasks and the corresponding rewards. The results of the test can be compared to an answer key automatically or by the requesters themselves. The additional effort and the determent of some workers are drawbacks of this procedure.
 
 \section{Workflow}
 A workflow is a set of tasks which are interconnected and easier to solve by crowd. The output of a single subtask will be used for one or multiple subsequent subtask. The output of the last element of the flow is the result of the entire complex task. It exists a lot of literature which covers the problematic of finding and interconnect subtask:\\
