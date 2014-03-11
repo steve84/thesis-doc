@@ -24,6 +24,28 @@
   Url                      = {http://doi.acm.org/10.1145/985692.985733}
 }
 
+@InProceedings{crowdsourcing_tutorial,
+  Title                    = {Crowdsourcing for Information Retrieval: Principles, Methods, and Applications},
+  Author                   = {Alonso, Omar and Lease, Matthew},
+  Booktitle                = {Proceedings of the 34th International ACM SIGIR Conference on Research and Development in Information Retrieval},
+  Year                     = {2011},
+
+  Address                  = {New York, NY, USA},
+  Pages                    = {1299--1300},
+  Publisher                = {ACM},
+  Series                   = {SIGIR '11},
+
+  Acmid                    = {2010170},
+  Doi                      = {10.1145/2009916.2010170},
+  ISBN                     = {978-1-4503-0757-4},
+  Keywords                 = {crowdsourcing, human computation},
+  Location                 = {Beijing, China},
+  Numpages                 = {2},
+  Owner                    = {steve},
+  Timestamp                = {2014.03.05},
+  Url                      = {http://doi.acm.org/10.1145/2009916.2010170}
+}
+
 @InProceedings{soylent,
   Title                    = {Soylent: A Word Processor with a Crowd Inside},
   Author                   = {Bernstein, Michael S. and Little, Greg and Miller, Robert C. and Hartmann, Bj\"{o}rn and Ackerman, Mark S. and Karger, David R. and Crowell, David and Panovich, Katrina},
@@ -44,6 +66,62 @@
   Owner                    = {steve},
   Timestamp                = {2014.02.26},
   Url                      = {http://doi.acm.org/10.1145/1866029.1866078}
+}
+
+@Misc{crowdflower_casestudy,
+  Title                    = {Case study - eBay},
+
+  Author                   = {CrowdFlower},
+  Year                     = {2013},
+
+  Owner                    = {steve},
+  Timestamp                = {2014.03.11},
+  Url                      = {http://cdn2.hubspot.net/hub/346378/file-522132326-pdf/docs/CF-eBay-CS.pdf?t=1392311997000}
+}
+
+@InProceedings{chilton,
+  Title                    = {The Labor Economics of Paid Crowdsourcing},
+  Author                   = {Horton, John Joseph and Chilton, Lydia B.},
+  Booktitle                = {Proceedings of the 11th ACM Conference on Electronic Commerce},
+  Year                     = {2010},
+
+  Address                  = {New York, NY, USA},
+  Pages                    = {209--218},
+  Publisher                = {ACM},
+  Series                   = {EC '10},
+
+  Acmid                    = {1807376},
+  Doi                      = {10.1145/1807342.1807376},
+  ISBN                     = {978-1-60558-822-3},
+  Keywords                 = {amazon's mechanical turk, crowdsourcing, human computation},
+  Location                 = {Cambridge, Massachusetts, USA},
+  Numpages                 = {10},
+  Owner                    = {steve},
+  Timestamp                = {2014.03.11},
+  Url                      = {http://doi.acm.org/10.1145/1807342.1807376}
+}
+
+@Article{ipeirotis,
+  Title                    = {Analyzing the Amazon Mechanical Turk Marketplace},
+  Author                   = {Ipeirotis, Panagiotis G.},
+  Journal                  = {XRDS},
+  Year                     = {2010},
+
+  Month                    = dec,
+  Number                   = {2},
+  Pages                    = {16--21},
+  Volume                   = {17},
+
+  Acmid                    = {1869094},
+  Address                  = {New York, NY, USA},
+  Doi                      = {10.1145/1869086.1869094},
+  ISSN                     = {1528-4972},
+  Issue_date               = {Winter 2010},
+  Numpages                 = {6},
+  Owner                    = {steve},
+  Publisher                = {ACM},
+  Timestamp                = {2014.03.11},
+  Url                      = {http://doi.acm.org/10.1145/1869086.1869094}
 }
 
 @InProceedings{crowdweaver,
@@ -132,5 +210,60 @@
   Owner                    = {steve},
   Timestamp                = {2014.02.26},
   Url                      = {http://doi.acm.org/10.1145/1866029.1866040}
+}
+
+@Article{Mason:2010:FIP:1809400.1809422,
+  Title                    = {Financial Incentives and the "Performance of Crowds"},
+  Author                   = {Mason, Winter and Watts, Duncan J.},
+  Journal                  = {SIGKDD Explor. Newsl.},
+  Year                     = {2010},
+
+  Month                    = may,
+  Number                   = {2},
+  Pages                    = {100--108},
+  Volume                   = {11},
+
+  Acmid                    = {1809422},
+  Address                  = {New York, NY, USA},
+  Doi                      = {10.1145/1809400.1809422},
+  ISSN                     = {1931-0145},
+  Issue_date               = {December 2009},
+  Keywords                 = {crowd-sourcing, incentives, mechanical turk, peer production, performance},
+  Numpages                 = {9},
+  Owner                    = {steve},
+  Publisher                = {ACM},
+  Timestamp                = {2014.03.11},
+  Url                      = {http://doi.acm.org/10.1145/1809400.1809422}
+}
+
+@InProceedings{crowdsearch,
+  Title                    = {CrowdSearch: Exploiting Crowds for Accurate Real-time Image Search on Mobile Phones},
+  Author                   = {Yan, Tingxin and Kumar, Vikas and Ganesan, Deepak},
+  Booktitle                = {Proceedings of the 8th International Conference on Mobile Systems, Applications, and Services},
+  Year                     = {2010},
+
+  Address                  = {New York, NY, USA},
+  Pages                    = {77--90},
+  Publisher                = {ACM},
+  Series                   = {MobiSys '10},
+
+  Acmid                    = {1814443},
+  Doi                      = {10.1145/1814433.1814443},
+  ISBN                     = {978-1-60558-985-5},
+  Keywords                 = {crowdsourcing, human validation, image search, real time},
+  Location                 = {San Francisco, California, USA},
+  Numpages                 = {14},
+  Owner                    = {steve},
+  Timestamp                = {2014.03.05},
+  Url                      = {http://doi.acm.org/10.1145/1814433.1814443}
+}
+
+@Manual{mturk_bestpractices,
+  Title                    = {Requester Best Practices Guide},
+  Organization             = {Amazon},
+
+  Owner                    = {steve},
+  Timestamp                = {2014.03.05},
+  Url                      = {http://mturkpublic.s3.amazonaws.com/docs/MTURK_BP.pdf}
 }
 
