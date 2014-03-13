@@ -24,6 +24,49 @@
   Url                      = {http://doi.acm.org/10.1145/985692.985733}
 }
 
+@Article{recaptcha,
+  Title                    = {reCAPTCHA: Human-Based Character Recognition via Web Security Measures},
+  Author                   = {von Ahn, Luis and Maurer, Benjamin and McMillen, Colin and Abraham, David and Blum, Manuel},
+  Journal                  = {Science},
+  Year                     = {2008},
+  Number                   = {5895},
+  Pages                    = {1465--1468},
+  Volume                   = {321},
+
+  Abstract                 = {CAPTCHAs (Completely Automated Public Turing test to tell Computers and Humans Apart) are widespread security measures on the World Wide Web that prevent automated programs from abusing online services. They do so by asking humans to perform a task that computers cannot yet perform, such as deciphering distorted characters. Our research explored whether such human effort can be channeled into a useful purpose: helping to digitize old printed material by asking users to decipher scanned words from books that computerized optical character recognition failed to recognize. We showed that this method can transcribe text with a word accuracy exceeding 99%, matching the guarantee of professional human transcribers. Our apparatus is deployed in more than 40,000 Web sites and has transcribed over 440 million words.},
+  Added-at                 = {2012-06-19T16:33:02.000+0200},
+  Biburl                   = {http://www.bibsonomy.org/bibtex/2a20d5aa858b63fcf5d2daf908fec874f/jaeschke},
+  Doi                      = {10.1126/science.1160379},
+  Eprint                   = {http://www.sciencemag.org/content/321/5895/1465.full.pdf},
+  Interhash                = {9444cd77ddf43b6c19bf689be5b2ef34},
+  Intrahash                = {a20d5aa858b63fcf5d2daf908fec874f},
+  Owner                    = {steve},
+  Timestamp                = {2014.03.13},
+  Url                      = {http://www.sciencemag.org/content/321/5895/1465.abstract}
+}
+
+@InProceedings{Alonso:2011:CIR:2009916.2010170,
+  Title                    = {Crowdsourcing for Information Retrieval: Principles, Methods, and Applications},
+  Author                   = {Alonso, Omar and Lease, Matthew},
+  Booktitle                = {Proceedings of the 34th International ACM SIGIR Conference on Research and Development in Information Retrieval},
+  Year                     = {2011},
+
+  Address                  = {New York, NY, USA},
+  Pages                    = {1299--1300},
+  Publisher                = {ACM},
+  Series                   = {SIGIR '11},
+
+  Acmid                    = {2010170},
+  Doi                      = {10.1145/2009916.2010170},
+  ISBN                     = {978-1-4503-0757-4},
+  Keywords                 = {crowdsourcing, human computation},
+  Location                 = {Beijing, China},
+  Numpages                 = {2},
+  Owner                    = {steve},
+  Timestamp                = {2014.03.13},
+  Url                      = {http://doi.acm.org/10.1145/2009916.2010170}
+}
+
 @InProceedings{crowdsourcing_tutorial,
   Title                    = {Crowdsourcing for Information Retrieval: Principles, Methods, and Applications},
   Author                   = {Alonso, Omar and Lease, Matthew},
@@ -212,7 +255,7 @@
   Url                      = {http://doi.acm.org/10.1145/1866029.1866040}
 }
 
-@Article{Mason:2010:FIP:1809400.1809422,
+@Article{mason,
   Title                    = {Financial Incentives and the "Performance of Crowds"},
   Author                   = {Mason, Winter and Watts, Duncan J.},
   Journal                  = {SIGKDD Explor. Newsl.},
@@ -256,6 +299,28 @@
   Owner                    = {steve},
   Timestamp                = {2014.03.05},
   Url                      = {http://doi.acm.org/10.1145/1814433.1814443}
+}
+
+@InProceedings{yu,
+  Title                    = {A Comparison of Social, Learning, and Financial Strategies on Crowd Engagement and Output Quality},
+  Author                   = {Yu, Lixiu and Andr{\'e}, Paul and Kittur, Aniket and Kraut, Robert},
+  Booktitle                = {Proceedings of the 17th ACM Conference on Computer Supported Cooperative Work \&\#38; Social Computing},
+  Year                     = {2014},
+
+  Address                  = {New York, NY, USA},
+  Pages                    = {967--978},
+  Publisher                = {ACM},
+  Series                   = {CSCW '14},
+
+  Acmid                    = {2531729},
+  Doi                      = {10.1145/2531602.2531729},
+  ISBN                     = {978-1-4503-2540-0},
+  Keywords                 = {crowds, incentives, motivations, strategies},
+  Location                 = {Baltimore, Maryland, USA},
+  Numpages                 = {12},
+  Owner                    = {steve},
+  Timestamp                = {2014.03.13},
+  Url                      = {http://doi.acm.org/10.1145/2531602.2531729}
 }
 
 @Manual{mturk_bestpractices,
