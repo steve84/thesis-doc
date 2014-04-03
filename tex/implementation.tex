@@ -1,4 +1,8 @@
-\section{Tasks workflow}
+\section{Pure approach}
+
+\subsection{Ground truth}
+
+\subsection{Tasks workflow}
 The macro task of generating an auction on eBay is splited into four simpler micro task:
 \begin{itemize}
 	\item Generate a title for the auction item based on the provided images of the item
@@ -8,8 +12,11 @@ The macro task of generating an auction on eBay is splited into four simpler mic
 \end{itemize}
 [Create image of workflow]
 
-\section{Task design}
-\subsection{Price estimation}
+\subsection{Task design}
+\subsubsection{Title}
+\subsubsection{Description}
+\subsubsection{Category}
+\subsubsection{Price estimation}
 Another idea to estimate the starting price is inspired by a German TV game show. The candidate has to predict the cost of an article. After the first guess, the game master answers with 'higher' or 'lower' until the right guess occur or the time is running out. If the player finds out the correct price then she/he will win the object.  
 The idea of the show is modified to implement a game with a purpose, similar to the ESP game project \cite{esp}. The general procedure of the game is the following: 
 \begin{enumerate}
@@ -45,3 +52,15 @@ The reliability \( r \) of the price estimation is the mean score of all played 
 r = \frac{1}{n}\left(\sum_{i=1}^{n} s(x_{i1},x_{i2})\right)
 \end{equation}
 
+\section{Hybrid approach}
+\subsection{Ground truth}
+\subsection{Tasks workflow}
+\subsection{Task design}
+\subsubsection{Title}
+\subsubsection{Description}
+\subsubsection{Category}
+\subsubsection{Price estimation}
+\subsection{Pre-processing}
+\subsection{Feature extraction}
+\subsection{Feature selection}
+\subsection{Classifiers}
