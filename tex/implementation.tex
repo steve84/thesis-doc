@@ -1,7 +1,109 @@
 \section{Pure approach}
 
 \subsection{Ground truth}
-
+Real eBay auctions were collected by the API to generate the ground truth for the crowdsourcing experiments. The online auction platform divides their items in eight main categories: Motors, Fashion, Electronics, Collectibles \& Arts, Home \& Garden, Sporting Goods, Toys \& Hobbies and Deals \& Gifts. The ground truth consists of seven items from every category with the exception of the Motor's and Deals \& Gits sections, because the API can't search for items in these categories. First, some keywords were created to touch the desired category: ''Swiss Watch'' (Fashion), ''Smartphone'' (Electronics), ''Football Trading Card'' (Collectibles), ''Coffee Machine'' (Home), ''Soccer shoes'' (Sporting Goods), ''Action Figure'' (Toys) and ''Handbag'' (Fashion). The goal was also to have gender specific and neutral items. An action figure is used by male persons normally, the handbag by females and a smartphone by both. The Finding eBay API provides the method \textit{findCompletedItems} which takes keywords as a parameter and returns a list of completed auction items. The Python script search for the first sold item which uses US dollar as currency, has a description longer than one-hundred characters and contains of at least three images. Only three images were kept, because most of the auctions present the items with a top, front and side view. Another reason is the clarity for the crowdsourcing tasks. Every ground truth entry has the attributes title, description, category, condition, price and image one to three. The following table represents the final ground truth for the further experiments:
+\begin{longtable}{| l | l | l | l |}
+	\hline
+	ID & Image 1 & Image 2 & Image 3 \\
+	\hline
+	\multirow{6}{*}{1} & \includegraphics[scale=0.25]{images/ground_truth/1/image_1} & \includegraphics[scale=0.25]{images/ground_truth/1/image_2} & \includegraphics[scale=0.25]{images/ground_truth/1/image_3} \\
+	\cline{2-4}
+	\multirow{6}{*}{} & Title &  \multicolumn{2}{| p{10cm} |}{NIB 45 EURO \$\$ PUMA SPORT WRISTWATCH SWISS WATCH MOVEMENT LOVE+FOOTBALL} \\
+	\cline{2-4}
+	\multirow{6}{*}{} & Description &  \multicolumn{2}{| p{10cm} |}{ITEM IS BRAND NEW, FROM THE FIFA WORLD (MUNDIAL) FOOTBALL GAMES. WATCH HAS THREE INTERCHANGEABLE TOP COVER , EACH ONE REPRESENTING THE FLAG OF A TEAM PLAYING AT THE FIFA WORLD (MUNDIAL) FOOTBALL GAME PLUS ONE BLACK COVER IF YOU DON'T WISH TO WEAR THE FLAG COLORS INCLUDED IN THE PACKAGE AS SHOWN IN MY PICTURES. ITEM IS BRAND NEW NEVER USED WITH ORIGINAL BOX PAPERS AND INSTRUCTION ON HOW TO USE THIS WATCH.GREAT GIFT IDEA OR GREAT WATCH FOR THE SPORT LOVERS.ITEM COMES WITH WARRANTY FOR 90 DAYS FROM US AND MANUFACTURER WARRANTY OF 2 YEARS IS INCLUDED IN THE BOX.INSTRUCTIONS ARE IN DUTCH,ENGLISH,FRENCH,ITALIAN, CZECH,GERMAN, PORTUGUESE,SPANISH,HUNGARIAN,CHINESE AND JAPANESE.} \\
+	\cline{2-4}
+	\multirow{6}{*}{} & Category &  \multicolumn{2}{| p{10cm} |}{Jewelry \& Watches:Watches:Wristwatches} \\
+	\cline{2-4}
+	\multirow{6}{*}{} & Condition &  \multicolumn{2}{| p{10cm} |}{New with tags} \\
+	\cline{2-4}
+	\multirow{6}{*}{} & Price &  \multicolumn{2}{| p{10cm} |}{4.99} \\
+	\hline \hline
+	ID & Image 1 & Image 2 & Image 3 \\
+	\hline
+	\multirow{6}{*}{2} & \includegraphics[scale=0.25]{images/ground_truth/2/image_1} & \includegraphics[scale=0.25]{images/ground_truth/2/image_2} & \includegraphics[scale=0.25]{images/ground_truth/2/image_3} \\
+	\cline{2-4}
+	\multirow{6}{*}{} & Title &  \multicolumn{2}{| p{10cm} |}{Apple iPhone 4 - 16GB - Black (Unlocked) Smartphone} \\
+	\cline{2-4}
+	\multirow{6}{*}{} & Description &  \multicolumn{2}{| p{10cm} |}{16GB Black iPhone 4, unlocked by carrier. This was an AT\&T phone so it is GSM, can be used internationally. This phone was manufacturer refurbished and then only used for about a week, so it is basically in perfect condition. Includes original packaging, 30-pin USB connector and charger.} \\
+	\cline{2-4}
+	\multirow{6}{*}{} & Category &  \multicolumn{2}{| p{10cm} |}{Cell Phones \& Accessories:Cell Phones \& Smartphones} \\
+	\cline{2-4}
+	\multirow{6}{*}{} & Condition &  \multicolumn{2}{| p{10cm} |}{Used} \\
+	\cline{2-4}
+	\multirow{6}{*}{} & Price &  \multicolumn{2}{| p{10cm} |}{185.0} \\
+	\hline \hline
+	ID & Image 1 & Image 2 & Image 3 \\
+	\hline
+	\multirow{6}{*}{3} & \includegraphics[scale=0.25]{images/ground_truth/3/image_1} & \includegraphics[scale=0.25]{images/ground_truth/3/image_2} & \includegraphics[scale=0.25]{images/ground_truth/3/image_3} \\
+	\cline{2-4}
+	\multirow{6}{*}{} & Title &  \multicolumn{2}{| p{10cm} |}{Lot of (13) 2013 Bowman Sterling Autograph Auto Relic Jersey Games Used} \\
+	\cline{2-4}
+	\multirow{6}{*}{} & Description &  \multicolumn{2}{| p{10cm} |}{This is for a 2013 Bowman Sterling Lot of 13 Game Used Relics and Autos. You get the exact cards that you see in the pictures. PLEASE PAY BY PAYPAL WITHIN 24 HOURS OF AUCTIONS END OR ITEM WILL BE RELISTED. S+H IS 3.99 WITH DELIVERY CONFIRMATION PLEASE CHECK OUT MY OTHER AUCTIONS} \\
+	\cline{2-4}
+	\multirow{6}{*}{} & Category &  \multicolumn{2}{| p{10cm} |}{Sports Mem, Cards \& Fan Shop:Cards:Football} \\
+	\cline{2-4}
+	\multirow{6}{*}{} & Condition &  \multicolumn{2}{| p{10cm} |}{Brand New} \\
+	\cline{2-4}
+	\multirow{6}{*}{} & Price &  \multicolumn{2}{| p{10cm} |}{27.0} \\
+	\hline \hline
+	ID & Image 1 & Image 2 & Image 3 \\
+	\hline
+	\multirow{6}{*}{4} & \includegraphics[scale=0.25]{images/ground_truth/4/image_1} & \includegraphics[scale=0.25]{images/ground_truth/4/image_2} & \includegraphics[scale=0.25]{images/ground_truth/4/image_3} \\
+	\cline{2-4}
+	\multirow{6}{*}{} & Title &  \multicolumn{2}{| p{10cm} |}{Nespresso Aeroccino Plus \& Citiz Coffee Machine {Red}} \\
+	\cline{2-4}
+	\multirow{6}{*}{} & Description &  \multicolumn{2}{| p{10cm} |}{Nespeesso Aeroccino Plus \& Citiz Coffee Machine Fully automatic brewing and milk frothing in two sleek, compact units. Works exclusively with Nespresso's premium coffee capsules, which are easy to order for delivery within two business days (for details, visit www.nespresso.com). Innovative Thermoblock technology with stainless-steel heating element guarantees precise temperature control. A 19-bar pressure pump ensures maximum extraction of flavor. Adjustable tray accommodates cups of various sizes (from small mug to travel cup). Removable water tank for easy refilling. Energy-save mode gradually reduces power if unit is left on. Includes Aeroccino Plus milk frother, which quickly heats milk for consistently perfect foam. Frother has two whisk attachments and an auto shutoff feature. Espresso maker: ABS plastic housing. 14 1/2" x 5" x 11" high. 34-fl.-oz.-cap. water tank. 10 lb. 1200W. Milk frother: Stainless-steel and plastic construction. 4" diam., 6-3/4" high. 8-oz. cap. 550W. This product is intended for use in the United States and Canada and is built to United States electrical standards. Posted with eBay Mobile} \\
+	\cline{2-4}
+	\multirow{6}{*}{} & Category &  \multicolumn{2}{| p{10cm} |}{Home \& Garden:Kitchen, Dining \& Bar:Small Kitchen Appliances:Coffee \& Tea Makers:Espresso Machines} \\
+	\cline{2-4}
+	\multirow{6}{*}{} & Condition &  \multicolumn{2}{| p{10cm} |}{New} \\
+	\cline{2-4}
+	\multirow{6}{*}{} & Price &  \multicolumn{2}{| p{10cm} |}{201.0} \\
+	\hline \hline
+	ID & Image 1 & Image 2 & Image 3 \\
+	\hline
+	\multirow{6}{*}{5} & \includegraphics[scale=0.25]{images/ground_truth/5/image_1} & \includegraphics[scale=0.25]{images/ground_truth/5/image_2} & \includegraphics[scale=0.25]{images/ground_truth/5/image_3} \\
+	\cline{2-4}
+	\multirow{6}{*}{} & Title &  \multicolumn{2}{| p{10cm} |}{Nike Mercurial Vapor IX FG - Soccer Shoes Cleats - Metallic Platinum} \\
+	\cline{2-4}
+	\multirow{6}{*}{} & Description &  \multicolumn{2}{| p{10cm} |}{This is a pair of used Nike Vapor IX. They come with the string bag. In overall good condition with some signs of use. Clean and no smells. Mens size 7.5. Shipping is \$10.00 and includes tracking. I accept PayPal for payment.} \\
+	\cline{2-4}
+	\multirow{6}{*}{} & Category &  \multicolumn{2}{| p{10cm} |}{Sporting Goods:Team Sports:Soccer:Clothing, Shoes \& Accessories:Shoes \& Cleats:Men} \\
+	\cline{2-4}
+	\multirow{6}{*}{} & Condition &  \multicolumn{2}{| p{10cm} |}{Pre-owned} \\
+	\cline{2-4}
+	\multirow{6}{*}{} & Price &  \multicolumn{2}{| p{10cm} |}{76.99} \\
+	\hline \hline
+	ID & Image 1 & Image 2 & Image 3 \\
+	\hline
+	\multirow{6}{*}{6} & \includegraphics[scale=0.75]{images/ground_truth/6/image_1} & \includegraphics[scale=0.75]{images/ground_truth/6/image_2} & \includegraphics[scale=0.75]{images/ground_truth/6/image_3} \\
+	\cline{2-4}
+	\multirow{6}{*}{} & Title &  \multicolumn{2}{| p{10cm} |}{RARE Series 2 Palisades Resident Evil Code Veronica Alexia Action Figure} \\
+	\cline{2-4}
+	\multirow{6}{*}{} & Description &  \multicolumn{2}{| p{10cm} |}{This RARE and HARD TO FIND action figure will make and AWESOME collectable for any Resident Evil fan! This specific figure is part of the Resident Evil Code Veronica series. Alexia comes complete with Wings, Tail and Alternate Head to Transform into Alexia III and Logo Base. Great item for any RE fan!!! This item is still in its original packaging, unopened and unused. There is very slight wear around the cardboard edging from years of storage and a little adhesive residue on the plastic, most likely from a price sticker. Overall this item is in excellent condition!} \\
+	\cline{2-4}
+	\multirow{6}{*}{} & Category &  \multicolumn{2}{| p{10cm} |}{Toys \& Hobbies:Action Figures:TV, Movie \& Video Games} \\
+	\cline{2-4}
+	\multirow{6}{*}{} & Condition &  \multicolumn{2}{| p{10cm} |}{New} \\
+	\cline{2-4}
+	\multirow{6}{*}{} & Price &  \multicolumn{2}{| p{10cm} |}{90.0} \\
+	\hline \hline
+	ID & Image 1 & Image 2 & Image 3 \\
+	\hline
+	\multirow{6}{*}{7} & \includegraphics[scale=0.25]{images/ground_truth/7/image_1} & \includegraphics[scale=0.25]{images/ground_truth/7/image_2} & \includegraphics[scale=0.25]{images/ground_truth/7/image_3} \\
+	\cline{2-4}
+	\multirow{6}{*}{} & Title &  \multicolumn{2}{| p{10cm} |}{Black Coach purse leather GUC serial number H050-9247} \\
+	\cline{2-4}
+	\multirow{6}{*}{} & Description &  \multicolumn{2}{| p{10cm} |}{Pre-owned Black Coach hobo purse. GUC just because I did use it a couple of times. No stains,marks, or tears. Great condition!!!} \\
+	\cline{2-4}
+	\multirow{6}{*}{} & Category &  \multicolumn{2}{| p{10cm} |}{Clothing, Shoes \& Accessories:Women's Handbags \& Bags:Handbags \& Purses} \\
+	\cline{2-4}
+	\multirow{6}{*}{} & Condition &  \multicolumn{2}{| p{10cm} |}{Pre-owned} \\
+	\cline{2-4}
+	\multirow{6}{*}{} & Price &  \multicolumn{2}{| p{10cm} |}{35.0} \\
+	\hline
+\caption{Ground truth for pure crowdsourcing}
+\end{longtable}
 \subsection{Tasks workflow}
 The macro task of generating an auction on eBay is splited into four simpler micro task:
 \begin{itemize}
@@ -57,6 +159,85 @@ r = \frac{1}{n}\left(\sum_{i=1}^{n} s(x_{i1},x_{i2})\right)
 \subsection{Tasks workflow}
 \subsection{Task design}
 \subsubsection{Title}
+\paragraph{Finding}
+\subparagraph{Overview}
+\begin{table}[h!]
+	\begin{center}
+	\begin{tabular}{| l | p{10cm} |}
+		\hline
+		Title & Give auction items a title based on several images \\
+		\hline
+		Description & Take a look at three pictures of an auction item and write down a predicative title \\
+		\hline
+		Keywords & image, description, picture, item, title, auction \\
+		\hline
+		Reward & 0.05 USD \\
+		\hline
+		Lifetime & 7 Days \\
+		\hline
+		Assignment duration & 30 minutes \\
+		\hline
+		Assignments & 3 \\
+		\hline
+		Qualification requirement & Location is US \\
+		\hline
+	\end{tabular}
+	\end{center}
+	\caption{}
+\end{table}
+\subparagraph{Question 1}
+The goal of the requester of the HIT is to generate eBay auctions by MTurk workers based on images of the item.\\
+Instructions: Write a title which describes the item(s) on the pictures, inside the empty text field below and keep in mind the following remarks:
+\begin{itemize}
+	\item Use descriptive keywords to clearly and accurately convey what you're seeing. You're allowed up to 80 characters, but you don't need to use them all
+	\item Include the item's brand name, artist, or designer if possible
+	\item Include item specifics. For example, include size, color, condition, and model number if possible
+	\item Use correct spelling
+	\item Don't use all caps
+	\item Take a look at the provided example 
+\end{itemize}
+\paragraph{Voting}
+\subparagraph{Overview}
+\begin{table}[h!]
+	\begin{center}
+	\begin{tabular}{| l | p{10cm} |}
+		\hline
+		Title & Vote for an auction item title based on several images \\
+		\hline
+		Description & Take a look at three pictures of an auction item and select a title \\
+		\hline
+		Keywords & image, description, picture, item, title, vote, auction \\
+		\hline
+		Reward & 0.02 USD \\
+		\hline
+		Lifetime & 7 Days \\
+		\hline
+		Assignment duration & 30 minutes \\
+		\hline
+		Assignments & 3 \\
+		\hline
+		Qualification requirement & Location is US \\
+		\hline
+	\end{tabular}
+	\end{center}
+	\caption{}
+\end{table}
+\subparagraph{Question 1}
+The goal of the requester of the HIT is to generate eBay auctions by MTurk workers based on images of the item.\\
+Instructions: Select the title which describes clearly and accurately the auction item(s) on the pictures. Keep in mind the following restrictions:
+\begin{itemize}
+	\item Do not select a title which contains wrong information
+	\item Do not select a title which has spelling mistakes (e.g. Sny Playstation 4, black)
+	\item Do not select a title which is written in capital letters (e.g. SONY PLAYSTATION 4, BLACK)
+\end{itemize}
+If you think that no title is suitable for the item(s) then select None. 
+\subparagraph{Question 2}
+Give reasons for your selection:
+\begin{itemize}
+	\item Explain why the selected title is the best description of the item(s) on the pictures
+	\item Explain the deficits of the non-selected titles (e.g. incorrect information)
+\end{itemize}
+Attention: Only HITs with meaningful reasoning will be approved 
 \subsubsection{Description}
 \subsubsection{Category}
 \subsubsection{Price estimation}
