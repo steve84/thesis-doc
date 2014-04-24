@@ -156,6 +156,23 @@ r = \frac{1}{n}\left(\sum_{i=1}^{n} s(x_{i1},x_{i2})\right)
 
 \section{Hybrid approach}
 \subsection{Ground truth}
+A lot of sold items were collected by the help of the eBay API. The used methods were the same as in the prior ground truth generation (Chapter x). After all the necessary data were collected, the Python script splits the data shuffled into a training and test set. The training set contains of 70 percent of the whole data. All the consecutively steps (data analysis, feature reduction) will use the training set until the performance of a classifier will be proved on the test set. The ground truth was generated for three different item types:
+\begin{table}[h!]
+	\begin{center}
+	\begin{tabular}{| p{5cm} | l | l | l |}
+		\hline
+		Item type & Total number of auctions & Size of training set & Size of test set \\
+		\hline
+		Apple iPhone & 2299 & 1609 & 690 \\
+		\hline
+		Hot Wheels Cars, 1:64, Ford Mustang & & & \\
+		\hline
+		Sony Playstation & & & \\
+		\hline
+	\end{tabular}
+	\end{center}
+	\caption{}
+\end{table}
 \subsection{Tasks workflow}
 \subsection{Task design}
 \subsubsection{Title}
@@ -243,5 +260,74 @@ Attention: Only HITs with meaningful reasoning will be approved
 \subsubsection{Price estimation}
 \subsection{Pre-processing}
 \subsection{Feature extraction}
+\subsubsection{Item Specific Features}
+\paragraph{Apple iPhone}
+The iPhone made by Apple is available in eight models. The first generation was released in 2007, the last model 5s in 2013. Every model comes with different storage sizes (from 8GB to 64GB). The values for the condition property on eBay depend on the corresponding item category. All the values are nominal and will be converted to numerical.
+\begin{table}[h!]
+	\begin{center}
+	\begin{tabular}{| l | p{5cm} | p{4cm} | l | l |}
+		\hline
+		Name & Description & Values & Range & Data type \\
+		\hline
+		Model & The model of the iPhone where 0 is the oldest generation and 7 the newest & 1st, 3G, 3GS, 4, 4S, 5, 5C, 5S & [0, 7] & Integer \\
+		\hline
+		Storage & The size of the storage of the smartphone & 8GB, 16GB, 32GB, 64GB & [1, 4] & Integer \\
+		\hline
+		Condition & The condition of the iPhone & New, New other, Manufacturer refurbished, Seller refurbished, Used, For parts or not working & [1, 6] & Integer \\
+		\hline
+	\end{tabular}
+	\end{center}
+	\caption{}
+\end{table}
+\subsubsection{Auction Specific Features}
+The auction itself is described by the features in this section. The list contains some timing and shipping information. Also the number of pictures and the description length could have an influence to the result of the auction. All values are numerical.
+\begin{table}[h!]
+	\begin{center}
+	\begin{tabular}{| l | p{5cm} | l | l | l |}
+		\hline
+		Name & Description &  Range & Data type \\
+		\hline
+		Duration & The duration of the auction in days & {1, 2, 3, 7, 10} & Integer \\
+		\hline
+		Number of pictures & Number of pictures attached to the auction & [1, 12] & Integer \\
+		\hline
+		Length of description & Length of the item description & [0, 500'000] & Integer \\
+		\hline
+		End weekday & The last weekday of the auction duration & [1, 7] & Integer \\
+		\hline
+		Start weekday & The weekday of the creation date & [1, 7] & Integer \\
+		\hline
+		End hour & At what hour the auction was ended & [0, 23] & Integer \\
+		\hline
+		Global shipping & The item will be shipped over the whole world or not & {0, 1} & Boolean \\
+		\hline
+		Shipping locations & The number of countries where the item will be shipped & [0, 249] & Integer \\
+		\hline
+		Shipping type & Specifies the calculation of the shipping costs & [0, 7] & Integer \\
+		\hline
+		Returns accepted & If the buyer can return the item or not & {0, 1} & Boolean \\
+		\hline
+		Handling time & How many days will it take until the item is put in the mail once the seller receive payment & {1, 2, 3, 4, 5, 10, 15, 20} & Integer \\
+		\hline
+	\end{tabular}
+	\end{center}
+	\caption{}
+\end{table}
+\subsubsection{Seller Specific Features}
+These features characterise the seller who created the auction. Every user on eBay has the possibility to give a positive, neutral or negative feedback after every transaction. The rating system awards stars with twelve different colors for trustful sellers. After ten positive feedbacks the user receives a yellow star for example. Therefore, the nominal value has to be converted to an integer.
+\begin{table}[h!]
+	\begin{center}
+	\begin{tabular}{| l | l | l | l | l |}
+		\hline
+		Name & Description &  Range & Data type \\
+		\hline
+		Seller rating & Percentage of positive feedbacks & [0, 100] & Float \\
+		\hline
+		Seller rating count & Number of positive minus negative buyer feedbacks & [0, 12] & Integer \\
+		\hline
+	\end{tabular}
+	\end{center}
+	\caption{}
+\end{table}
 \subsection{Feature selection}
 \subsection{Classifiers}
