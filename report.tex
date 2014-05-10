@@ -98,7 +98,11 @@ eBay Inc.\footnote{http://www.ebay.com} is one of the world's largest online mar
 The first step of creating an online auction is mostly to take pictures of the corresponding item. This help the buyers to get information about the state and quality of the article. After that the item needs a short and clear description, some properties (category, state) and a starting offer. If the seller wants to create a lot of different auctions, the whole procedure is time consuming and boring. A price estimation of an article can be difficult, because the background knowledge is missing and other auctions to compare aren't available at any time. Machines aren't able to solve all these steps by them self, because the spectrum of the articles is huge and image processing methods aren't capable to classify them all correctly. To get all the needed parts of an online auction, a human powered approach is necessary. Crowdsourcing platforms provide the possibility to solve tasks, which are difficult to handle for a computer.
 
 \section{Existing research}
-tbd
+Some similar existing research projects are illustrated in this section: 
+\subsection{Crowdsourcing}
+The idea of the thesis is similar to a project called ''PlatMate'' where workers analyse the content of food photographs. The processing pipeline consists of three major steps and put out the calorie values of every ingredient on the picture. All steps were performed by workers of a crowdsourcing platform. The accuracy of the calorie estimations of the system is almost as good as estimations from different trained experts. 
+\subsection{Price Estimation}
+The idea of predicting the end price of online auctions is not new. People from the Accenture Technology Labs tried to do this in 2005 and published some surprising results. They collected 1'700 auctions of a specific item during a two-month period to form a training and test set. The end prices of the ground truth are additionally converted to a price class (10\% of the average price) to perform classification algorithms. The accuracy of the classifiers are higher then 70\%.
 
 \section{Goals and objectives}
 The thesis has the following goals and their corresponding objectives:
@@ -110,6 +114,11 @@ The thesis has the following goals and their corresponding objectives:
 		\item Study literature which covers similar crowdsourcing problems
 		\item Design and publish tasks on Amazon Mechanical Turk to gather data from the crowd
 		\item Evaluate the quality of the generated content
+	\end{itemize}
+	\item \textbf{Vary the design of the tasks and investigate the behaviour of the workers}
+	\begin{itemize}
+		\item Find parameters for the HITs
+		\item Analyse the influence on the performance of the workers
 	\end{itemize}
 	\item \textbf{Try to improve the initial solution by implementing a hybrid approach}
 	\begin{itemize}

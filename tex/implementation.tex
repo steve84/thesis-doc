@@ -112,13 +112,28 @@ The macro task of generating an auction on eBay is splited into four simpler mic
 	\item Find the category of auction item
 	\item Define a starting price for the auction
 \end{itemize}
-[Create image of workflow]
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.8]{images/pipelines/Pure_Pipeline.png}
+\caption{Pure Crowdsourcing Pipeline}
+\label{purePipeline}
+\end{figure}
 
 \subsection{Task design}
+At the top of every HIT three images of an auction item are shown. Most of the sellers on eBay present their items with a front, side and top view. Only workers from the United States are allowed to participate in the created tasks, because the ground truth contains only items from there and they have a better feeling for the currency. Some of the tasks need a voting procedure to determine the final answer. The voters have to reason their votes mandatory to understand the strength of the selected answer. At the end of every task the contributors have the possibility to write down a feedback to the requestor.
 \subsubsection{Title}
+The goal of this subtask is to generate a clear and concise title for the auction item with at most eighty characters. The auction platform eBay provides some recommendations for a good title. It should contain the item's brand name, artist, or designer. A specification of the item could also be helpful. For example the title could include the size, color, condition, and model number. Correct spelling is a must. All these points will be presented to the worker in the instruction section of the task. To make the instructions clear, an example is also listed: 
+
+Title: Sony Playstation 4 (black), 1 Controller, New 
+
+After three titles were created by the crowd, the final title will be elected. If no title receive enough votes, the requester will act as an expert. The expert uses the search engine of the auction platform and decide which title shows more similar items. The Turkers will receive \$0.05 for finding a title and \$0.02 for voting.
 \subsubsection{Description}
+This subtask is a bit different then the others. An iterative task design is used. First, a worker creates an initial description of the item. Then, the second worker can improve the initial solution or create a new one. Then, the crowd decide which description should be kept and which one should be discarded. One iteration includes an improvement and a voting task. Three iterations were used to generate the description of the auction item. The workers should write approximately five sentences and include specific information like size, color, shape, age, manufacture date, company/author/artist, and notable features or markings. TurKit is a Java application to manage iterative approaches. For an improvement of the text a reward of \$0.2 will be paid, \$0.01 for every participant of the voting procedure.
 \subsubsection{Category}
+Based on the provided title, the workers have to find the most suitable eBay category for the auction item. The eBay search engine returns one or many categories for a given title. Then the worker has to decide which one matches best. For making a contribution, the workers achieve a payment of \$0.05.
 \subsubsection{Price estimation}
+The workers have to guess the end price of the online auction item in US dollar. Reasons for the estimation have to be mentioned additionally. The generated title and description are available for a better understanding of the picture contents. The workers have the possibility to list missing information for a more precise estimation. The participants receive a gratification of \$0.05.
+
 Another idea to estimate the starting price is inspired by a German TV game show. The candidate has to predict the cost of an article. After the first guess, the game master answers with 'higher' or 'lower' until the right guess occur or the time is running out. If the player finds out the correct price then she/he will win the object.  
 The idea of the show is modified to implement a game with a purpose, similar to the ESP game project \cite{esp}. The general procedure of the game is the following: 
 \begin{enumerate}
