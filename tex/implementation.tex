@@ -105,13 +105,14 @@ Real eBay auctions were collected by the API to generate the ground truth for th
 \caption{Ground truth for pure crowdsourcing}
 \end{longtable}
 \subsection{Tasks workflow}
-The macro task of generating an auction on eBay is splited into four simpler micro task:
+The inputs of the pipeline are images of the item to sell which were created by the seller. The images from the ground truth are used for the experiments of the thesis. To create item specific information for the auction, four subtasks were designed: 
 \begin{itemize}
-	\item Generate a title for the auction item based on the provided images of the item
-	\item Generate the description of the item
-	\item Find the category of auction item
-	\item Define a starting price for the auction
+	\item Generate a title for the auction item
+	\item Generate a description of the item
+	\item Find one category for the auction item  
+	\item Estimate the end price for the auction  
 \end{itemize}
+The digits in the brackets define the number of assignments. The seller receives at the end of the pipeline the information which he needs to create an auction on eBay. The starting price of the item depends on the sales strategy of the seller, but the end price should help to find a suitable one. The condition of the item, the auction duration or the payment settings have to be provided by the seller himself.
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.8]{images/pipelines/Pure_Pipeline.png}
@@ -169,6 +170,93 @@ The reliability \( r \) of the price estimation is the mean score of all played 
 r = \frac{1}{n}\left(\sum_{i=1}^{n} s(x_{i1},x_{i2})\right)
 \end{equation}
 
+\subsection{Variations}
+The prior section describes the standard composition of the tasks. To survey the behaviour of the workers, some design modifications were made: 
+\subsubsection{Image Quantity and Quality}
+
+All available images were presented to the crowd with the highest image resolution. The basis setting of the tasks shows only the first three images. The following table illustrates the number of additional images per item and the corresponding resolutions: 
+\begin{table}[h!]
+	\begin{center}
+	\begin{tabular}{| l | l | l | p{10cm} |}
+		\hline
+		Ground Truth ID & Total Images & Normal Resolution (< 1600 x 1200) & High Resolution (1600 x 1200) \\
+		\hline
+		1 & 6 & 0 & 6 \\
+		\hline
+		2 & 3 & 3 & 0 \\
+		\hline
+		3 & 4 & 0 & 4 \\
+		\hline
+		4 & 7 & 7 & 0 \\
+		\hline
+		5 & 9 & 0 & 9 \\
+		\hline
+		6 & 3 & 0 & 3 \\
+		\hline
+		7 & 4 & 0 & 4 \\
+		\hline
+	\end{tabular}
+	\end{center}
+	\caption{}
+\end{table}
+\subsubsection{Market Price}
+The actual market price of the items was mentioned in the price estimation task. The web service pricegrabber.com was used to find reliable and consistent prices. 
+\begin{table}[h!]
+	\begin{center}
+	\begin{tabular}{| l | p{10cm} |}
+		\hline
+		Ground Truth ID & Price (in USD) \\
+		\hline
+		1 & 69.00 \\
+		\hline
+		2 & 399.99 \\
+		\hline
+		3 & 49.99 \\
+		\hline
+		4 & 299.00 \\
+		\hline
+		5 & 189.99 \\
+		\hline
+		6 & 44.99 \\
+		\hline
+		7 & 289.99 \\
+		\hline
+	\end{tabular}
+	\end{center}
+	\caption{}
+\end{table}
+\subsubsection{Commission}
+This section describes the idea of an additional incentive for the workers which is added to the reward of MTurk tasks as a bonus. If an auction item will be sold successfully on eBay then all contributors of the crowdsourced result will receive a commission of the end price. The ground truth contains already completed eBay auctions and therefore the criterion of the bonus has to be determined otherwise. Only those created auctions which get more votes, during the evaluation process, than the ground truth will receive a commission. The table x.x shows the distribution of the percentages. The bonus can be between 2.55\% and 4.9\% of the end price. The range of the end prices in the ground truth goes from \$4.99 (watch) to \$201 (coffee machine). From this it follows that the commission can be between \$0.127 (2.55\% of \$4.99) and \$9.85 (4.9\% of \$201). The differences of the worker behaviour and a potential quality intensification will be investigated. 
+\begin{table}[h!]
+	\begin{center}
+	\begin{tabular}{| l | l | l | p{10cm} |}
+		\hline
+		Name of task & Number of assignements (Min) & Number of assignements (Max) & Percentage of commission (in \%) \\
+		\hline
+		Title (Finding) & 1 & 1 & 0.25 \\
+		\hline
+		Title (Voting) & 2 & 3 & 0.1 \\
+		\hline
+		Description (Improving) & 1 & 1 & 1.0 \\
+		\hline
+		Description (Voting) & 2 & 2 & 0.05 \\
+		\hline
+		Category & 2 & 3 & 0.25 \\
+		\hline
+		Price & 1 & 5 & 0.5 \\
+		\hline
+		Total (Min) & & & 2.55 \\
+		\hline
+		Total (Max) & & & 4.9 \\
+		\hline
+	\end{tabular}
+	\end{center}
+	\caption{}
+\end{table}
+
+\subsubsection{Non-branded Item}
+All of the ground truth items have visible brand labels. Some are more famous (Apple, Puma) than the others (Palisades, Powman Sterling). Information about the brands and their manufactured items can be found easily. Describing an unknown object is more difficult. A non-branded item is put into the pipeline to research the ability of the workers to handling such items. 
+[Table add. Ground truth item] 
 \section{Hybrid approach}
 \subsection{Ground truth}
 A lot of sold items were collected by the help of the eBay API. The used methods were the same as in the prior ground truth generation (Chapter x). After all the necessary data were collected, the Python script splits the data shuffled into a training and test set. The training set contains of 70 percent of the whole data. All the consecutively steps (data analysis, feature reduction) will use the training set until the performance of a classifier will be proved on the test set. The ground truth was generated for three different item types:
@@ -180,9 +268,9 @@ A lot of sold items were collected by the help of the eBay API. The used methods
 		\hline
 		Apple iPhone & 2299 & 1609 & 690 \\
 		\hline
-		Hot Wheels Cars, 1:64, Ford Mustang & & & \\
+		Hot Wheels Cars, 1:64, Ford Mustang & 1045 & 731 & 314 \\
 		\hline
-		Sony Playstation & & & \\
+		Sony Playstation & 943 & 660 & 283 \\
 		\hline
 	\end{tabular}
 	\end{center}
@@ -294,6 +382,43 @@ The iPhone made by Apple is available in eight models. The first generation was 
 	\end{center}
 	\caption{}
 \end{table}
+
+\paragraph{Mattel Hot Wheels Cars}
+Mattel produces diecast car models in different sizes and series. Cars with a ratio of 1:64 are the most popular ones. The collected data contains only Ford Mustang cars, because they are very famous in the US and it should be possible to distinguish between different models. The exact model is indicated by a date.
+\begin{table}[h!]
+	\begin{center}
+	\begin{tabular}{| l | p{5cm} | p{4cm} | l | l |}
+		\hline
+		Name & Description & Values & Range & Data type \\
+		\hline
+		Model & The model of the Ford Mustang where 1964 is the oldest and 2014 the newest & & [1964, 2014] & Integer \\
+		\hline
+		Condition & The condition of the car & New, Used & {1, 2} & Integer \\
+		\hline
+	\end{tabular}
+	\end{center}
+	\caption{}
+\end{table}
+
+\paragraph{Sony Playstation}
+Sony's Playstation exists in ten versions. Two of them are portable and for the second and third model of the console is a slim version available. Every device has a region code or all data carriers are readable. There is no simple way to extract the storage size of the consoles at the moment, because eBay doesn't provide a field for this specific information.
+\begin{table}[h!]
+	\begin{center}
+	\begin{tabular}{| l | p{5cm} | p{4cm} | l | l |}
+		\hline
+		Name & Description & Values & Range & Data type \\
+		\hline
+		Model & The model of the Playstation & 1, 2, 2 Slim, 3, 3 Slim, 4, Vita, Portable & [0, 7] & Integer \\
+		\hline
+		Region Code & The region code of the console & Not specified, NTSC, PAL, Region free & [0, 3] & Integer \\
+		\hline
+		Condition & The condition of the item & New, New other, Manufacturer refurbished, Seller refurbished, Used, For parts or not working & [1, 6] & Integer \\
+		\hline
+	\end{tabular}
+	\end{center}
+	\caption{}
+\end{table}
+
 \subsubsection{Auction Specific Features}
 The auction itself is described by the features in this section. The list contains some timing and shipping information. Also the number of pictures and the description length could have an influence to the result of the auction. All values are numerical.
 \begin{table}[h!]
