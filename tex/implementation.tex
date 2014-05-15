@@ -255,8 +255,30 @@ This section describes the idea of an additional incentive for the workers which
 \end{table}
 
 \subsubsection{Non-branded Item}
-All of the ground truth items have visible brand labels. Some are more famous (Apple, Puma) than the others (Palisades, Powman Sterling). Information about the brands and their manufactured items can be found easily. Describing an unknown object is more difficult. A non-branded item is put into the pipeline to research the ability of the workers to handling such items. 
-[Table add. Ground truth item] 
+All of the ground truth items have visible brand labels. Some are more famous (Apple, Puma) than the others (Palisades, Powman Sterling). Information about the brands and their manufactured items can be found easily. Describing an unknown object is more difficult. A non-branded item is put into the pipeline to research the ability of the workers to handling such items.
+\begin{table}[h!]
+	\begin{center}
+	\begin{tabular}{| l | l | l |}
+	\hline
+	Image 1 & Image 2 & Image 3 \\
+	\hline
+	\includegraphics[scale=0.25]{images/ground_truth/8/image_1} & \includegraphics[scale=0.25]{images/ground_truth/8/image_2} & \includegraphics[scale=0.25]{images/ground_truth/8/image_3} \\
+	\hline
+	Title &  \multicolumn{2}{| p{10cm} |}{Saarinen Round Dining Table 47" White Laminate White Base KNOLL DWR} \\
+	\hline
+	Description &  \multicolumn{2}{| p{10cm} |}{Living Dining Outdoor Workspace Lighting Floor Accessories MidCentury Modern Saarinen Round Dining Table 47" (White Laminate/White Base) You are bidding on an AUTHENTIC Saarinen Round Dining Table, 47" in White Laminate with White base. Great condition, slight signs of handling. In a 1956 cover story in Time magazine, Eero Saarinen said he was designing a collection to "clear up the slum of legs in the U.S. home." Later that year, he completed his Pedestal Table and TulipTM Chair Collection (1956) and obliterated the "slum" by creating a cast aluminum base inspired by a drop of high-viscosity liquid. This table is manufactured by Knoll according to the original and exacting specifications of the designer. Made in Italy. Pedestal Tables come in a variety of table top materials (veneer, marble and laminate) and base colors (black, white and platinum).The base has an abrasion-resistant Rilsan finish.Each piece is stamped with the KnollStudio logo and Eero Saarinen's signature.Measurements: Assembled Table H 28.25" Diameter 47" Materials: Cast aluminum base with Rilsan finish; bevel-edged top in laminate Laminate: MDF with laminate.} \\
+	\hline
+	Category &  \multicolumn{2}{| p{10cm} |}{Home \& Garden:Furniture:Tables} \\
+	\hline
+	Condition &  \multicolumn{2}{| p{10cm} |}{Used} \\
+	\hline
+	Price &  \multicolumn{2}{| p{10cm} |}{1277.00} \\
+	\hline
+	\end{tabular}
+	\end{center}
+	\caption{}
+\end{table} 
+
 \section{Hybrid approach}
 \subsection{Ground truth}
 A lot of sold items were collected by the help of the eBay API. The used methods were the same as in the prior ground truth generation (Chapter x). After all the necessary data were collected, the Python script splits the data shuffled into a training and test set. The training set contains of 70 percent of the whole data. All the consecutively steps (data analysis, feature reduction) will use the training set until the performance of a classifier will be proved on the test set. The ground truth was generated for three different item types:
@@ -279,85 +301,6 @@ A lot of sold items were collected by the help of the eBay API. The used methods
 \subsection{Tasks workflow}
 \subsection{Task design}
 \subsubsection{Title}
-\paragraph{Finding}
-\subparagraph{Overview}
-\begin{table}[h!]
-	\begin{center}
-	\begin{tabular}{| l | p{10cm} |}
-		\hline
-		Title & Give auction items a title based on several images \\
-		\hline
-		Description & Take a look at three pictures of an auction item and write down a predicative title \\
-		\hline
-		Keywords & image, description, picture, item, title, auction \\
-		\hline
-		Reward & 0.05 USD \\
-		\hline
-		Lifetime & 7 Days \\
-		\hline
-		Assignment duration & 30 minutes \\
-		\hline
-		Assignments & 3 \\
-		\hline
-		Qualification requirement & Location is US \\
-		\hline
-	\end{tabular}
-	\end{center}
-	\caption{}
-\end{table}
-\subparagraph{Question 1}
-The goal of the requester of the HIT is to generate eBay auctions by MTurk workers based on images of the item.\\
-Instructions: Write a title which describes the item(s) on the pictures, inside the empty text field below and keep in mind the following remarks:
-\begin{itemize}
-	\item Use descriptive keywords to clearly and accurately convey what you're seeing. You're allowed up to 80 characters, but you don't need to use them all
-	\item Include the item's brand name, artist, or designer if possible
-	\item Include item specifics. For example, include size, color, condition, and model number if possible
-	\item Use correct spelling
-	\item Don't use all caps
-	\item Take a look at the provided example 
-\end{itemize}
-\paragraph{Voting}
-\subparagraph{Overview}
-\begin{table}[h!]
-	\begin{center}
-	\begin{tabular}{| l | p{10cm} |}
-		\hline
-		Title & Vote for an auction item title based on several images \\
-		\hline
-		Description & Take a look at three pictures of an auction item and select a title \\
-		\hline
-		Keywords & image, description, picture, item, title, vote, auction \\
-		\hline
-		Reward & 0.02 USD \\
-		\hline
-		Lifetime & 7 Days \\
-		\hline
-		Assignment duration & 30 minutes \\
-		\hline
-		Assignments & 3 \\
-		\hline
-		Qualification requirement & Location is US \\
-		\hline
-	\end{tabular}
-	\end{center}
-	\caption{}
-\end{table}
-\subparagraph{Question 1}
-The goal of the requester of the HIT is to generate eBay auctions by MTurk workers based on images of the item.\\
-Instructions: Select the title which describes clearly and accurately the auction item(s) on the pictures. Keep in mind the following restrictions:
-\begin{itemize}
-	\item Do not select a title which contains wrong information
-	\item Do not select a title which has spelling mistakes (e.g. Sny Playstation 4, black)
-	\item Do not select a title which is written in capital letters (e.g. SONY PLAYSTATION 4, BLACK)
-\end{itemize}
-If you think that no title is suitable for the item(s) then select None. 
-\subparagraph{Question 2}
-Give reasons for your selection:
-\begin{itemize}
-	\item Explain why the selected title is the best description of the item(s) on the pictures
-	\item Explain the deficits of the non-selected titles (e.g. incorrect information)
-\end{itemize}
-Attention: Only HITs with meaningful reasoning will be approved 
 \subsubsection{Description}
 \subsubsection{Category}
 \subsubsection{Price estimation}
@@ -469,5 +412,7 @@ These features characterise the seller who created the auction. Every user on eB
 	\end{center}
 	\caption{}
 \end{table}
-\subsection{Feature selection}
+\subsection{Parameter Search}
+\subsection{Cross-Validation}
+\subsection{Signifigance Test}
 \subsection{Classifiers}
