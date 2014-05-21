@@ -111,6 +111,77 @@
   Url                      = {http://doi.acm.org/10.1145/1866029.1866078}
 }
 
+@Article{breiman,
+  Title                    = {Random Forests},
+  Author                   = {Breiman, Leo},
+  Journal                  = {Mach. Learn.},
+  Year                     = {2001},
+
+  Month                    = oct,
+  Number                   = {1},
+  Pages                    = {5--32},
+  Volume                   = {45},
+
+  Acmid                    = {570182},
+  Address                  = {Hingham, MA, USA},
+  Doi                      = {10.1023/A:1010933404324},
+  ISSN                     = {0885-6125},
+  Issue_date               = {October 1 2001},
+  Keywords                 = {classification, ensemble, regression},
+  Numpages                 = {28},
+  Owner                    = {steve},
+  Publisher                = {Kluwer Academic Publishers},
+  Timestamp                = {2014.05.21},
+  Url                      = {http://dx.doi.org/10.1023/A:1010933404324}
+}
+
+@Article{svc,
+  Title                    = {Support-Vector Networks},
+  Author                   = {Cortes, Corinna and Vapnik, Vladimir},
+  Journal                  = {Mach. Learn.},
+  Year                     = {1995},
+
+  Month                    = sep,
+  Number                   = {3},
+  Pages                    = {273--297},
+  Volume                   = {20},
+
+  Acmid                    = {218929},
+  Address                  = {Hingham, MA, USA},
+  Doi                      = {10.1023/A:1022627411411},
+  ISSN                     = {0885-6125},
+  Issue_date               = {Sept. 1995},
+  Keywords                 = {efficient learning algorithms, neural networks, pattern recognition, polynomial classifiers, radial basis function classifiers},
+  Numpages                 = {25},
+  Owner                    = {steve},
+  Publisher                = {Kluwer Academic Publishers},
+  Timestamp                = {2014.05.21},
+  Url                      = {http://dx.doi.org/10.1023/A:1022627411411}
+}
+
+@Article{knn,
+  Title                    = {Nearest Neighbor Pattern Classification},
+  Author                   = {Cover, T. and Hart, P.},
+  Journal                  = {IEEE Trans. Inf. Theor.},
+  Year                     = {2006},
+
+  Month                    = sep,
+  Number                   = {1},
+  Pages                    = {21--27},
+  Volume                   = {13},
+
+  Acmid                    = {2267456},
+  Address                  = {Piscataway, NJ, USA},
+  Doi                      = {10.1109/TIT.1967.1053964},
+  ISSN                     = {0018-9448},
+  Issue_date               = {January 1967},
+  Numpages                 = {7},
+  Owner                    = {steve},
+  Publisher                = {IEEE Press},
+  Timestamp                = {2014.05.21},
+  Url                      = {http://dx.doi.org/10.1109/TIT.1967.1053964}
+}
+
 @Misc{crowdflower_casestudy,
   Title                    = {Case study - eBay},
 
@@ -120,6 +191,60 @@
   Owner                    = {steve},
   Timestamp                = {2014.03.11},
   Url                      = {http://cdn2.hubspot.net/hub/346378/file-522132326-pdf/docs/CF-eBay-CS.pdf?t=1392311997000}
+}
+
+@Article{journals/pvldb/DoanFKK11,
+  Title                    = {Crowdsourcing Applications and Platforms: A Data Management Perspective.},
+  Author                   = {Doan, AnHai and Franklin, Michael J. and Kossmann, Donald and Kraska, Tim},
+  Journal                  = {PVLDB},
+  Year                     = {2011},
+  Number                   = {12},
+  Pages                    = {1508-1509},
+  Volume                   = {4},
+
+  Added-at                 = {2011-11-16T00:00:00.000+0100},
+  Biburl                   = {http://www.bibsonomy.org/bibtex/2ea7a66d6afac306fa4cf4a992e0c8a32/dblp},
+  Ee                       = {http://www.vldb.org/pvldb/vol4/p1508-doan-tutorial4.pdf},
+  Interhash                = {6124822b51dfa5bd94bf0875b02e181a},
+  Intrahash                = {ea7a66d6afac306fa4cf4a992e0c8a32},
+  Keywords                 = {dblp},
+  Owner                    = {steve},
+  Timestamp                = {2014.03.13},
+  Url                      = {http://dblp.uni-trier.de/db/journals/pvldb/pvldb4.html#DoanFKK11}
+}
+
+@InProceedings{svr,
+  Title                    = {Support vector regression machines},
+  Author                   = {Drucker, Harris and Chris and Kaufman, Burges* L. and Smola, Alex and Vapnik, Vladimir},
+  Booktitle                = {Advances in Neural Information Processing Systems 9},
+  Year                     = {1997},
+  Pages                    = {155--161},
+  Volume                   = {9},
+
+  Abstract                 = {A new regression technique based on Vapnik’s concept of support vectors is introduced. We compare support vector regression (SVR) with a committee regression technique (bagging) based on regression trees and ridge regression done in feature space. On the basis of these experiments, it is expected that SVR will have advantages in high dimensionality space because SVR optimization does not depend on the dimension\&amp;y of the input space.},
+  Added-at                 = {2008-12-09T03:00:06.000+0100},
+  Biburl                   = {http://www.bibsonomy.org/bibtex/20546f7074d65988186502caabdb9d1d0/jamesh},
+  Citeulike-article-id     = {3738213},
+  Interhash                = {31ca222b5e2197c9f565f381de767085},
+  Intrahash                = {0546f7074d65988186502caabdb9d1d0},
+  Keywords                 = {regression svms},
+  Owner                    = {steve},
+  Posted-at                = {2008-12-03 00:03:01},
+  Priority                 = {2},
+  Timestamp                = {2014.05.21},
+  Url                      = {http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.21.5909}
+}
+
+@Article{gtest,
+  Title                    = {The Two-Way Likelihood Ratio (G) Test and Comparison to Two-Way Chi Squared Test},
+  Author                   = {Jesse Hoey},
+  Journal                  = {arXiv},
+  Year                     = {2012},
+
+  Eprint                   = {arXiv/1206.4881},
+  Owner                    = {steve},
+  Timestamp                = {2014.05.21},
+  Url                      = {http://arxiv.org/pdf/1206.4881v2.pdf}
 }
 
 @InProceedings{chilton,
@@ -277,6 +402,23 @@
   Publisher                = {ACM},
   Timestamp                = {2014.03.11},
   Url                      = {http://doi.acm.org/10.1145/1809400.1809422}
+}
+
+@Article{wilcoxon,
+  Title                    = {Individual comparisons by ranking methods},
+  Author                   = {Frank Wilcoxon},
+  Journal                  = {Biometrics Bulletin},
+  Year                     = {1945},
+
+  Month                    = {12},
+  Number                   = {6},
+  Pages                    = {80--83},
+  Volume                   = {1},
+
+  ISSN                     = {00994987},
+  Language                 = {English},
+  Owner                    = {steve},
+  Timestamp                = {2014.05.21}
 }
 
 @InProceedings{crowdsearch,
