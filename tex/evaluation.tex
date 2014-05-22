@@ -98,12 +98,15 @@ You receive a commission (0.25\% of the end price) as bonus payment for your wor
  
 
 \section{Hybrid approach}
-\subsection{Classification}
+The Random Forest approach shows the best performance over all three item categories independent of classification or regression (Figure). The accuracy of the classifier depends also on the item category. The RFC assign every third input to the right Sony Playstation price class. The plot of the mean absolute error (MAE, Figure) assured the strength of the classifier and visualise how far away the predictions are in average. kNN has an error of about four classes for the iPhone category, one class has a range of 25 USD. The comparison between the human-based and the machine-based prediction indicates that the crowd can't be as accurate as a machine. The lowest RMSE of the ground truth item number 2 (Apple iPhone) is \$76.32. Two machine learning algorithms have a smaller error (Figure). 
+The normalised confusion matrix (Figure) of the iPhone classifiers illustrates the distribution of the assignments. The origin is located at the left top position, the x-axis represents the truth-values and the y-axis the values assigned by the classifier. The values were normalised per row. A perfect classifier would produce a diagonal which contains only ones. 
+The scatter plot (Figure) is another way to visualise the relations between the truth and predicted values. The criteria of a perfect classifier are the same as for the confusion matrix. 
+The same plots for the other categories and the exact accuracies/RMSEs/MAEs are enumerated in the appendix section (Reference).
 \begin{figure}
 \centering
 \includegraphics[scale=0.55]{images/plots/machine_learning/iphone/true_pred_iphone.png}
-\caption{Time/Error Function}
-\label{crowdsourcing_desc_length}
+\caption{Scatter plot truth vs. prediction (iPhone)}
+\label{truth_predict_iphone}
 \end{figure}
 \begin{figure}
 \centering
@@ -111,30 +114,7 @@ You receive a commission (0.25\% of the end price) as bonus payment for your wor
 \caption{Time/Error Function}
 \label{crowdsourcing_desc_length}
 \end{figure}
-\begin{figure}
-\centering
-\includegraphics[scale=0.55]{images/plots/machine_learning/mustang/true_pred_mustang.png}
-\caption{Time/Error Function}
-\label{crowdsourcing_desc_length}
-\end{figure}
-\begin{figure}
-\centering
-\includegraphics[scale=0.55]{images/plots/machine_learning/mustang/conf_mat_mustang.png}
-\caption{Time/Error Function}
-\label{crowdsourcing_desc_length}
-\end{figure}
-\begin{figure}
-\centering
-\includegraphics[scale=0.55]{images/plots/machine_learning/playstation/true_pred_playstation.png}
-\caption{Time/Error Function}
-\label{crowdsourcing_desc_length}
-\end{figure}
-\begin{figure}
-\centering
-\includegraphics[scale=0.55]{images/plots/machine_learning/playstation/conf_mat_playstation.png}
-\caption{Time/Error Function}
-\label{crowdsourcing_desc_length}
-\end{figure}
+
 \begin{figure}
 \centering
 \includegraphics[scale=0.55]{images/plots/machine_learning/plot_price_classification_acc.png}
@@ -148,7 +128,6 @@ You receive a commission (0.25\% of the end price) as bonus payment for your wor
 \label{crowdsourcing_desc_length}
 \end{figure}
 
-\subsection{Regression}
 \begin{figure}
 \centering
 \includegraphics[scale=0.55]{images/plots/machine_learning/plot_price_regression_rmse.png}

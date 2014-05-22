@@ -177,6 +177,7 @@ A lot of sold items were collected by the help of the eBay API. The used methods
 	\caption{}
 \end{table}
 \subsection{Tasks workflow}
+The hybrid pipeline works same as the pure one except the two subtasks Category and Price. These crowdsourcing tasks are supported by machines.
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.8]{images/pipelines/Hybrid_Pipeline.png}
@@ -185,7 +186,10 @@ A lot of sold items were collected by the help of the eBay API. The used methods
 \end{figure}
 \subsection{Task design}
 \subsubsection{Category}
+The implementation finds the most suitable category by using the eBay Finding API based on the output of the title task. Most of the titles are too specific and the API doesn't return a category. The algorithm reduces the number of words until a category is found. The used method returns a sorted histogram of categories.
+[listing]
 \subsubsection{Price estimation}
+The goal of the task is to estimate the end price of the auction by using a machine learning approach. The input features are built by a combination of crowdsourced and user specified information. The pipeline shows the required fields to estimate the price of an iPhone. The model and the condition of the item is determined by the crowd. The seller provides the information which aren't possible to collect by others. The storage size of the phone which isn't visible, for example. If all needed features are available then the machine learning algorithm will produce an end price prediction.
 \subsection{Pre-processing}
 During the collection of the sold items some pre-processing steps were necessary to produce accurate results by the machine learning algorithms. All the recorded features were normalised within the parameters of 0 and 1 to generate a uniform feature space. The target labels (price) stay untouched. 
 Another problem was the quantity of items for a single auction. The quantity field of the entry is one, but the auction contains a lot or a set of items. If an auction title contains one of the keywords (''Set'', ''Lot'', ''Pack'' or ''Bundle'') then the entry will be ignored.
