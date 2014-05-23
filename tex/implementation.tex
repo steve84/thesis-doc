@@ -300,6 +300,22 @@ These features characterise the seller who created the auction. Every user on eB
 	\end{center}
 	\caption{}
 \end{table}
+\subsection{Data Analysis}
+This chapter takes a closer look to the collected data. Every item category has an attribute model. The price of the smartphones depends on the date of appearance (Figure). The newest iPhone 5S produces the highest price, the second generation the lowest one. The debut feature produced by Apple has a high value for collectors and are traded higher than some later versions. The mean values of every iPhone model can be roughly estimated by a quadratic function. The data of the Playstation shows similar characteristics for the average prices related to the price feature. The Hot Wheels Cars have a completely different price distribution. There is no visible pattern for the recorded models. The Ford Mustang from 1983 has the highest average price of \$27.02, but was sold only once. The rarity of the items has a higher influence to this category than to the other ones.\\
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{images/plots/iphone/price_model_iphone.png}
+\caption{Model/Price scatter plot (iPhone)}
+\label{model_price_iphone}
+\end{figure}
+The histogram of the iPhone (Figure) illustrates that the model 4 and 4S are involved in about 60\% of the collected auctions. The Playstation 3 Slim is the most dominate console (about 39\%). The previous model of the actual one is dominating the online marketplaces. The 1967 and 1971 are the most popular Mustang models in the data set with 31 different types.\\
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{images/plots/iphone/hist_model_iphone.png}
+\caption{Model histogram (iPhone)}
+\label{model_hist_iphone}
+\end{figure}
+An executed feature ranking \cite{guyon} with SVMs indicated surprisingly that some features aren't as important as expected. The model of a car has only a small influence to the end price. The condition of the item and the duration of the auction are important for all the three tested categories. 
 \subsection{Machine Learning Algorithms}
 \subsubsection{k-Nearest Neighbours}
 The kNN algorithm \cite{knn} represents every sample of the training set in an \textit{n}-dimensional feature space where n are the total number of features. The class correspondence of the data points is stored too. For the classification of a test sample, the k-nearest neighbour data points are determined. Usually, the Euclidian distance is used to calculate the distance between the points in the \textit{n}-dimensional space. The data point is assigned to the class with the majority in the neighbourhood. If no class is dominant then the \textit{k} is decreased by one until the tie is broken. The standard configuration of the algorithm uses uniform weights for the data points. This means that each point in the neighbourhood has the same influence to the result. Another way to determine the weight of a neighbour is to calculate the inverse of the distance to the point under supervision. The algorithm can also be used for continuous values (Regression). In that case, the average value of the \textit{k}-Neighbours will form the regression output.\\
