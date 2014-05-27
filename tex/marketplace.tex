@@ -80,7 +80,7 @@ except ConnectionError as e:
 The initialisation of the application is done on line 6. A correct application ID is required. Then the API call \textit{findCompletedItems()} is executed with some keywords and filter options. Only the newest auctions with at least one bidder and a payment in US dollar will be returned. The function \textit{response\_json()} (on line 19) returns the first 100 items by default. At the end, the first result will be printed to the console. Here is a shorter simplified version with the most important fields of the output:
 \begin{table}[h!]
 	\begin{center}
-	\begin{tabular}{| l | l |}
+	\begin{tabular}{| p{6.5cm} | p{6.5cm} |}
 		\hline
 		\textbf{Name} & \textbf{Value} \\
 		\hline

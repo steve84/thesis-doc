@@ -77,33 +77,33 @@ The prior section describes the standard composition of the tasks. To survey the
 All available images were presented to the crowd with the highest image resolution. The basis setting of the tasks shows only the first three images. The following table illustrates the number of additional images per item and the corresponding resolutions: 
 \begin{table}[h!]
 	\begin{center}
-	\begin{tabular}{| l | l | l | p{10cm} |}
+	\begin{tabular}{| p{4.33cm} | p{4.33cm} | p{4.33cm} |}
 		\hline
-		Ground Truth ID & Total Images & Normal Resolution (< 1600 x 1200) & High Resolution (1600 x 1200) \\
+		Ground Truth ID & Total Images & High Resolution (1600 x 1200) \\
 		\hline
-		1 & 6 & 0 & 6 \\
+		1 & 6 & Yes \\
 		\hline
-		2 & 3 & 3 & 0 \\
+		2 & 3 & No \\
 		\hline
-		3 & 4 & 0 & 4 \\
+		3 & 4 & Yes \\
 		\hline
-		4 & 7 & 7 & 0 \\
+		4 & 7 & No \\
 		\hline
-		5 & 9 & 0 & 9 \\
+		5 & 9 & Yes \\
 		\hline
-		6 & 3 & 0 & 3 \\
+		6 & 3 & Yes \\
 		\hline
-		7 & 4 & 0 & 4 \\
+		7 & 4 & Yes \\
 		\hline
 	\end{tabular}
 	\end{center}
-	\caption{}
+	\caption{Ground truth image quantity/quality}
 \end{table}
 \subsubsection{Market Price}
 The actual market price of the items was mentioned in the price estimation task. The web service pricegrabber.com was used to find reliable and consistent prices. 
 \begin{table}[h!]
 	\begin{center}
-	\begin{tabular}{| l | p{10cm} |}
+	\begin{tabular}{| p{6.5cm} | p{6.5cm} |}
 		\hline
 		Ground Truth ID & Price (in USD) \\
 		\hline
@@ -123,13 +123,13 @@ The actual market price of the items was mentioned in the price estimation task.
 		\hline
 	\end{tabular}
 	\end{center}
-	\caption{}
+	\caption{Ground truth market price}
 \end{table}
 \subsubsection{Commission}
 This section describes the idea of an additional incentive for the workers which is added to the reward of MTurk tasks as a bonus. If an auction item will be sold successfully on eBay then all contributors of the crowdsourced result will receive a commission of the end price. The ground truth contains already completed eBay auctions and therefore the criterion of the bonus has to be determined otherwise. Only those created auctions which get more votes, during the evaluation process, than the ground truth will receive a commission. The table x.x shows the distribution of the percentages. The bonus can be between 2.55\% and 4.9\% of the end price. The range of the end prices in the ground truth goes from \$4.99 (watch) to \$201 (coffee machine). From this it follows that the commission can be between \$0.127 (2.55\% of \$4.99) and \$9.85 (4.9\% of \$201). The differences of the worker behaviour and a potential quality intensification will be investigated. 
 \begin{table}[h!]
 	\begin{center}
-	\begin{tabular}{| l | l | l | p{10cm} |}
+	\begin{tabular}{| p{3.25cm} | p{3.25cm} | p{3.25cm} | p{3.25cm} |}
 		\hline
 		Name of task & Number of assignements (Min) & Number of assignements (Max) & Percentage of commission (in \%) \\
 		\hline
@@ -151,7 +151,7 @@ This section describes the idea of an additional incentive for the workers which
 		\hline
 	\end{tabular}
 	\end{center}
-	\caption{}
+	\caption{Commission percentages}
 \end{table}
 
 \subsubsection{Non-branded Item}
@@ -162,7 +162,7 @@ All of the ground truth items have visible brand labels. Some are more famous (A
 A lot of sold items were collected by the help of the eBay API. The used methods were the same as in the prior ground truth generation (Chapter x). After all the necessary data were collected, the Python script splits the data shuffled into a training and test set. The training set contains of 70 percent of the whole data. All the consecutively steps (data analysis, feature reduction) will use the training set until the performance of a classifier will be proved on the test set. The ground truth was generated for three different item types:
 \begin{table}[h!]
 	\begin{center}
-	\begin{tabular}{| p{5cm} | l | l | l |}
+	\begin{tabular}{| p{3.25cm} | p{3.25cm} | p{3.25cm} | p{3.25cm} |}
 		\hline
 		Item type & Total number of auctions & Size of training set & Size of test set \\
 		\hline
@@ -174,7 +174,7 @@ A lot of sold items were collected by the help of the eBay API. The used methods
 		\hline
 	\end{tabular}
 	\end{center}
-	\caption{}
+	\caption{Ground truth sets for machine learning}
 \end{table}
 \subsection{Tasks workflow}
 The hybrid pipeline works same as the pure one except the two subtasks Category and Price. These crowdsourcing tasks are supported by machines.
@@ -199,7 +199,7 @@ Another problem was the quantity of items for a single auction. The quantity fie
 The iPhone made by Apple is available in eight models. The first generation was released in 2007, the last model 5s in 2013. Every model comes with different storage sizes (from 8GB to 64GB). The values for the condition property on eBay depend on the corresponding item category. All the values are nominal and will be converted to numerical.
 \begin{table}[h!]
 	\begin{center}
-	\begin{tabular}{| l | p{5cm} | p{4cm} | l | l |}
+	\begin{tabular}{| p{2.6cm} | p{2.6cm} | p{2.6cm} | p{2.6cm} | p{2.6cm} |}
 		\hline
 		Name & Description & Values & Range & Data type \\
 		\hline
@@ -211,14 +211,14 @@ The iPhone made by Apple is available in eight models. The first generation was 
 		\hline
 	\end{tabular}
 	\end{center}
-	\caption{}
+	\caption{iPhone specific features}
 \end{table}
 
 \paragraph{Mattel Hot Wheels Cars}
 Mattel produces diecast car models in different sizes and series. Cars with a ratio of 1:64 are the most popular ones. The collected data contains only Ford Mustang cars, because they are very famous in the US and it should be possible to distinguish between different models. The exact model is indicated by a date.
 \begin{table}[h!]
 	\begin{center}
-	\begin{tabular}{| l | p{5cm} | p{4cm} | l | l |}
+	\begin{tabular}{| p{2.6cm} | p{2.6cm} | p{2.6cm} | p{2.6cm} | p{2.6cm} |}
 		\hline
 		Name & Description & Values & Range & Data type \\
 		\hline
@@ -228,14 +228,14 @@ Mattel produces diecast car models in different sizes and series. Cars with a ra
 		\hline
 	\end{tabular}
 	\end{center}
-	\caption{}
+	\caption{Hot Wheels specific features}
 \end{table}
 
 \paragraph{Sony Playstation}
 Sony's Playstation exists in ten versions. Two of them are portable and for the second and third model of the console is a slim version available. Every device has a region code or all data carriers are readable. There is no simple way to extract the storage size of the consoles at the moment, because eBay doesn't provide a field for this specific information.
 \begin{table}[h!]
 	\begin{center}
-	\begin{tabular}{| l | p{5cm} | p{4cm} | l | l |}
+	\begin{tabular}{| p{2.6cm} | p{2.6cm} | p{2.6cm} | p{2.6cm} | p{2.6cm} |}
 		\hline
 		Name & Description & Values & Range & Data type \\
 		\hline
@@ -247,14 +247,14 @@ Sony's Playstation exists in ten versions. Two of them are portable and for the 
 		\hline
 	\end{tabular}
 	\end{center}
-	\caption{}
+	\caption{Playstation specific features}
 \end{table}
 
 \subsubsection{Auction Specific Features}
 The auction itself is described by the features in this section. The list contains some timing and shipping information. Also the number of pictures and the description length could have an influence to the result of the auction. All values are numerical.
 \begin{table}[h!]
 	\begin{center}
-	\begin{tabular}{| l | p{5cm} | l | l | l |}
+	\begin{tabular}{| p{2.6cm} | p{2.6cm} | p{2.6cm} | p{2.6cm} | p{2.6cm} |}
 		\hline
 		Name & Description &  Range & Data type \\
 		\hline
@@ -282,13 +282,13 @@ The auction itself is described by the features in this section. The list contai
 		\hline
 	\end{tabular}
 	\end{center}
-	\caption{}
+	\caption{Auction specific features}
 \end{table}
 \subsubsection{Seller Specific Features}
 These features characterise the seller who created the auction. Every user on eBay has the possibility to give a positive, neutral or negative feedback after every transaction. The rating system awards stars with twelve different colors for trustful sellers. After ten positive feedbacks the user receives a yellow star for example. Therefore, the nominal value has to be converted to an integer.
 \begin{table}[h!]
 	\begin{center}
-	\begin{tabular}{| l | l | l | l | l |}
+	\begin{tabular}{| p{2.6cm} | p{2.6cm} | p{2.6cm} | p{2.6cm} | p{2.6cm} |}
 		\hline
 		Name & Description &  Range & Data type \\
 		\hline
@@ -298,7 +298,7 @@ These features characterise the seller who created the auction. Every user on eB
 		\hline
 	\end{tabular}
 	\end{center}
-	\caption{}
+	\caption{Seller specific features}
 \end{table}
 \subsection{Data Analysis}
 This chapter takes a closer look to the collected data. Every item category has an attribute model. The price of the smartphones depends on the date of appearance (Figure). The newest iPhone 5S produces the highest price, the second generation the lowest one. The debut feature produced by Apple has a high value for collectors and are traded higher than some later versions. The mean values of every iPhone model can be roughly estimated by a quadratic function. The data of the Playstation shows similar characteristics for the average prices related to the price feature. The Hot Wheels Cars have a completely different price distribution. There is no visible pattern for the recorded models. The Ford Mustang from 1983 has the highest average price of \$27.02, but was sold only once. The rarity of the items has a higher influence to this category than to the other ones.\\
