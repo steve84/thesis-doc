@@ -1,9 +1,13 @@
 \section{Pure approach}
-\subsection{General}
-\subsubsection{Performance}
-Ground truth vs. pure, commission, image quantity 
-
-The workers motivate their votes as follows: 
+\subsection{Overall Performance}
+After all the necessary content was created by the crowd, the evaluation was done by comparing the ground truth with the generated information. The evaluation task presented the fields title, description and category to the workers. They had to decide which auction description is the best one in their opinion. The result is illustrated in figure \ref{crowdsourcing_eval}. The commission approach got a majority of the votes with 57.14\%. The table received all five votes from the crowd. The ground truth contains unnecessary information and looks like a scam, is the statement of the participants.\\
+\begin{figure}
+\centering
+\includegraphics[scale=0.55]{images/plots/crowdsourcing/plot_evaluation_all.png}
+\caption{Evaluation of Ground Truth vs. Crowdsourcing}
+\label{crowdsourcing_eval}
+\end{figure}
+The workers had the possibility to reason their decision. They motivate their votes as follows: 
 \begin{itemize}
 	\item Higher value of information 
 	\item Professionalism 
@@ -42,19 +46,25 @@ The same measurements as for the title were done for the description (Figure \re
 \end{figure}
 
 \subsection{Category}
-
+Most of the workers submitted only the main category and not the complete hierarchy with main and sub categories. For the football trading cards they wrote ''Sports Mem, Cards \& Fan Shop'' instead of ''Sports Mem, Cards \& Fan Shop:Cards:Football'', for example. One reason could be that the instructions weren't clear and precise enough. Also the desired format of the input wasn't mentioned. An improved task design will result in more accurate outputs.
 \subsection{Price Estimation}
-To evaluate the accuracy of the price estimations (Figure \ref{crowdsourcing_price_pred}), the root mean squared error (RMSE) was used. It is frequently used to measure the quality of predictions. The true values are the end prices from the ground truth. If the workers have the actual market price of the item at one's disposal then they predict the price best with an average RMSE of 51.46 USD. The experiment with the commission ranked just behind with 58.55 USD, the others appear with 81.75 (Pure) and 89.89 (Image quantity/quality) at the end of the ranking. The tested item without a brand has a RMSE of 278.62 USD which indicates the challenge of the price prediction for generic things.
-Under/Over estimations
+To evaluate the accuracy of the price estimations (Figure \ref{crowdsourcing_price_pred}), the root mean squared error (RMSE) was used. It is frequently used to measure the quality of predictions. The true values are the end prices from the ground truth. If the workers have the actual market price of the item at one's disposal then they predict the price best with an average RMSE of 51.46 USD. The experiment with the commission ranked just behind with 58.55 USD, the others appear with 81.75 (Pure) and 89.89 (Image quantity/quality) at the end of the ranking. The tested item without a brand has a RMSE of 278.62 USD which indicates the challenge of the price prediction for generic things.\\
+The estimation errors can be explained by different observations. The size of the smartphone storage isn't given. The price difference of an iPhone 5S with 32GB and 64GB is about 100 dollars. The football trading cards are difficult to estimate, because most of the workers don't know the football players and cannot asses the rarity or popularity of them. The football boot model is available in different versions. The original one and the cheaper replica. The action figure is rare and no other auctions are available to compare with. The women handbag could be a fake or an original Coach\footnote{http://www.coach.com} bag.
 \begin{figure}
 \centering
 \includegraphics[scale=0.55]{images/plots/crowdsourcing/plot_price_rmse.png}
 \caption{Price Prediction Quality}
 \label{crowdsourcing_price_pred}
 \end{figure}
-
+Under/Over estimations
+\begin{figure}
+\centering
+\includegraphics[scale=0.55]{images/plots/crowdsourcing/plot_price_overestimation.png}
+\caption{Price Overestimations}
+\label{crowdsourcing_price_overestimations}
+\end{figure}
 \subsection{Variations}
-\subsubsection{Commission }
+\subsubsection{Commission}
 The ground truth items 1 and 3 received a majority of the votes from the crowd. The commissions were paid manually using the web interface of the Amazon Mechanical Turk web service. The value of the bonus has to be shortened to two digits after the point and rounded up to \$0.01, because of some restrictions of MTurk. The bonus aggregates to \$1.48 for both auctions. The worker received also an additional message: \\
 ''Dear worker, \\
 
@@ -152,20 +162,5 @@ The same plots for the other categories and the exact accuracies/RMSEs/MAEs are 
 \label{crowdsourcing_desc_length}
 \end{figure}
 
-
-
-
-\begin{figure}
-\centering
-\includegraphics[scale=0.55]{images/plots/crowdsourcing/plot_evaluation_pure_vs_commission.png}
-\caption{Evaluation of Pure vs. Commission}
-\label{crowdsourcing_desc_length}
-\end{figure}
-\begin{figure}
-\centering
-\includegraphics[scale=0.55]{images/plots/crowdsourcing/plot_evaluation_ground_vs_crowd.png}
-\caption{Evaluation of Ground Truth vs. Crowdsourcing}
-\label{crowdsourcing_desc_length}
-\end{figure}
 
 
