@@ -14,8 +14,15 @@ The workers motivate their votes as follows:
 \end{itemize}
 
 \subsection{Title}
-Correct format, 
-The workers justify their selections of a title as follows: 
+The length of the title (Figure \ref{crowdsourcing_title_length}) increases if the task contains all available pictures of the item. This setup produced an average title length of 64 characters. The other experiments have an average of 50 for the standard design and 48 for a promised commission. The median value shows almost the same ranking except the additional reward in form of a commission generates more characters than the standard configuration. The item without a brand was described by a title with 37 characters. The length doesn't say anything about the quality of the title, but it indicates the influence of the different task settings. The usage of natural language processing tools could help to get more information about the quality, but this would be outside the scope of the thesis.
+\begin{figure}
+\centering
+\includegraphics[scale=0.55]{images/plots/crowdsourcing/plot_title_length.png}
+\caption{Evaluation of Title Lengths}
+\label{crowdsourcing_title_length}
+\end{figure} 
+
+After the creation of the titles, the workers had to select the final one for each item. They justify their selections as follows:
 \begin{itemize}
 	\item Amount of details 
 	\item Attracts more attention 
@@ -26,15 +33,25 @@ The workers justify their selections of a title as follows:
 \end{itemize}
 
 \subsection{Description}
-Description lengths Pure, commission, quantity 
-Non-branded item 
+The same measurements as for the title were done for the description (Figure \ref{crowdsourcing_desc_length}). The general task design achieved the highest average length (467 chars), but it contains an outlier with 1706 characters for the ground truth item number 5. The worker copied an item description from the website of the producer. More images doesn't conclude to a longer description, because the average length of these titles is 281. An extra reward leads to 455 characters, but has the highest median of 572. The numeric parameter is more robust to outliers. The other setups follow by 307 (Commission) and 238 (Pure). The non-branded item realise a length of 240 characters which is equal to the median of the branded items. Therefore, the workers are able to write descriptions of equal length regardless of which item type (branded/non-branded) was presented to them.
+\begin{figure}
+\centering
+\includegraphics[scale=0.55]{images/plots/crowdsourcing/plot_description_length.png}
+\caption{Evaluation of Description Lengths}
+\label{crowdsourcing_desc_length}
+\end{figure}
 
 \subsection{Category}
 
 \subsection{Price Estimation}
-RMSE formula 
-Under/Over estimations 
-Market price 
+To evaluate the accuracy of the price estimations (Figure \ref{crowdsourcing_price_pred}), the root mean squared error (RMSE) was used. It is frequently used to measure the quality of predictions. The true values are the end prices from the ground truth. If the workers have the actual market price of the item at one's disposal then they predict the price best with an average RMSE of 51.46 USD. The experiment with the commission ranked just behind with 58.55 USD, the others appear with 81.75 (Pure) and 89.89 (Image quantity/quality) at the end of the ranking. The tested item without a brand has a RMSE of 278.62 USD which indicates the challenge of the price prediction for generic things.
+Under/Over estimations
+\begin{figure}
+\centering
+\includegraphics[scale=0.55]{images/plots/crowdsourcing/plot_price_rmse.png}
+\caption{Price Prediction Quality}
+\label{crowdsourcing_price_pred}
+\end{figure}
 
 \subsection{Variations}
 \subsubsection{Commission }
@@ -136,18 +153,8 @@ The same plots for the other categories and the exact accuracies/RMSEs/MAEs are 
 \end{figure}
 
 
-\begin{figure}
-\centering
-\includegraphics[scale=0.55]{images/plots/crowdsourcing/plot_description_length.png}
-\caption{Evaluation of Description Lengths}
-\label{crowdsourcing_desc_length}
-\end{figure}
-\begin{figure}
-\centering
-\includegraphics[scale=0.55]{images/plots/crowdsourcing/plot_title_length.png}
-\caption{Evaluation of Title Lengths}
-\label{crowdsourcing_desc_length}
-\end{figure}
+
+
 \begin{figure}
 \centering
 \includegraphics[scale=0.55]{images/plots/crowdsourcing/plot_evaluation_pure_vs_commission.png}
@@ -160,16 +167,5 @@ The same plots for the other categories and the exact accuracies/RMSEs/MAEs are 
 \caption{Evaluation of Ground Truth vs. Crowdsourcing}
 \label{crowdsourcing_desc_length}
 \end{figure}
-\begin{figure}
-\centering
-\includegraphics[scale=0.55]{images/plots/crowdsourcing/plot_price_rmse.png}
-\caption{Price Prediction Quality}
-\label{crowdsourcing_desc_length}
-\end{figure}
-\begin{figure}
-\centering
-\includegraphics[scale=0.55]{images/plots/crowdsourcing/plot_time_rmse.png}
-\caption{Time/Error Function}
-\label{crowdsourcing_desc_length}
-\end{figure}
+
 
