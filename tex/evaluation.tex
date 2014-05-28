@@ -65,101 +65,47 @@ Under/Over estimations
 \end{figure}
 \subsection{Variations}
 \subsubsection{Commission}
-The ground truth items 1 and 3 received a majority of the votes from the crowd. The commissions were paid manually using the web interface of the Amazon Mechanical Turk web service. The value of the bonus has to be shortened to two digits after the point and rounded up to \$0.01, because of some restrictions of MTurk. The bonus aggregates to \$1.48 for both auctions. The worker received also an additional message: \\
+The ground truth items 1 and 3 received a majority of the votes from the crowd. The commissions were paid manually using the web interface of the Amazon Mechanical Turk web service. The value of the bonus has to be shortened to two digits after the point and rounded up to \$0.01, because of some restrictions of MTurk. The bonus aggregates to \$1.48 for both auctions (see table \ref{tab_commission}, page \pageref{tab_commission}). The worker received also an additional message: \\
 ''Dear worker, \\
 
 You receive a commission (0.25\% of the end price) as bonus payment for your work. The end price of the eBay online auction was \$27.''
-\begin{table}[h!]
-	\begin{center}
-	\begin{tabular}{| p{1.16cm} | p{2.16cm} | p{2.16cm} | p{1.66cm} | p{2.16cm} | p{3.66cm} |}
-		\hline
-		Ground truth number & End price (USD) & Task & Percentage & Bonus (USD) & Worker ID \\
-		\hline
-		1 & 4.99 & Title (Finding) & 0.25\% & 0.01 & A3HE1W5T6QO03X \\
-		\hline
-		1 & 4.99 & Title (Voting) & 0.1\% & 0.01 & A3N7O1NOBGX6U7 \\
-		\hline
-		1 & 4.99 & Title (Voting) & 0.1\% & 0.01 & A1DK26QAO4OOMQ \\
-		\hline
-		1 & 4.99 & Description (Improving) & 1\% & 0.05 & A2Y9ZNZ0F24GHB \\
-		\hline
-		1 & 4.99 & Description (Voting) & 0.05\% & 0.01 & A2FF8HA1OWKS83 \\
-		\hline
-		1 & 4.99 & Description (Voting) & 0.05\% & 0.01 & AJAOE1PSNKGUE \\
-		\hline
-		1 & 4.99 & Category & 0.25\% & 0.01 & A2ZT4MTMEVSLB9 \\
-		\hline
-		1 & 4.99 & Category & 0.25\% & 0.01 & A220ED0LJITW5I \\
-		\hline
-		1 & 4.99 & Category & 0.25\% & 0.01 & A2V8WJXA0USMZ \\
-		\hline
-		1 & 4.99 & Price & 0.5\% & 0.02 & A3L99RGPK6FZGH \\
-		\hline
-		3 & 27 & Title (Finding) & 0.25\% & 0.06 & A23BCMQN9ZU97B \\
-		\hline
-		3 & 27 & Title (Voting) & 0.1\% & 0.02 & A3N7O1NOBGX6U7 \\
-		\hline
-		3 & 27 & Title (Voting) & 0.1\% & 0.02 & A3I4BYP4DUC475 \\
-		\hline
-		3 & 27 & Description (Improving) & 1\% & 0.27 & A1IA4CST74I1Q8 \\
-		\hline
-		3 & 27 & Description (Voting) & 0.05\% & 0.01 & A3K77RSYXLLUQL \\
-		\hline
-		3 & 27 & Description (Voting) & 0.05\% & 0.01 & A25F7BNXEN8I5X \\
-		\hline
-		3 & 27 & Category & 0.25\% & 0.06 & A2ZT4MTMEVSLB9 \\
-		\hline
-		3 & 27 & Category & 0.25\% & 0.06 & A220ED0LJITW5I \\
-		\hline
-		3 & 27 & Category & 0.25\% & 0.06 & A2V8WJXA0USMZ \\
-		\hline
-		3 & 27 & Price & 0.5\% & 0.13 & A3L99RGPK6FZGH \\
-		\hline
-	\end{tabular}
-	\end{center}
-	\caption{Commission results}
-\end{table}
-
-
-
- 
 
 \section{Hybrid approach}
-The Random Forest approach shows the best performance over all three item categories independent of classification or regression (Figure). The accuracy of the classifier depends also on the item category. The RFC assign every third input to the right Sony Playstation price class. The plot of the mean absolute error (MAE, Figure) assured the strength of the classifier and visualise how far away the predictions are in average. kNN has an error of about four classes for the iPhone category, one class has a range of 25 USD. The comparison between the human-based and the machine-based prediction indicates that the crowd can't be as accurate as a machine. The lowest RMSE of the ground truth item number 2 (Apple iPhone) is \$76.32. Two machine learning algorithms have a smaller error (Figure). 
-The normalised confusion matrix (Figure) of the iPhone classifiers illustrates the distribution of the assignments. The origin is located at the left top position, the x-axis represents the truth-values and the y-axis the values assigned by the classifier. The values were normalised per row. A perfect classifier would produce a diagonal which contains only ones. 
-The scatter plot (Figure) is another way to visualise the relations between the truth and predicted values. The criteria of a perfect classifier are the same as for the confusion matrix. 
+The Random Forest approach shows the best performance over all three item categories independent of classification or regression (Figure \ref{class_acc}/\ref{reg_rmse}). The accuracy of the classifier depends also on the item category. The RFC assign every third input to the right Sony Playstation price class. The plot of the mean absolute error (MAE, Figure \ref{class_mae}) assured the strength of the classifier and visualise how far away the predictions are in average. kNN has an error of about four classes for the iPhone category, one class has a range of 25 USD. The comparison between the human-based and the machine-based prediction indicates that the crowd can't be as accurate as a machine. The lowest RMSE of the ground truth item number 2 (Apple iPhone) is \$76.32. Two machine learning algorithms have a smaller error (Figure \ref{crowdsourcing_price_pred}). 
+The normalised confusion matrix (Figure \ref{conf_mat_iphone}) of the iPhone classifiers illustrates the distribution of the assignments. The origin is located at the left top position, the x-axis represents the truth-values and the y-axis the values assigned by the classifier. The values were normalised per row. A perfect classifier would produce a diagonal which contains only ones. 
+The scatter plot (Figure \ref{true_predict_iphone}) is another way to visualise the relations between the truth and predicted values. The criteria of a perfect classifier are the same as for the confusion matrix. 
 The same plots for the other categories and the exact accuracies/RMSEs/MAEs are enumerated in the appendix section (Reference).
 \begin{figure}
 \centering
 \includegraphics[scale=0.55]{images/plots/machine_learning/iphone/true_pred_iphone.png}
 \caption{Scatter plot true vs. prediction (iPhone)}
-\label{truth_predict_iphone}
+\label{true_predict_iphone}
 \end{figure}
 \begin{figure}
 \centering
 \includegraphics[scale=0.55]{images/plots/machine_learning/iphone/conf_mat_iphone.png}
 \caption{Normalised confusion matrix (iPhone)}
-\label{crowdsourcing_desc_length}
+\label{conf_mat_iphone}
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics[scale=0.55]{images/plots/machine_learning/plot_price_classification_acc.png}
 \caption{Classification accuracy}
-\label{crowdsourcing_desc_length}
+\label{class_acc}
 \end{figure}
 \begin{figure}
 \centering
 \includegraphics[scale=0.55]{images/plots/machine_learning/plot_price_classification_mae.png}
 \caption{Classification mean absolute error}
-\label{crowdsourcing_desc_length}
+\label{class_mae}
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics[scale=0.55]{images/plots/machine_learning/plot_price_regression_rmse.png}
 \caption{Regression root mean squared error}
-\label{crowdsourcing_desc_length}
+\label{reg_rmse}
 \end{figure}
 
 

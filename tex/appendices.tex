@@ -102,6 +102,7 @@
 	\multirow{6}{*}{} & Price &  \multicolumn{2}{| p{10cm} |}{35.0} \\
 	\hline
 \caption{Ground truth for pure crowdsourcing}
+\label{basic_ground_truth}
 \end{longtable}
 
 \section{Non-branded Item}
@@ -126,6 +127,61 @@
 	\end{tabular}
 	\end{center}
 	\caption{Ground truth non-branded item}
+	\label{nonbranded_ground_truth}
+\end{table}
+
+\chapter{Crowdsourcing}
+\section{Commission}
+\begin{table}[h!]
+	\begin{center}
+	\begin{tabular}{| p{1.16cm} | p{2.16cm} | p{2.16cm} | p{1.66cm} | p{2.16cm} | p{3.66cm} |}
+		\hline
+		Ground truth number & End price (USD) & Task & Percentage & Bonus (USD) & Worker ID \\
+		\hline
+		1 & 4.99 & Title (Finding) & 0.25\% & 0.01 & A3HE1W5T6QO03X \\
+		\hline
+		1 & 4.99 & Title (Voting) & 0.1\% & 0.01 & A3N7O1NOBGX6U7 \\
+		\hline
+		1 & 4.99 & Title (Voting) & 0.1\% & 0.01 & A1DK26QAO4OOMQ \\
+		\hline
+		1 & 4.99 & Description (Improving) & 1\% & 0.05 & A2Y9ZNZ0F24GHB \\
+		\hline
+		1 & 4.99 & Description (Voting) & 0.05\% & 0.01 & A2FF8HA1OWKS83 \\
+		\hline
+		1 & 4.99 & Description (Voting) & 0.05\% & 0.01 & AJAOE1PSNKGUE \\
+		\hline
+		1 & 4.99 & Category & 0.25\% & 0.01 & A2ZT4MTMEVSLB9 \\
+		\hline
+		1 & 4.99 & Category & 0.25\% & 0.01 & A220ED0LJITW5I \\
+		\hline
+		1 & 4.99 & Category & 0.25\% & 0.01 & A2V8WJXA0USMZ \\
+		\hline
+		1 & 4.99 & Price & 0.5\% & 0.02 & A3L99RGPK6FZGH \\
+		\hline
+		3 & 27 & Title (Finding) & 0.25\% & 0.06 & A23BCMQN9ZU97B \\
+		\hline
+		3 & 27 & Title (Voting) & 0.1\% & 0.02 & A3N7O1NOBGX6U7 \\
+		\hline
+		3 & 27 & Title (Voting) & 0.1\% & 0.02 & A3I4BYP4DUC475 \\
+		\hline
+		3 & 27 & Description (Improving) & 1\% & 0.27 & A1IA4CST74I1Q8 \\
+		\hline
+		3 & 27 & Description (Voting) & 0.05\% & 0.01 & A3K77RSYXLLUQL \\
+		\hline
+		3 & 27 & Description (Voting) & 0.05\% & 0.01 & A25F7BNXEN8I5X \\
+		\hline
+		3 & 27 & Category & 0.25\% & 0.06 & A2ZT4MTMEVSLB9 \\
+		\hline
+		3 & 27 & Category & 0.25\% & 0.06 & A220ED0LJITW5I \\
+		\hline
+		3 & 27 & Category & 0.25\% & 0.06 & A2V8WJXA0USMZ \\
+		\hline
+		3 & 27 & Price & 0.5\% & 0.13 & A3L99RGPK6FZGH \\
+		\hline
+	\end{tabular}
+	\end{center}
+	\caption{Commission results}
+	\label{tab_commission}
 \end{table}
 
 \chapter{Machine Learning}
@@ -137,24 +193,24 @@
 \centering
 \includegraphics[scale=0.55]{images/plots/machine_learning/mustang/true_pred_mustang.png}
 \caption{Scatter plot true vs. prediction (Mustang)}
-\label{crowdsourcing_desc_length}
+\label{true_predict_mustang}
 \end{figure}
 \begin{figure}
 \centering
 \includegraphics[scale=0.55]{images/plots/machine_learning/mustang/conf_mat_mustang.png}
 \caption{Normalised confusion matrix (Mustang)}
-\label{crowdsourcing_desc_length}
+\label{conf_mat_mustang}
 \end{figure}
 \begin{figure}
 \centering
 \includegraphics[scale=0.55]{images/plots/machine_learning/playstation/true_pred_playstation.png}
 \caption{Scatter plot true vs. prediction (Playstation)}
-\label{crowdsourcing_desc_length}
+\label{true_predict_playstation}
 \end{figure}
 \begin{figure}
 \centering
 \includegraphics[scale=0.55]{images/plots/machine_learning/playstation/conf_mat_playstation.png}
 \caption{Normalised confusion matrix (Playstation)}
-\label{crowdsourcing_desc_length}
+\label{conf_mat_playstation}
 \end{figure}
 \subsection{Regression}

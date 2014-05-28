@@ -100,9 +100,9 @@ The first step of creating an online auction is mostly to take pictures of the c
 \section{Existing research}
 Some similar existing research projects are illustrated in this section: 
 \subsection{Crowdsourcing}
-The idea of the thesis is similar to a project called ''PlatMate'' where workers analyse the content of food photographs. The processing pipeline consists of three major steps and put out the calorie values of every ingredient on the picture. All steps were performed by workers of a crowdsourcing platform. The accuracy of the calorie estimations of the system is almost as good as estimations from different trained experts. 
+The idea of the thesis is similar to a project called ''PlatMate''\cite{platemate} where workers analyse the content of food photographs. The processing pipeline consists of three major steps and put out the calorie values of every ingredient on the picture. All steps were performed by workers of a crowdsourcing platform. The accuracy of the calorie estimations of the system is almost as good as estimations from different trained experts. 
 \subsection{Price Estimation}
-The idea of predicting the end price of online auctions is not new. People from the Accenture Technology Labs tried to do this in 2005 and published some surprising results. They collected 1'700 auctions of a specific item during a two-month period to form a training and test set. The end prices of the ground truth are additionally converted to a price class (10\% of the average price) to perform classification algorithms. The accuracy of the classifiers are higher then 70\%.
+The idea of predicting the end price of online auctions is not new. People from the Accenture Technology Labs\footnote{http://www.accenture.com} tried to do this in 2005 and published some surprising results\cite{ghani}. They collected 1'700 auctions of a specific item during a two-month period to form a training and test set. The end prices of the ground truth are additionally converted to a price class (10\% of the average price) to perform classification algorithms. The accuracy of the classifiers are higher then 70\%.
 
 \section{Goals and objectives}
 The thesis has the following goals and their corresponding objectives:
@@ -142,7 +142,7 @@ If the main goals of the thesis are fulfilled, some \textit{optional} goals can 
 \section{Organisation}
 The thesis report is organised in multiple chapters. At the beginning of the document, the eBay marketplace and the corresponding API will be investigated (Chapter \ref{chap:ebay}). Then the theoretical background knowledge about crowdsourcing is summarised (Chapter \ref{chap:crowdsourcing}). The learned theory was used to build up a workflow to generate online auction contents (Chapter \ref{chap:implementation}). The observations of the executed experiments are concluded in the next chapter (Chapter \ref{chap:evaluation}). Some ideas for improvements and a short discussion of the pros and cons of the implemented approach are part of the last chapter (Chapter \ref{chap:conclusion}). All the ground truth items, some plots and tables which didn't find a place in the report are listed in the appendix section.
 
-\chapter{eBay online marketplace}
+\chapter{eBay Online Marketplace}
 \label{chap:ebay}
 \include{tex/marketplace}
 
