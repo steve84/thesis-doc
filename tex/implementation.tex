@@ -1,5 +1,56 @@
-\section{Pure approach}
+\section{Technologies}
+All the produced code is written in Python (Version 2.7.5). Some of the found research papers use the programming language to create for example a workflow with multiple subtasks. There exists also a plugin for the Amazon Mechanical Turk platform called boto (Version 2.25.0). The API has similar functions as the Java SDK provided by Amazon (Listing \ref{boto_example}). The scikit-learn library (Version 0.13) was used for the machine learning implementation. Therefore, it's possible to create a productive web service with the help of the Django Python web framework in the future.
+\lstset{language=Python,caption={boto HIT creation example},label=boto_example}
+\begin{lstlisting}
+from boto.mturk.connection import MTurkConnection
+from boto.mturk.question import QuestionContent,Question,QuestionForm,Overview,...
+from boto.mturk.qualification import LocaleRequirement,Qualifications
 
+title = 'Estimate the price of auction items based on title, description and images'
+description = ('Take a look at an item description and estimate the corresponding price')
+keywords = 'image, pricing, picture, item, estimation'
+
+mtc = MTurkConnection(aws_access_key_id=ACCESS_ID,
+                      aws_secret_access_key=SECRET_KEY,
+                      host=HOST)
+#---------------  BUILD OVERVIEW -------------------
+overview = Overview()
+overview.append(FormattedContent(html_code))
+#---------------  BUILD QUESTION 1 -------------------
+qc1 = QuestionContent()
+qc1.append_field('Title','Price estimation (USD)')
+ 
+qc1.append(FormattedContent(html_code))
+ 
+fta1 = FreeTextAnswer(None, None, 1)
+fta1.constraints.append(NumericConstraint(1, 1000000))          
+fta1.constraints.append(RegExConstraint("^\+?([1-9]\d*).\d{0,2}$"))
+ 
+q1 = Question(identifier="price_find",
+              content=qc1,
+              answer_spec=AnswerSpecification(fta1),
+              is_required=True)
+#--------------- BUILD THE QUESTION FORM -------------------
+question_form = QuestionForm()
+question_form.append(overview)
+question_form.append(q1)
+#--------------- CREATE THE HIT -------------------
+qualification = Qualifications()
+qualification.add(LocaleRequirement('EqualTo','US'))
+
+hitDetails = mtc.create_hit(questions=question_form,
+               max_assignments=5,
+               title=title,
+               description=description,
+               keywords=keywords,
+               duration = 60*120,
+               reward=0.1,
+               qualifications=qualification,
+               response_groups = ['Minimal'],
+               ) 
+\end{lstlisting}
+\section{Pure approach}
+The chapter describes the first of two crowdsourcing approaches. The pure one uses only inputs of humans.
 \subsection{Ground truth}
 \label{ground_truth}
 Real eBay auctions were collected by the API to generate the ground truth for the crowdsourcing experiments. The online auction platform divides their items in eight main categories: Motors, Fashion, Electronics, Collectibles \& Arts, Home \& Garden, Sporting Goods, Toys \& Hobbies and Deals \& Gifts. The ground truth consists of seven items from every category with the exception of the Motor's and Deals \& Gits sections, because the API can't search for items in these categories. First, some keywords were created to touch the desired category: ''Swiss Watch'' (Fashion), ''Smartphone'' (Electronics), ''Football Trading Card'' (Collectibles), ''Coffee Machine'' (Home), ''Soccer shoes'' (Sporting Goods), ''Action Figure'' (Toys) and ''Handbag'' (Fashion). The goal was also to have gender specific and neutral items. An action figure is used by male persons normally, the handbag by females and a smartphone by both. The Finding eBay API provides the method \textit{findCompletedItems} which takes keywords as a parameter and returns a list of completed auction items. The Python script search for the first sold item which uses US dollar as currency, has a description longer than one-hundred characters and contains of at least three images. Only three images were kept, because most of the auctions present the items with a top, front and side view. Another reason is the clarity for the crowdsourcing tasks. Every ground truth entry has the attributes title, description, category, condition, price and image one to three. The table \ref{basic_ground_truth} (page \pageref{basic_ground_truth}) represents the final ground truth for the further experiments.
@@ -125,6 +176,7 @@ This section describes the idea of an additional incentive for the workers which
 All of the ground truth items have visible brand labels. Some are more famous (Apple\footnote{http://www.apple.com}, Puma\footnote{http://www.puma.com}) than the others (Palisades, Powman Sterling). Information about the brands and their manufactured items can be found easily. Describing an unknown object is more difficult. A non-branded item is put into the pipeline to research the ability of the workers to handling such items (Table \ref{nonbranded_ground_truth}, page \pageref{nonbranded_ground_truth}). 
 
 \section{Hybrid approach}
+The second approach is illustrated after this introduction sentence.
 \subsection{Ground truth}
 A lot of sold items were collected by the help of the eBay API. The used methods were the same as in the prior ground truth generation (Chapter \ref{ground_truth}). After all the necessary data were collected, the Python script splits the data shuffled into a training and test set. The training set contains of 70 percent of the whole data. All the consecutively steps (data analysis, feature reduction) will use the training set until the performance of a classifier will be proved on the test set. The ground truth was generated for three different item types:
 \begin{table}[h!]
@@ -152,6 +204,7 @@ The hybrid pipeline (Figure \ref{hybridPipeline}) works same as the pure one exc
 \label{hybridPipeline}
 \end{figure}
 \subsection{Task design}
+The design of the tasks is similar to the pure approach except of the two subtasks category and price.
 \subsubsection{Category}
 The implementation finds the most suitable category by using the eBay Finding API based on the output of the title task. Most of the titles are too specific and the API doesn't return a category. The algorithm reduces the number of words until a category is found. The used method returns a sorted histogram of categories.
 [listing]
@@ -161,6 +214,7 @@ The goal of the task is to estimate the end price of the auction by using a mach
 During the collection of the sold items some pre-processing steps were necessary to produce accurate results by the machine learning algorithms. All the recorded features were normalised within the parameters of 0 and 1 to generate a uniform feature space. The target labels (price) stay untouched. 
 Another problem was the quantity of items for a single auction. The quantity field of the entry is one, but the auction contains a lot or a set of items. If an auction title contains one of the keywords (''Set'', ''Lot'', ''Pack'' or ''Bundle'') then the entry will be ignored.
 \subsection{Feature extraction}
+The extracted features are divided into three categories.
 \subsubsection{Item Specific Features}
 \paragraph{Apple iPhone}
 The iPhone made by Apple is available in eight models. The first generation was released in 2007, the last model 5s in 2013. Every model comes with different storage sizes (from 8GB to 64GB). The values for the condition property on eBay depend on the corresponding item category. All the values are nominal and will be converted to numerical.
@@ -284,6 +338,7 @@ The histogram of the iPhone (Figure \ref{model_hist_iphone}) illustrates that th
 \end{figure}
 An executed feature ranking \cite{guyon} with SVMs indicated surprisingly that some features aren't as important as expected. The model of a car has only a small influence to the end price. The condition of the item and the duration of the auction are important for all the three tested categories. 
 \subsection{Machine Learning Algorithms}
+Three machine learning algorithms were used to estimate the price. The theoretic knowledge about the algorithms is given in the following of this preface.
 \subsubsection{k-Nearest Neighbours}
 The kNN algorithm \cite{knn} represents every sample of the training set in an \textit{n}-dimensional feature space where n are the total number of features. The class correspondence of the data points is stored too. For the classification of a test sample, the k-nearest neighbour data points are determined. Usually, the Euclidian distance is used to calculate the distance between the points in the \textit{n}-dimensional space. The data point is assigned to the class with the majority in the neighbourhood. If no class is dominant then the \textit{k} is decreased by one until the tie is broken. The standard configuration of the algorithm uses uniform weights for the data points. This means that each point in the neighbourhood has the same influence to the result. Another way to determine the weight of a neighbour is to calculate the inverse of the distance to the point under supervision. The algorithm can also be used for continuous values (Regression). In that case, the average value of the \textit{k}-Neighbours will form the regression output.\\
 Seller of online auction items compare previous auctions for the same or similar ones to estimate the price. The kNN algorithm works similar and should provide good results. 
