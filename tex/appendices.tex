@@ -214,11 +214,11 @@
 		\hline
 		& kNN & Random Forest & SVC \\
 		\hline \hline
-		kNN & & 3.5875566926347161e-13 & 1.5291919089303821e-08 \\
+		kNN & & 3.789749104003927e-09 & 1.9962596131950446e-13 \\
 		\hline
-		Random Forest & 3.5875566926347161e-13 & & 4.0439981305274486e-27 \\
+		Random Forest & 3.789749104003927e-09 & & 2.2049869827521087e-22 \\
 		\hline
-		SVC & 1.5291919089303821e-08 & 4.0439981305274486e-27 & \\
+		SVC & 1.9962596131950446e-13 & 2.2049869827521087e-22 & \\
 		\hline
 	\end{tabular}
 	\end{center}
@@ -232,11 +232,11 @@
 		\hline
 		& kNN & Random Forest & SVC \\
 		\hline \hline
-		kNN & & 3.5875566926347161e-13 & 1.5291919089303821e-08 \\
+		kNN & & 0.0011378352108250606 & 6.14720172302805e-05 \\
 		\hline
-		Random Forest & 3.5875566926347161e-13 & & 4.0439981305274486e-27 \\
+		Random Forest & 0.0011378352108250606 & & 9.1242838379781361e-05 \\
 		\hline
-		SVC & 1.5291919089303821e-08 & 4.0439981305274486e-27 & \\
+		SVC & 6.14720172302805e-05 & 9.1242838379781361e-05 & \\
 		\hline
 	\end{tabular}
 	\end{center}
@@ -251,11 +251,11 @@
 		\hline
 		& kNN & Random Forest & SVR \\
 		\hline \hline
-		kNN & & 3.5875566926347161e-13 & 1.5291919089303821e-08 \\
+		kNN & & 0.6311016296123364 & 0.22423142184205869 \\
 		\hline
-		Random Forest & 3.5875566926347161e-13 & & 4.0439981305274486e-27 \\
+		Random Forest & 0.6311016296123364 & & 0.026965841520582776 \\
 		\hline
-		SVR & 1.5291919089303821e-08 & 4.0439981305274486e-27 & \\
+		SVR & 0.22423142184205869 & 0.026965841520582776 & \\
 		\hline
 	\end{tabular}
 	\end{center}
@@ -269,11 +269,11 @@
 		\hline
 		& kNN & Random Forest & SVR \\
 		\hline \hline
-		kNN & & 3.5875566926347161e-13 & 1.5291919089303821e-08 \\
+		kNN & & 0.048095801005667009 & 2.4893228869100509e-38 \\
 		\hline
-		Random Forest & 3.5875566926347161e-13 & & 4.0439981305274486e-27 \\
+		Random Forest & 0.048095801005667009 & & 1.2556423582856809e-36 \\
 		\hline
-		SVR & 1.5291919089303821e-08 & 4.0439981305274486e-27 & \\
+		SVR & 2.4893228869100509e-38 & 1.2556423582856809e-36 & \\
 		\hline
 	\end{tabular}
 	\end{center}
@@ -287,11 +287,11 @@
 		\hline
 		& kNN & Random Forest & SVR \\
 		\hline \hline
-		kNN & & 3.5875566926347161e-13 & 1.5291919089303821e-08 \\
+		kNN & & 0.80679443838141207 & 0.83048173596412633 \\
 		\hline
-		Random Forest & 3.5875566926347161e-13 & & 4.0439981305274486e-27 \\
+		Random Forest & 0.80679443838141207 & & 0.17292064202909285 \\
 		\hline
-		SVR & 1.5291919089303821e-08 & 4.0439981305274486e-27 & \\
+		SVR & 0.83048173596412633 & 0.17292064202909285 & \\
 		\hline
 	\end{tabular}
 	\end{center}
@@ -299,6 +299,40 @@
 	\label{tab_commission}
 \end{table}
 \subsection{Classification}
+\begin{table}[h]
+	\begin{center}
+	\begin{tabular}{| p{3.25cm} || p{3.25cm} | p{3.25cm} | p{3.25cm} |}
+		\hline
+		& kNN & Random Forest & SVC \\
+		\hline \hline
+		iPhone & 0.10869565217391304 & 0.19806763285024154 & 0.16376811594202897 \\
+		\hline
+		Mustang & 0.30281690140845069 & 0.37323943661971831 & 0.30633802816901406 \\
+		\hline
+		Playstation & 0.19787985865724381 & 0.35924617196702008 & 0.24734982332155478 \\
+		\hline
+	\end{tabular}
+	\end{center}
+	\caption{Results accuracy}
+	\label{tab_commission}
+\end{table}
+\begin{table}[h]
+	\begin{center}
+	\begin{tabular}{| p{3.25cm} || p{3.25cm} | p{3.25cm} | p{3.25cm} |}
+		\hline
+		& kNN & Random Forest & SVC \\
+		\hline \hline
+		iPhone & 3.7565217391304349 & 2.0637681159420289 & 3.0768115942028986 \\
+		\hline
+		Mustang & 3.26056338028169 & 2.5387323943661975 & 3.3450704225352115 \\
+		\hline
+		Playstation & 2.872791519434629 & 1.1519434628975265 & 2.4346289752650176 \\
+		\hline
+	\end{tabular}
+	\end{center}
+	\caption{Results mean absolute error}
+	\label{tab_commission}
+\end{table}
 \begin{figure}
 \centering
 \includegraphics[scale=0.55]{images/plots/machine_learning/mustang/true_pred_mustang.png}
@@ -324,3 +358,20 @@
 \label{conf_mat_playstation}
 \end{figure}
 \subsection{Regression}
+\begin{table}[h]
+	\begin{center}
+	\begin{tabular}{| p{3.25cm} || p{3.25cm} | p{3.25cm} | p{3.25cm} |}
+		\hline
+		& kNN & Random Forest & SVR \\
+		\hline \hline
+		iPhone & 92.222790243158784 & 61.745689964975874 & 64.313090223009226 \\
+		\hline
+		Mustang & 9.1321357456187897 & 7.1189517892392047 & 9.507750986406716 \\
+		\hline
+		Playstation & 82.404952361812889 & 39.15280385453967 & 72.629623366881589 \\
+		\hline
+	\end{tabular}
+	\end{center}
+	\caption{Results RMSE}
+	\label{tab_commission}
+\end{table}

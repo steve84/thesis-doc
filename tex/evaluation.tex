@@ -25,7 +25,14 @@ The length of the title (Figure \ref{crowdsourcing_title_length}) increases if t
 \includegraphics[scale=0.55]{images/plots/crowdsourcing/plot_title_length.png}
 \caption{Evaluation of Title Lengths}
 \label{crowdsourcing_title_length}
-\end{figure} 
+\end{figure}
+The workers spent more time to find a title if they can achieve an additional bonus (Figure \ref{crowdsourcing_time_title}). The average working time (203.76 seconds) is twice as much as without a commission (101.76 seconds). If the writer of the title has to look at more than the three standard images then they needed more time to commit a title (131.28 seconds). If the additional time effort was used to open all the supplementary images is not clear at the moment.
+\begin{figure}
+\centering
+\includegraphics[scale=0.55]{images/plots/crowdsourcing/plot_time_title.png}
+\caption{Evaluation of the average working times for finding a title}
+\label{crowdsourcing_time_title}
+\end{figure}
 
 After the creation of the titles, the workers had to select the final one for each item. They justify their selections as follows:
 \begin{itemize}
@@ -49,20 +56,27 @@ The same measurements as for the title were done for the description (Figure \re
 \subsection{Category}
 Most of the workers submitted only the main category and not the complete hierarchy with main and sub categories. For the football trading cards they wrote ''Sports Mem, Cards \& Fan Shop'' instead of ''Sports Mem, Cards \& Fan Shop:Cards:Football'', for example. One reason could be that the instructions weren't clear and precise enough. Also the desired format of the input wasn't mentioned. An improved task design will result in more accurate outputs.
 \subsection{Price Estimation}
-To evaluate the accuracy of the price estimations (Figure \ref{crowdsourcing_price_pred}), the root mean squared error (RMSE) was used. It is frequently used to measure the quality of predictions. The true values are the end prices from the ground truth. If the workers have the actual market price of the item at one's disposal then they predict the price best with an average RMSE of 51.46 USD. The experiment with the commission ranked just behind with 58.55 USD, the others appear with 81.75 (Pure) and 89.89 (Image quantity/quality) at the end of the ranking. The tested item without a brand has a RMSE of 278.62 USD which indicates the challenge of the price prediction for generic things.\\
-The estimation errors can be explained by different observations. The size of the smartphone storage isn't given. The price difference of an iPhone 5S with 32GB and 64GB is about 100 dollars. The football trading cards are difficult to estimate, because most of the workers don't know the football players and cannot asses the rarity or popularity of them. The football boot model is available in different versions. The original one and the cheaper replica. The action figure is rare and no other auctions are available to compare with. The women handbag could be a fake or an original Coach\footnote{http://www.coach.com} bag.
+To evaluate the accuracy of the price estimations (Figure \ref{crowdsourcing_price_pred}), the root mean squared error (RMSE) was used. It is frequently used to measure the quality of predictions. The true values are the end prices from the ground truth. If the workers have the actual market price of the item at one's disposal then they predict the price best with an average RMSE of 51.46 USD. The experiment with the commission ranked just behind with 58.55 USD, the others appear with 81.75 (Pure) and 89.89 (Image quantity/quality) at the end of the ranking. The tested item without a brand has a RMSE of 278.62 USD which indicates the challenge of the price prediction for generic things.\\\\
+The digital watch and the handbag have a lot of predictions which are higher than the ground truth price (Figure \ref{crowdsourcing_price_overestimations}). Reasons could be that the watch was sold at a cheaper price than expected and the handbag could be a fake.\\
+The estimation errors can be explained by different observations. The size of the smartphone storage isn't given. The price difference of an iPhone 5S with 32GB and 64GB is about 100 dollars. The football trading cards are difficult to estimate, because most of the workers don't know the football players and cannot asses the rarity or popularity of them. The football boot model is available in different versions. The original one and the cheaper replica. The action figure is rare and no other auctions are available to compare with.\\\\
+The results of the expenditure of time for the price estimations (Figure \ref{crowdsourcing_time_price}) are disappointing. The workers spent between 155 (Pure) to 493 (Image quantity/quality) seconds on average to find an appropriate price for the items. The promised commission had only a marginal influence on the time statistic.\\
 \begin{figure}
 \centering
 \includegraphics[scale=0.55]{images/plots/crowdsourcing/plot_price_rmse.png}
 \caption{Price Prediction Quality}
 \label{crowdsourcing_price_pred}
 \end{figure}
-Under/Over estimations
 \begin{figure}
 \centering
 \includegraphics[scale=0.55]{images/plots/crowdsourcing/plot_price_overestimation.png}
 \caption{Price Overestimations}
 \label{crowdsourcing_price_overestimations}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[scale=0.55]{images/plots/crowdsourcing/plot_time_price.png}
+\caption{Evaluation of the average working times for the price estimation}
+\label{crowdsourcing_time_price}
 \end{figure}
 \subsection{Variations}
 \subsubsection{Commission}
