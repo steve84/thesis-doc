@@ -235,6 +235,28 @@
   Url                      = {http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.21.5909}
 }
 
+@InProceedings{ghani,
+  Title                    = {Price Prediction and Insurance for Online Auctions},
+  Author                   = {Ghani, Rayid},
+  Booktitle                = {Proceedings of the Eleventh ACM SIGKDD International Conference on Knowledge Discovery in Data Mining},
+  Year                     = {2005},
+
+  Address                  = {New York, NY, USA},
+  Pages                    = {411--418},
+  Publisher                = {ACM},
+  Series                   = {KDD '05},
+
+  Acmid                    = {1081918},
+  Doi                      = {10.1145/1081870.1081918},
+  ISBN                     = {1-59593-135-X},
+  Keywords                 = {ECommerce, auctions, classification, data mining, price insurance, price prediction},
+  Location                 = {Chicago, Illinois, USA},
+  Numpages                 = {8},
+  Owner                    = {steve},
+  Timestamp                = {2014.05.28},
+  Url                      = {http://doi.acm.org/10.1145/1081870.1081918}
+}
+
 @Article{guyon,
   Title                    = {Gene Selection for Cancer Classification Using Support Vector Machines},
   Author                   = {Guyon, Isabelle and Weston, Jason and Barnhill, Stephen and Vapnik, Vladimir},
@@ -426,6 +448,28 @@
   Publisher                = {ACM},
   Timestamp                = {2014.03.11},
   Url                      = {http://doi.acm.org/10.1145/1809400.1809422}
+}
+
+@InProceedings{platemate,
+  Title                    = {Platemate: Crowdsourcing Nutritional Analysis from Food Photographs},
+  Author                   = {Noronha, Jon and Hysen, Eric and Zhang, Haoqi and Gajos, Krzysztof Z.},
+  Booktitle                = {Proceedings of the 24th Annual ACM Symposium on User Interface Software and Technology},
+  Year                     = {2011},
+
+  Address                  = {New York, NY, USA},
+  Pages                    = {1--12},
+  Publisher                = {ACM},
+  Series                   = {UIST '11},
+
+  Acmid                    = {2047198},
+  Doi                      = {10.1145/2047196.2047198},
+  ISBN                     = {978-1-4503-0716-1},
+  Keywords                 = {amazon mechanical turk, crowdsourcing, human computation, nutrition, remote food photography},
+  Location                 = {Santa Barbara, California, USA},
+  Numpages                 = {12},
+  Owner                    = {steve},
+  Timestamp                = {2014.05.28},
+  Url                      = {http://doi.acm.org/10.1145/2047196.2047198}
 }
 
 @InProceedings{ross,

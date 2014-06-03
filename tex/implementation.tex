@@ -178,18 +178,18 @@ All of the ground truth items have visible brand labels. Some are more famous (A
 \section{Hybrid approach}
 The second approach is illustrated after this introduction sentence.
 \subsection{Ground truth}
-A lot of sold items were collected by the help of the eBay API. The used methods were the same as in the prior ground truth generation (Chapter \ref{ground_truth}). After all the necessary data were collected, the Python script splits the data shuffled into a training and test set. The training set contains of 70 percent of the whole data. All the consecutively steps (data analysis, feature reduction) will use the training set until the performance of a classifier will be proved on the test set. The ground truth was generated for three different item types:
+A lot of sold items were collected by the help of the eBay API. The used methods were the same as in the prior ground truth generation (Chapter \ref{ground_truth}). After all the necessary data were collected, the Python script splits the data shuffled into a training and test set. The training set contains of 70 percent of the whole data. All the consecutively steps (data analysis, feature reduction) will use the training set until the performance of a classifier will be proved on the test set. The continuous target values are also converted into price classes to use classification algorithms later on. The range of the classes depends on the highest price of the item type. The goal was to generate the same number of classes for every category. The ground truth was generated for three different item types:
 \begin{table}[h!]
 	\begin{center}
-	\begin{tabular}{| p{3.25cm} | p{3.25cm} | p{3.25cm} | p{3.25cm} |}
+	\begin{tabular}{| p{2.6cm} | p{2.6cm} | p{2.6cm} | p{2.6cm} | p{2.6cm} |}
 		\hline
-		Item type & Total number of auctions & Size of training set & Size of test set \\
+		Item type & Total number of auctions & Size of training set & Size of test set & Price class range (USD) \\
 		\hline
-		Apple iPhone & 2299 & 1609 & 690 \\
+		Apple iPhone & 2299 & 1609 & 690 & 25 \\
 		\hline
-		Hot Wheels Cars, 1:64, Ford Mustang & 945 & 661 & 284 \\
+		Hot Wheels Cars, 1:64, Ford Mustang & 945 & 661 & 284 & 2 \\
 		\hline
-		Sony Playstation & 943 & 660 & 283 \\
+		Sony Playstation & 943 & 660 & 283 & 25 \\
 		\hline
 	\end{tabular}
 	\end{center}

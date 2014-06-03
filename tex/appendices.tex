@@ -185,11 +185,51 @@
 \end{table}
 
 \chapter{Machine Learning}
-\section{Algorithms}
+\section{Parameters}
+The parameters of the classification (Table \ref{tab_params_class}) and regression (Table \ref{tab_params_reg}) algorithms are part of this chapter.
+\begin{table}[h]
+	\begin{center}
+	\begin{tabular}{| p{2.6cm} || p{2.6cm} | p{2.6cm} | p{2.6cm} | p{2.6cm} |}
+		\hline
+		& kNN & Random Forest & \multicolumn{2}{| p{5.2cm} |}{SVC} \\
+		\hline \hline
+		& k & Estimators & Kernel & C \\
+		\hline
+		iPhone & 20 & 250 & Linear & 1 \\
+		\hline
+		Mustang & 20 & 750 & Linear & 1 \\
+		\hline
+		Playstation & 3 & 250 & Linear & 1 \\
+		\hline
+	\end{tabular}
+	\end{center}
+	\caption{Parameters of the classification algorithms}
+	\label{tab_params_class}
+\end{table}
+\begin{table}[h]
+	\begin{center}
+	\begin{tabular}{| p{2.6cm} || p{2.6cm} | p{2.6cm} | p{2.6cm} | p{2.6cm} |}
+		\hline
+		& kNN & Random Forest & \multicolumn{2}{| p{5.2cm} |}{SVR} \\
+		\hline \hline
+		& k & Estimators & Kernel & C \\
+		\hline
+		iPhone & 7 & 2000 & RBF & 5000 \\
+		\hline
+		Mustang & 20 & 1000 & Linear & 100 \\
+		\hline
+		Playstation & 5 & 500 & RBF & 10000 \\
+		\hline
+	\end{tabular}
+	\end{center}
+	\caption{Parameters of the regression algorithms}
+	\label{tab_params_reg}
+\end{table}
 \section{Results}
+The section contains the results of the implemented machine learning approach.
 \subsection{Significance}
 \subsubsection{Classification}
-\paragraph{iPhone}
+The results of the significance tests for the iPhone (Table \ref{tab_sig_class_iphone}), Mustang (Table \ref{tab_sig_class_mustang}) and Playstation (Table \ref{tab_sig_class_playstation}) categories.
 \begin{table}[h]
 	\begin{center}
 	\begin{tabular}{| p{3.25cm} || p{3.25cm} | p{3.25cm} | p{3.25cm} |}
@@ -205,9 +245,8 @@
 	\end{tabular}
 	\end{center}
 	\caption{Significance results classification (iPhone)}
-	\label{tab_commission}
+	\label{tab_sig_class_iphone}
 \end{table}
-\paragraph{Mustang}
 \begin{table}[h]
 	\begin{center}
 	\begin{tabular}{| p{3.25cm} || p{3.25cm} | p{3.25cm} | p{3.25cm} |}
@@ -223,9 +262,8 @@
 	\end{tabular}
 	\end{center}
 	\caption{Significance results classification (Mustang)}
-	\label{tab_commission}
+	\label{tab_sig_class_mustang}
 \end{table}
-\paragraph{Playstation}
 \begin{table}[h]
 	\begin{center}
 	\begin{tabular}{| p{3.25cm} || p{3.25cm} | p{3.25cm} | p{3.25cm} |}
@@ -241,10 +279,10 @@
 	\end{tabular}
 	\end{center}
 	\caption{Significance results classification (Playstation)}
-	\label{tab_commission}
+	\label{tab_sig_class_playstation}
 \end{table}
 \subsubsection{Regression}
-\paragraph{iPhone}
+The results of the significance tests for the iPhone (Table \ref{tab_sig_reg_iphone}), Mustang (Table \ref{tab_sig_reg_mustang}) and Playstation (Table \ref{tab_sig_reg_playstation}) categories.
 \begin{table}[h]
 	\begin{center}
 	\begin{tabular}{| p{3.25cm} || p{3.25cm} | p{3.25cm} | p{3.25cm} |}
@@ -260,9 +298,8 @@
 	\end{tabular}
 	\end{center}
 	\caption{Significance results regression (iPhone)}
-	\label{tab_commission}
+	\label{tab_sig_reg_iphone}
 \end{table}
-\paragraph{Mustang}
 \begin{table}[h]
 	\begin{center}
 	\begin{tabular}{| p{3.25cm} || p{3.25cm} | p{3.25cm} | p{3.25cm} |}
@@ -278,9 +315,8 @@
 	\end{tabular}
 	\end{center}
 	\caption{Significance results regression (Mustang)}
-	\label{tab_commission}
+	\label{tab_sig_reg_mustang}
 \end{table}
-\paragraph{Playstation}
 \begin{table}[h]
 	\begin{center}
 	\begin{tabular}{| p{3.25cm} || p{3.25cm} | p{3.25cm} | p{3.25cm} |}
@@ -296,9 +332,10 @@
 	\end{tabular}
 	\end{center}
 	\caption{Significance results regression (Playstation)}
-	\label{tab_commission}
+	\label{tab_sig_reg_playstation}
 \end{table}
 \subsection{Classification}
+The accuracy (Table \ref{tab_acc_results}) and the mean absolut error (Table \ref{tab_mae_results}) of the classification algorithms are illustrated in this subsection. The normalised confusion matrices of the Mustang (Figure \ref{conf_mat_mustang}) and Playstation (Figure \ref{conf_mat_playstation}) category are provided too.
 \begin{table}[h]
 	\begin{center}
 	\begin{tabular}{| p{3.25cm} || p{3.25cm} | p{3.25cm} | p{3.25cm} |}
@@ -314,7 +351,7 @@
 	\end{tabular}
 	\end{center}
 	\caption{Results accuracy}
-	\label{tab_commission}
+	\label{tab_acc_results}
 \end{table}
 \begin{table}[h]
 	\begin{center}
@@ -331,7 +368,7 @@
 	\end{tabular}
 	\end{center}
 	\caption{Results mean absolute error}
-	\label{tab_commission}
+	\label{tab_mae_results}
 \end{table}
 \begin{figure}
 \centering
@@ -358,6 +395,7 @@
 \label{conf_mat_playstation}
 \end{figure}
 \subsection{Regression}
+The root mean squared error is summerised in the table \ref{tab_rmse_results}. The true and the predicted values were compared in the figures \ref{true_predict_mustang} (Mustang) and \ref{true_predict_playstation} (Playstation). 
 \begin{table}[h]
 	\begin{center}
 	\begin{tabular}{| p{3.25cm} || p{3.25cm} | p{3.25cm} | p{3.25cm} |}
@@ -373,5 +411,5 @@
 	\end{tabular}
 	\end{center}
 	\caption{Results RMSE}
-	\label{tab_commission}
+	\label{tab_rmse_results}
 \end{table}
