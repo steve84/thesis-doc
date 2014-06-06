@@ -75,10 +75,17 @@ The digits in the brackets define the number of assignments. The seller receives
 At the top of every HIT three images of an auction item are shown. Most of the sellers on eBay present their items with a front, side and top view. Only workers from the United States are allowed to participate in the created tasks, because the ground truth contains only items from there and they have a better feeling for the currency. Some of the tasks need a voting procedure to determine the final answer. The voters have to reason their votes mandatory to understand the strength of the selected answer. At the end of every task the contributors have the possibility to write down a feedback to the requestor.\\
 Workers who did the same HIT in the past are excluded from the one in the future. This should prevent that they commit the same answer twice. Another restriction is that they can't vote for the own created solution during the voting task. At the beginning of every task, a list of worker IDs is shown and a warning that the answers of them will be rejected. This doesn't avoid the participation of the listed workers by the system, but it works because they won't have a lower approval rate. This solution was easier to implement, but another one has to be used for a productive solution.
 \subsubsection{Title}
-The goal of this subtask is to generate a clear and concise title for the auction item with at most eighty characters. The auction platform eBay provides some recommendations for a good title. It should contain the item's brand name, artist, or designer. A specification of the item could also be helpful. For example the title could include the size, color, condition, and model number. Correct spelling is a must. All these points will be presented to the worker in the instruction section of the task. To make the instructions clear, an example is also listed: 
-
-Title: Sony Playstation 4 (black), 1 Controller, New 
-
+The goal of this subtask is to generate a clear and concise title for the auction item with at most eighty characters. The auction platform eBay provides some recommendations for a good title. It should contain the item's brand name, artist, or designer. A specification of the item could also be helpful. For example the title could include the size, color, condition, and model number. Correct spelling is a must. All these points will be presented to the worker in the instruction section of the task. To make the instructions clear, an example is also listed:
+\begin{table}[h!]
+	\begin{center}
+	\begin{tabular}{| p{8.5cm} p{4.5cm} |}
+		\hline
+		Title: Sony Playstation 4 (black), 1 Controller, New & \includegraphics[scale=0.08]{images/ps4} \\
+		\hline
+	\end{tabular}
+	\end{center}
+\end{table}
+\clearpage
 After three titles were created by the crowd, the final title will be elected. If no title receive enough votes, the requester will act as an expert. The expert uses the search engine of the auction platform and decide which title shows more similar items. The Turkers will receive \$0.05 for finding a title and \$0.02 for voting.
 \subsubsection{Description}
 This subtask is a bit different then the others. An iterative task design is used (Subsection \ref{iterative}). First, a worker creates an initial description of the item. Then, the second worker can improve the initial solution or create a new one. Then, the crowd decide which description should be kept and which one should be discarded. One iteration includes an improvement and a voting task. Three iterations were used to generate the description of the auction item. The workers should write approximately five sentences and include specific information like size, color, shape, age, manufacture date, company/author/artist, and notable features or markings. TurKit is a Java application to manage iterative approaches. For an improvement of the text a reward of \$0.2 will be paid, \$0.01 for every participant of the voting procedure.
@@ -351,10 +358,8 @@ The price of an item is mostly dependent on the number of features and the quali
 \subsection{Parameter Search}
 To find the best parameters of the used machine learning algorithms, a grid parameter search is done. The idea of this approach is to train a given classifier to predefined sets of values and keep the ones with the best performance. A 5-fold cross-validation was used to generate separate training and test sets. The original test set stays untouched. The method splits the set into five equal size subsets. Four subsets are used for training and one for testing, then the roles change clockwise until every subsets was used as test set. The final result is calculated by the average performance of every iteration. The procedure helps to avoid overfitting of the models.
 \subsection{Signifigance Tests}
-The significance test should help to find out if the results of two classifiers are happened by chance. First, the null hypothesis H$_{0}$ has to be formulated:\\
-
-''The mean performance of classifier A is the same as classifier B''\\
-
+The significance test should help to find out if the results of two classifiers are happened by chance. First, the null hypothesis H$_{0}$ has to be formulated:\\\\
+''The mean performance of classifier A is the same as classifier B''\\\\
 The hypothesis can be rejected if the calculated p-Value is lower than 5\%. The results of the classifiers are not normally distributed, therefore the following tests were used. 
 \subsubsection{G-Test}
 The G-Test\cite{gtest} is used for the nominal labels and is appropriate for multiple classes. It is a modification of the Chi-Squared test, but can handle smaller observed frequencies in a cell of the contingency table. Because not every price class occurs in the outputs of the classifiers, the G-Test is favoured over the Chi-Squared test. The results of two classifiers are grouped into a 2 x \textit{N} contingency table where the rows represent classifier A and B. \textit{N} is the total number of different classes in both results. The outputs of the algorithms A and B are recorded at every cell in the table. After that, the expected frequency is calculated for every cell. Based on these two tables the G-Test algorithm calculates the corresponding \textit{p}-Value. 
