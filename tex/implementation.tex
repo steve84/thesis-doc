@@ -63,7 +63,7 @@ The inputs of the pipeline (Figrue \ref{purePipeline}) are images of the item to
 	\item Find one category for the auction item  
 	\item Estimate the end price for the auction  
 \end{itemize}
-The digits in the brackets define the number of assignments. The sellers receive at the end of the pipeline the information which they need to create an auction on eBay. The starting price of the item depends on the sales strategy of the seller, but the end price should help to find a suitable one. The condition of the item, the auction duration or the payment settings have to be provided by the sellers themselves.
+The digits in the brackets define the number of assignments. The sellers receive at the end of the pipeline the information which they need to create an auction on eBay. The starting price of the item depends on the sales strategy of the sellers, but the end price should help to find a suitable one. The condition of the item, the auction duration or the payment settings have to be provided by the sellers themselves.
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.8]{images/pipelines/Pure_Pipeline.png}
@@ -72,7 +72,8 @@ The digits in the brackets define the number of assignments. The sellers receive
 \end{figure}
 
 \subsection{Task Design}
-At the top of every HIT three images of an auction item are shown. Most of the sellers on eBay present their items with a front, side and top view. Only workers from the United States are allowed to participate in the created tasks, because the ground truth contains only items from there and they have a better feeling for the currency. Some of the tasks need a voting procedure to determine the final answer. The voters have to mandatorily reason their votes to understand the strength of the selected answer. At the end of every task the contributors have the possibility to write down a feedback to the requestor.\\
+At the top of every HIT three images of an auction item are shown. Most of the sellers on eBay present their items with a front, side and top view. Only workers from the United States are allowed to participate in the created tasks, because the ground truth contains only items from there and they have a better feeling for the currency. Some of the tasks need a voting procedure to determine the final answer. The voters have to mandatorily reason their votes to understand the strength of the selected answer. At the end of every task the contributors have the possibility to write down a feedback to the requestor.
+
 Workers who did the same HIT in the past are excluded from the one in the future. This should prevent that they commit the same answer twice. Another restriction is that they can't vote for the own created solution during the voting task. At the beginning of every task, a list of worker IDs is shown and a warning that the answers of them will be rejected. This doesn't avoid the participation of the listed workers by the system, but it works because they won't have a lower approval rate. This solution was easier to implement, but another one has to be used for a productive solution.
 \subsubsection{Title}
 The goal of this subtask is to generate a clear and concise title for the auction item with at most eighty characters. The auction platform eBay provides some recommendations for a good title. It should contain the item's brand name, artist, or designer. A specification of the item could also be helpful. For example the title could include the size, color, condition, and model number. Correct spelling is a must. All these points will be presented to the workers in the instruction section of the task. To make the instructions clear, an example is also listed:
@@ -187,14 +188,14 @@ All of the ground truth items have visible brand labels. Some are more famous (A
 \section{Hybrid Approach}
 The second approach is illustrated after this introduction sentence.
 \subsection{Ground Truth}
-A lot of sold items were collected by the help of the eBay API. The used methods were the same as in the prior ground truth generation (Chapter \ref{ground_truth}). After all the necessary data were collected, the Python script splits the data shuffled into a training and test set. The training set contains about 70 percent of the whole data. All the consecutively steps (data analysis, feature ranking) will use the training set until the performance of a classifier will be proved on the test set. The continuous target values are also converted into price classes to use classification algorithms later on. The range of the classes depends on the highest price of the item type. The goal was to generate the same number of classes for every category. The ground truth was generated for three different item types:
+A lot of sold items were collected by the help of the eBay API. The used methods were the same as in the prior ground truth generation (Chapter \ref{ground_truth}). After all the necessary data were collected, the Python script splits the data shuffled into a training and test set. The training set contains about 70 percent of the whole data. All the consecutively steps (Data analysis, feature ranking) will use the training set until the performance of a classifier will be proved on the test set. The continuous target values are also converted into price classes to use classification algorithms later on. The range of the classes depends on the highest price of the item type. The goal was to generate the same number of classes for every category. The ground truth was generated for three different item types:
 \begin{table}[h!]
 	\begin{center}
 	\begin{tabular}{| p{2.6cm} | p{2.6cm} | p{2.6cm} | p{2.6cm} | p{2.6cm} |}
 		\hline
 		\textbf{Item type} & \textbf{Total number of auctions} & \textbf{Size of training set} & \textbf{Size of test set} & \textbf{Price class range (USD)} \\
 		\hline
-		Apple iPhone & 2299 & 1609 & 690 & 25 \\
+		Apple iPhone & 2'299 & 1'609 & 690 & 25 \\
 		\hline
 		Hot Wheels Cars, 1:64, Ford Mustang & 945 & 661 & 284 & 2 \\
 		\hline
@@ -285,9 +286,9 @@ The auction itself is described by the features in this section. The list (Table
 	\begin{center}
 	\begin{tabular}{| p{2.6cm} | p{2.6cm} | p{2.6cm} | p{2.6cm} | p{2.6cm} |}
 		\hline
-		Name & Description &  Range & Data type \\
+		\textbf{Name} & \textbf{Description} &  \textbf{Range} & \textbf{Data type} \\
 		\hline
-		Duration & The duration of the auction in days & {1, 2, 3, 7, 10} & Integer \\
+		Duration & The duration of the auction in days & \{1, 2, 3, 7, 10\} & Integer \\
 		\hline
 		Number of pictures & Number of pictures attached to the auction & [1, 12] & Integer \\
 		\hline
@@ -299,15 +300,15 @@ The auction itself is described by the features in this section. The list (Table
 		\hline
 		End hour & At what hour the auction was ended & [0, 23] & Integer \\
 		\hline
-		Global shipping & The item will be shipped over the whole world or not & {0, 1} & Boolean \\
+		Global shipping & The item will be shipped over the whole world or not & \{0, 1\} & Boolean \\
 		\hline
 		Shipping locations & The number of countries where the item will be shipped & [0, 249] & Integer \\
 		\hline
 		Shipping type & Specifies the calculation of the shipping costs & [0, 7] & Integer \\
 		\hline
-		Returns accepted & If the buyer can return the item or not & {0, 1} & Boolean \\
+		Returns accepted & If the buyer can return the item or not & \{0, 1\} & Boolean \\
 		\hline
-		Handling time & How many days will it take until the item is put in the mail once the seller receive payment & {1, 2, 3, 4, 5, 10, 15, 20} & Integer \\
+		Handling time & How many days will it take until the item is put in the mail once the seller receive payment & \{1, 2, 3, 4, 5, 10, 15, 20\} & Integer \\
 		\hline
 	\end{tabular}
 	\end{center}
@@ -332,21 +333,23 @@ These features (Table \ref{tab:seller_features}) characterise the seller who cre
 	\label{tab:seller_features}
 \end{table}
 \subsection{Data Analysis}
-This chapter takes a closer look to the collected data. Every item category has an attribute model. The price of the smartphones depends on the date of appearance (Figure \ref{model_price_iphone}). The newest iPhone 5S produces the highest price, the second generation the lowest one. The debut feature produced by Apple has a high value for collectors and are traded higher than some later versions. The mean values of every iPhone model can be roughly estimated by a quadratic function. The data of the Playstation shows similar characteristics for the average prices related to the price feature. The Hot Wheels Cars have a completely different price distribution. There is no visible pattern for the recorded models. The Ford Mustang from 1983 has the highest average price of \$27.02, but was sold only once. The rarity of the items has a higher influence to this category than to the other ones.\\
+This chapter takes a closer look at the collected data. Every item category has an attribute model. The price of the smartphones depends on the date of appearance (Figure \ref{model_price_iphone}). The newest iPhone 5S produces the highest price, the second generation the lowest one. The debut feature produced by Apple has a high value for collectors and are traded higher than some later versions. The mean values of every iPhone model can be roughly estimated by a quadratic function. The data of the Playstation shows similar characteristics for the average prices related to the price feature. The Hot Wheels Cars have a completely different price distribution. There is no visible pattern for the recorded models. The Ford Mustang from 1983 has the highest average price of \$27.02, but was sold only once. The rarity of the items has a higher influence to this category than to the other ones.
+
+The histogram of the iPhone (Figure \ref{model_hist_iphone}) illustrates that the model 4 and 4S are involved in about 60\% of the collected auctions. The Playstation 3 Slim is the most dominate console (about 39\%). The previous model of the actual one is dominating the online marketplaces. The 1967 and 1971 are the most popular Mustang models in the data set with 31 different types.
+
+An executed feature ranking \cite{guyon} with SVMs indicated surprisingly that some features aren't as important as expected. The model of a car has only a small influence to the end price. The condition of the item and the duration of the auction are important for all the three tested categories.
 \begin{figure}
 \centering
 \includegraphics[scale=0.5]{images/plots/iphone/price_model_iphone.png}
 \caption{Model/Price scatter plot (iPhone)}
 \label{model_price_iphone}
 \end{figure}
-The histogram of the iPhone (Figure \ref{model_hist_iphone}) illustrates that the model 4 and 4S are involved in about 60\% of the collected auctions. The Playstation 3 Slim is the most dominate console (about 39\%). The previous model of the actual one is dominating the online marketplaces. The 1967 and 1971 are the most popular Mustang models in the data set with 31 different types.\\
 \begin{figure}
 \centering
 \includegraphics[scale=0.5]{images/plots/iphone/hist_model_iphone.png}
 \caption{Model histogram (iPhone)}
 \label{model_hist_iphone}
 \end{figure}
-An executed feature ranking \cite{guyon} with SVMs indicated surprisingly that some features aren't as important as expected. The model of a car has only a small influence to the end price. The condition of the item and the duration of the auction are important for all the three tested categories. 
 \subsection{Machine Learning Algorithms}
 Three machine learning algorithms were used to estimate the price. The theoretic knowledge about the algorithms is given in the following of this preface.
 \subsubsection{k-Nearest Neighbours}
