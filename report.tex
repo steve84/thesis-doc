@@ -12,11 +12,11 @@
 \usepackage{listings}
 \usepackage{color}
 \usepackage{appendix}
-\usepackage{minitoc}
 \usepackage[onehalfspacing]{setspace}
 \usepackage[nottoc]{tocbibind}
 \usepackage{multirow}
 \usepackage{longtable}
+\usepackage{pdfpages}
 \definecolor{javared}{rgb}{0.6,0,0} % for strings
 \definecolor{javagreen}{rgb}{0.25,0.5,0.35} % comments
 \definecolor{javapurple}{rgb}{0.5,0,0.35} % keywords
@@ -72,6 +72,7 @@ captionpos=b}
 
 %Including of the title page. See titlepage.tex file
 \include{tex/titlepage}
+%\include{tex/titlepage_unibe}
 
 \pagenumbering{arabic}
 \pagestyle{plain}
@@ -160,8 +161,10 @@ The thesis report is organised in multiple chapters. At the beginning of the doc
 \bibliographystyle{bib/custom}
 \bibliography{bib/references}
 \newpage
+\clearpage
 \begin{appendices}
 \include{tex/appendices}
 \end{appendices}
 
+%\includepdf[]{tex/MSc_masterarbeit_erklaerung.pdf}
 \end{document}
