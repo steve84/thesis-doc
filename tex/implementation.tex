@@ -222,6 +222,7 @@ The goal of the task is to estimate the end price of the auction by using a mach
 \subsection{Pre-processing}
 During the collection of the sold items some pre-processing steps were necessary to produce accurate results by the machine learning algorithms. All the recorded features were normalised within the parameters of 0 and 1 to generate a uniform feature space. The target labels (price) remain unaffected. 
 Another problem was the quantity of items for a single auction. The quantity field of the entry was one, but the auction contains a lot or a set of items. If an auction title contains a certain keyword (``Set'', ``Lot'', ``Pack'' or ``Bundle'') then the entry will be ignored.
+Another problem are the inconsistencies of the item descriptions. Some auctions contain different declarations of the model in title or description, for example. These inputs were ignored too.
 \subsection{Feature Extraction}
 The extracted features are divided into three categories.
 \subsubsection{Item Specific Features}
