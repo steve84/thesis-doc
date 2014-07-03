@@ -1,6 +1,6 @@
 \section{Future work}
 \subsection{Google Reverse Image Search}
-Some tests during the first phase of the thesis has shown that Google's reverse image search doesn't return reliable results for all types of items. If the search algorithm findd websites which contain information about the item, then the application should extract the relevant facts in a certain way. Some experiments should be done and the possibilities of the API should be investigated in the future. 
+Some tests during the first phase of the thesis has shown that Google's reverse image search doesn't return reliable results for all types of items. If the search algorithm find websites which contain information about the item, then the application should extract the relevant facts in a certain way. Some experiments should be done and the possibilities of the API should be investigated in the future. 
 \subsection{Main Image Selection}
 The workers have to decide which of the available images give the best r\'{e}sum\'{e} of the product. If the application should publish the auction on eBay in the future, then a representing image of the item has to be determined. 
 \subsection{Fully Automated Application}
@@ -16,7 +16,7 @@ The idea of the show is modified to implement a game with a purpose similar to t
 	\item Dependent on the previous response, the system will present a higher or lower price until the countdown is expired or there are no guesses left. 
 	\item The players will receive a score dependent on the difference of the price estimation. A smaller difference leads to a higher score, a higher one to a lower score. 
 \end{enumerate}
-The first guess of the system will be the mean value \( \mu \) of a large number of sold items on eBay. The value can be determined by the eBay API. The guessing structure will be implemented as a directed binary tree. The root node represents the mean value and every following child node will have a lower (left child) \( v_l \) or higher (right child) value  \( v_r \) determined by the value of the parent node  \( v_p \) and the depth  \( d \) of the tree. The following formula calculates the values  of the nodes: 
+The first guess of the system will be the mean value \( \mu \) of a large number of sold items on eBay. The value can be determined by the eBay API. The guessing structure will be implemented as a directed binary tree. The root node represents the mean value and every following child node will have a lower (left child) \( v_l \) or higher (right child) value  \( v_r \) determined by the value of the parent node  \( v_p \) and the depth  \( d \) of the tree. The following formula calculates the values of the nodes: 
 \begin{equation}
 v_l(v_p,d) = v_p - \frac{\mu}{2^d}
 \end{equation}
