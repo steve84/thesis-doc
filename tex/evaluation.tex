@@ -95,7 +95,9 @@ The comparison between the human-based and the machine-based prediction isn't po
 The normalised confusion matrix (Figure \ref{conf_mat_iphone}) of the iPhone classifiers illustrates the distribution of the assignments. The origin is located at the left top position. The x-axis represents the truth-values and the y-axis the values assigned by the classifier. The values were normalised per row. A perfect classifier would produce a diagonal which contains only ones. 
 The scatter plot (Figure \ref{true_predict_iphone}) is another way to visualise the relations between the truth and predicted values. The criteria of a perfect classifier are the same as for the confusion matrix.
 
-The same plots for the other categories and the exact accuracies/RMSEs/MAEs are enumerated in the appendix section.
+The correlation between the two values can be measured by the Spearman rank-order coefficient (Table \ref{tab:corr}). The measured coefficient can take values from -1 to +1. 0 implies no correlation, a positive correlation implies that as the true values increase, so do the predicted values. If one variable decreases and the other one increases, then the correlation value will be negative. The results confirm the power of the random forest algorithm.
+
+The plots for the other categories and the exact accuracies/RMSEs/MAEs are enumerated in the appendix section.
 \begin{table}[h!]
 	\begin{center}
 	\begin{tabular}{| p{3.25cm} | p{3.25cm} | p{3.25cm} | p{3.25cm} |}
