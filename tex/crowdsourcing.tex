@@ -5,23 +5,23 @@ In 2005, Jeff Howe and Mark Robinson created the term `Crowdsourcing' after a di
 \subsection{Amazon Mechanical Turk}
 The project was introduced in 2005 and is part of the Amazon Web Services\footnote{http://aws.amazon.com}. Requesters can post tasks known as HITs (Human Intelligence Tasks) which can be solved by workers (Amazon uses another term: Turkers). MTurk provides a web-based user interface and a couple of APIs in different programming languages (.NET, Java, Python, PHP, Perl, Ruby) to manage tasks. The first action of the requester is to create a HIT consisting of mandatory fields: 
 \begin{itemize}
-	\item \textbf{Title} The requester must describe the idea of the HIT in at most 128 characters. 
-	\item \textbf{Description} A more detailed description of the task which cannot be longer than 2'000 characters. 
-	\item \textbf{Question} Every task has to contain questions to collect information from the crowd. The requester can decide between three question data structures. 
+	\item \textbf{Title:} The requester must describe the idea of the HIT in at most 128 characters. 
+	\item \textbf{Description:} A more detailed description of the task which cannot be longer than 2'000 characters. 
+	\item \textbf{Question:} Every task has to contain questions to collect information from the crowd. The requester can decide between three question data structures. 
 	\begin{itemize}
 		\item \textit{QuestionForm}: The simplest form to create questions in a HIT. MTurk uses a special XML language to define tasks which has some restrictions. For example, JavaScript and CSS are not allowed. 
 		\item \textit{ExternalQuestion}: MTurk will display a requester defined external webpage and the answers to the questions will be collected on the external website and send back to MTurk. This question data structure is used to overcome some restrictions of the platform like using JavaScript or to display CSS defined content. 
 		\item \textit{HTMLQuestion}: This structure is a mixture between QuestionForm and ExternalQuestion. The requester has not to host an external website to provide a HTML based form. 
 	\end{itemize}
-	\item \textbf{Reward} If the workers will successfully completing the HIT, then they will receive a predefined amount of money from the requester. 
-	\item \textbf{Assignment duration in seconds} The time in which the workers have to complete the task after they have accepted it. The time has to be between 30 seconds and one year. 
-	\item \textbf{Lifetime in seconds} The lifetime of a HIT defines the amount of time a task is acceptable for the workers. After the time elapsed, the HIT will no longer appear in the search results.
+	\item \textbf{Reward:} If the workers will successfully completing the HIT, then they will receive a predefined amount of money from the requester. 
+	\item \textbf{Assignment duration in seconds:} The time in which the workers have to complete the task after they have accepted it. The time has to be between 30 seconds and one year. 
+	\item \textbf{Lifetime in seconds:} The lifetime of a HIT defines the amount of time a task is acceptable for the workers. After the time elapsed, the HIT will no longer appear in the search results.
 \end{itemize}
 and some important, optional fields: 
 \begin{itemize}
-	\item \textbf{Keywords} Comma separated keywords which describe the task (max. 2'000 characters). 
-	\item \textbf{Max assignments} Number of times a HIT can be completed. The default values is one. 
-	\item \textbf{Qualification requirement} Requesters can define requirements to process a task for the workers. For example, only workers who have more than 100 approved assignments can start working on a requesters HIT. 
+	\item \textbf{Keywords:} Comma separated keywords which describe the task (max. 2'000 characters). 
+	\item \textbf{Max assignments:} Number of times a HIT can be completed. The default values is one. 
+	\item \textbf{Qualification requirement:} Requesters can define requirements to process a task for the workers. For example, only workers who have more than 100 approved assignments can start working on a requesters HIT. 
 \end{itemize}
 After the tasks are designed, the requesters have to test them on the Amazon Mechanical Turk Developer Sandbox platform which is a simulated environment. If the requester is happy with the appearance of the HIT, the task can be published on the productive MTurk platform. Turkers have now the possibility to accept the HITs and complete the assignments until the lifetime is expired. After the HIT is completed, the requesters can take a look at the results and have to decide if they want to accept or reject the work. The workers will receive the predefined amount of money only for an accepted task. 
 
@@ -53,13 +53,13 @@ Most of the published assignments on MTurk are independent, parallel tasks. Howe
 \section{Design}
 If requesters want to create new HITs, then they have to consider some design guidelines\cite{crowdsourcing_tutorial,mturk_bestpractices}: 
 \begin{itemize}
-\item \textbf{Be as specific as possible in the instructions} If the requesters ask the workers ``Is a Ford Mustang a sports car?'', then this is not the same as they ask them ``Can a Ford Mustang accelerate from 0 to 100 km/h in 3 seconds or less?'' because the second one is clearer and more precise. Sometimes it is useful to hire a technical writer for phrasing task instructions. 
-\item \textbf{Instructions have to be easy to read} Instructions should be split into multiple subtasks and presented as a bulleted list. 
-\item \textbf{Provide examples} The best way to present the idea of a task is to show one or multiple examples. For example, this can help to avoid uncertainties if the instructions are misinterpreted or the workers have wrong expectations. 
-\item \textbf{Mention what will not be accepted} If a worker has to write a paragraph about an encyclopaedia article, the requester can allude in the instructions that copying contents from other website are prohibited.
+\item \textbf{Be as specific as possible in the instructions:} If the requesters ask the workers ``Is a Ford Mustang a sports car?'', then this is not the same as they ask them ``Can a Ford Mustang accelerate from 0 to 100 km/h in 3 seconds or less?'' because the second one is clearer and more precise. Sometimes it is useful to hire a technical writer for phrasing task instructions. 
+\item \textbf{Instructions have to be easy to read:} Instructions should be split into multiple subtasks and presented as a bulleted list. 
+\item \textbf{Provide examples:} The best way to present the idea of a task is to show one or multiple examples. For example, this can help to avoid uncertainties if the instructions are misinterpreted or the workers have wrong expectations. 
+\item \textbf{Mention what will not be accepted:} If a worker has to write a paragraph about an encyclopaedia article, the requester can allude in the instructions that copying contents from other website are prohibited.
 \item \textbf{Tell the workers which tools they should use.} 
-\item \textbf{Give the workers the possibility to write down a feedback about the task} This is important to improve the design of the tasks, or can help to detect spammers. 
-\item \textbf{Iterative and incremental development of tasks} The first draft of a task will never be perfect. With the feedbacks and results of the previous iterations, the next one will contain improvements which should avoid foregoing mistakes or design failures.
+\item \textbf{Give the workers the possibility to write down a feedback about the task:} This is important to improve the design of the tasks, or can help to detect spammers. 
+\item \textbf{Iterative and incremental development of tasks:} The first draft of a task will never be perfect. With the feedbacks and results of the previous iterations, the next one will contain improvements which should avoid foregoing mistakes or design failures.
 \end{itemize}
 
 \section{Hybrid}

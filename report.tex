@@ -3,7 +3,7 @@
 \usepackage{graphicx}
 \usepackage[latin1]{inputenc}
 \usepackage{float}
-\usepackage[colorlinks=false, pdfborder={0 0 0}]{hyperref}
+\usepackage[colorlinks=false, pdfborder={0 0 0}, linktoc=all]{hyperref}
 \usepackage{verbatim}
 \usepackage{hyperref}
 \usepackage{cite}
@@ -11,17 +11,19 @@
 \usepackage[english]{babel}
 \usepackage{listings}
 \usepackage{color}
+\usepackage{xcolor}
 \usepackage{appendix}
 \usepackage[onehalfspacing]{setspace}
 \usepackage[nottoc]{tocbibind}
 \usepackage{multirow}
 \usepackage{longtable}
 \usepackage{pdfpages}
+\usepackage{fancyhdr}
+\usepackage{epigraph}
 \definecolor{javared}{rgb}{0.6,0,0} % for strings
 \definecolor{javagreen}{rgb}{0.25,0.5,0.35} % comments
 \definecolor{javapurple}{rgb}{0.5,0,0.35} % keywords
 \definecolor{javadocblue}{rgb}{0.25,0.35,0.75} % javadoc
-
 
 \lstset{language=Java,
 basicstyle=\ttfamily\footnotesize,
@@ -59,6 +61,7 @@ captionpos=b}
 \endgroup
 
 
+
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
 
@@ -75,14 +78,18 @@ captionpos=b}
 %\include{tex/titlepage_unibe}
 
 \pagenumbering{arabic}
-\pagestyle{plain}
+\pagestyle{fancy} %eigener Seitenstil
+\fancyhf{}
+\fancyhead[L]{\nouppercase{\leftmark}}
+\fancyhead[C]{}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt} %obere Trennlinie
 \newpage
 
 \include{tex/declaration}
 \include{tex/acknowledgements}
 \include{tex/abstract}
 
-\dominitoc
 \tableofcontents
 \newpage
 
@@ -93,7 +100,7 @@ captionpos=b}
 \lstlistoflistings
 
 \chapter{Introduction}
-\newpage
+\epigraph{\textit{Quote}}{Name}
 eBay Inc.\footnote{http://www.ebay.com} is one of the world's largest online marketplaces and reported 128 million active users worldwide during the last quarter of the year 2013. Online auction platforms make consumer-to-consumer transactions possible. The seller can present articles by uploading pictures and characterise them by writing proper descriptions. The creation of an auction is time consuming and needs a lot of investigations. For example, search for descriptions on the internet or find a selling prices for the same or similar article. In 2005, Jeff Howe and Mark Robinson created a term called 'Crowdsourcing' which is a combination of the words crowd and outsourcing. The idea behind the term is to outsource different tasks, which are difficult to solve by machines, to the crowd. To reduce the costs of collecting information for an article to sell on an auction platform, tasks will be created and outsourced to the crowd. Amazon Mechanical Turk\footnote{http://www.mturk.com}, short MTurk, is a crowdsourcing marketplace which enables requesters to publish human intelligence tasks (HITs). The workers can solve these tasks and earn money for their work.
 
 \section{Statement of the Problem}
@@ -112,7 +119,7 @@ The thesis has the following goals and their corresponding objectives:
 	\item \textbf{Collect auction item properties by the crowd.}
 	\begin{itemize}
 		\item Analyse the composition of an auction item on eBay and select the parts which can be crowdsourced.
-		\item Form a ground truth including different auctions created by real online auction platform users by using the eBay API (Application Programming Interface).
+		\item Form a ground truth including multiple auctions created by real online auction platform users by using the eBay API (Application Programming Interface).
 		\item Study literature which covers similar crowdsourcing problems.
 		\item Design and publish tasks on Amazon Mechanical Turk to gather data from the crowd.
 		\item Evaluate the quality of the generated contents.
@@ -126,6 +133,7 @@ The thesis has the following goals and their corresponding objectives:
 	\begin{itemize}
 		\item Search for image processing or machine learning methods which can simplify and/or support a human intelligence task.
 		\item Implement the methods and adapt the design of the tasks.
+		\item Compare the results with the first implementation.		
 	\end{itemize}
 \end{itemize}
 
@@ -134,27 +142,33 @@ The thesis report is organised in multiple chapters. At the beginning of the doc
 
 \chapter{eBay Online Marketplace}
 \label{chap:ebay}
-\include{tex/marketplace}
+\epigraph{\textit{Quote}}{Name}
+\input{tex/marketplace}
 
 \chapter{Crowdsourcing}
 \label{chap:crowdsourcing}
-\include{tex/crowdsourcing}
+\epigraph{\textit{Quote}}{Name}
+\input{tex/crowdsourcing}
 
 \chapter{Implementation}
 \label{chap:implementation}
-\include{tex/implementation}
+\epigraph{\textit{Quote}}{Name}
+\input{tex/implementation}
 
 \chapter{Evaluation}
 \label{chap:evaluation}
-\include{tex/evaluation}
+\epigraph{\textit{Quote}}{Name}
+\input{tex/evaluation}
 
 \chapter{Discussion}
 \label{chap:discussion}
-\include{tex/discussion}
+\epigraph{\textit{Quote}}{Name}
+\input{tex/discussion}
 
 \chapter{Conclusion}
 \label{chap:conclusion}
-\include{tex/conclusion}
+\epigraph{\textit{Quote}}{Name}
+\input{tex/conclusion}
 
 \clearpage
 
