@@ -8,7 +8,7 @@ The workers had the possibility to reason their decision. They motivate their vo
 	\item Higher value of information. 
 	\item Professionalism. 
 	\item Hidden information is given (e.g. size of the cleats, size of the smartphone storage). 
-	\item The description is clear, short and to the point. 
+	\item The description is clear, short, and to the point. 
 	\item Authenticity of the article. 
 	\item Grammatical issues. 
 \end{itemize}
@@ -85,14 +85,14 @@ The ground truth items 1 and 3 received a majority of the votes from the crowd. 
 ``Dear worker, \\\\
 You receive a commission (0.25\% of the end price) as bonus payment for your work. The end price of the eBay online auction was \$27.''
 \section{Hybrid Approach}
-The Random Forest approach shows the best performance over all three item categories independent of classification or regression (Figure \ref{class_acc}/\ref{reg_rmse}). The results of three iterations were averaged because of the randomness of the classifier. The accuracy of the classifier depends also on the item category. The RFC assigns every third input to the right Sony Playstation price class. The plot of the mean absolute error (MAE, Figure \ref{class_mae}) assures the strength of the classifier and visualises how far away the predictions are on average. kNN has an error of about four classes for the iPhone category. One class has a range of 25 USD.
+The Random Forest approach shows the best performance over all three item categories independent of classification or regression (Figure \ref{class_acc}/\ref{reg_rmse}). The results of three iterations were averaged because of the randomness of the classifier. The accuracy of the classifier depends also on the item category. The RFC (Random Forest Classifier) assigns every third input to the right Sony Playstation price class. The plot of the mean absolute error (MAE, Figure \ref{class_mae}) assures the strength of the classifier and visualises how far away the predictions are on average. kNN has an error of about four classes for the iPhone category. One class has a range of 25 USD.
 
 The reasons for the moderate performance of the classifiers could be multi-object and/or outdated auctions in the collected data. A higher number of features could also lead to better results.
 
 The comparison between the human-based and the machine-based prediction is not possible with the aid of the RMSE because the values are scale-dependent. The random forest algorithm predicts a final price of the ground truth item number 2 (Apple iPhone) of \$108 and the crowd a price of \$172. The crowdsourced price is taken from the experiment where the workers had access to the market price because this experiment has the lowest error rate. The ground truth price is \$185. The crowd has an absolute price difference of \$13, the machine learning approach one of \$77. The mean absolute error confirms this observation. Five workers predicted prices with an error of 21\%, the machine learning approach one of 30.9\%.
 
-The normalised confusion matrix (Figure \ref{conf_mat_iphone}) of the iPhone classifiers illustrates the distribution of the assignments. The origin is located at the left top position. The x-axis represents the truth-values and the y-axis the values assigned by the classifier. The values were normalised per row. A perfect classifier would produce a diagonal which contains only ones. 
-The scatter plot (Figure \ref{true_predict_iphone}) is another way to visualise the relations between the truth and predicted values. The criteria of a perfect classifier are the same as for the confusion matrix.
+The normalised confusion matrix (Figure \ref{conf_mat_iphone}) of the iPhone classifiers illustrates the distribution of the assignments. The origin is located at the left top position. The x-axis represents the true-values and the y-axis the values assigned by the classifier. The values were normalised per row. A perfect classifier would produce a diagonal which contains only ones. 
+The scatter plot (Figure \ref{true_predict_iphone}) is another way to visualise the relations between the true and predicted values. The criteria of a perfect classifier are the same as for the confusion matrix.
 
 The correlation between the two values can be measured by the Spearman rank-order coefficient (Table \ref{tab:corr}). The measured coefficient can take values from -1 to +1. 0 implies no correlation, a positive correlation implies that as the true values increase, so do the predicted values. If one variable decreases and the other one increases, then the correlation value will be negative. The results confirm the power of the random forest algorithm.
 
