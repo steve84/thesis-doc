@@ -14,7 +14,7 @@ The idea of the show is modified to implement a game with a purpose similar to t
 	\item Then, the game starts and a first guess of the price will be shown by the system. 
 	\item Both users have to decide if the real price is higher or lower than the displayed one. 
 	\item Dependent on the previous response, the system will present a higher or lower price until the countdown is expired or there are no guesses left. 
-	\item The players will receive a score dependent on the difference of the price estimations. A smaller difference leads to a higher score, a higher one to a lower score. 
+	\item The players will receive a score dependent on the difference of their price estimations. A smaller difference leads to a higher score, a higher one to a lower score. 
 \end{enumerate}
 The first guess of the system will be the mean value \( \mu \) of a large number of sold items on eBay. The value can be determined by the eBay API. The guessing structure will be implemented as a directed binary tree. The root node represents the mean value and every following child node will have a lower (left child) \( v_l \) and higher (right child) value \( v_r \) determined by the value of the parent node \( v_p \) and the depth \( d \) of the tree. The following formula calculates the values of the nodes: 
 \begin{equation}

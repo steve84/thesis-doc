@@ -56,7 +56,7 @@ The chapter describes the first of two crowdsourcing approaches. The pure one us
 Real eBay auctions were collected by the API to generate the ground truth for the crowdsourcing experiments. The online auction platform divides the items in eight main categories: Motors, Fashion, Electronics, Collectibles \& Arts, Home \& Garden, Sporting Goods, Toys \& Hobbies, and Deals \& Gifts. The ground truth consists of seven items from every category with the exception of the Motor's and Deals \& Gits sections because the API cannot search for items in these categories. First, some keywords were created to touch the desired category: ``Swiss Watch'' (Fashion), ``Smartphone'' (Electronics), ``Football Trading Card'' (Collectibles), ``Coffee Machine'' (Home), ``Soccer Shoes'' (Sporting Goods), ``Action Figure'' (Toys), and ``Handbag'' (Fashion). The goal was to have also gender specific and neutral items. An action figure is normally used by male persons, the handbag by females, and a smartphone by both. The Finding eBay API provides the method \textit{findCompletedItems} which takes keywords as a parameter and returns a list of completed auction items. The Python script searches for the first sold item which uses US dollar as currency, has a description longer than one-hundred characters, and contains at least three images. Only three images were kept because most of the auctions present the items with a top, front and side view. Another reason is the clarity for the crowdsourcing tasks. Every ground truth entry has the attributes title, description, category, condition, price, and image one to three. The table \ref{basic_ground_truth} (page \pageref{basic_ground_truth}) represents the final ground truth for further experiments.
 
 \subsection{Tasks Workflow}
-The inputs of the pipeline (Figrue \ref{purePipeline}) are images of the item to sell which were created by the seller. The images from the ground truth are used for the experiments of the thesis. To create item specific information for the auction, four subtasks were designed: 
+The inputs of the pipeline (Figure \ref{purePipeline}) are images of the item to sell which were created by the seller. The images from the ground truth are used for the experiments of the thesis. To create item specific information for the auction, four subtasks were designed: 
 \begin{itemize}
 	\item Generate a title for the auction item.
 	\item Generate a description of the item.
@@ -72,11 +72,11 @@ The digits in the brackets define the number of assignments. At the end of the p
 \end{figure}
 
 \subsection{Task Design}
-At the top of every HIT three images of an auction item are shown. Most of the sellers on eBay present their items with a front, side, and top view. Only workers from the United States are allowed to participate in the created tasks because the ground truth contains only items from there and they have a better feeling for the currency. Some of the tasks need a voting procedure to determine the final answer. The voters have to mandatorily reason their votes to understand the strength of the selected answer. At the end of every task, the contributors have the possibility to write down a feedback to the requestor.
+At the top of every HIT three images of an auction item are shown. Most of the sellers on eBay present their items with a front, side, and top view. Only workers from the United States are allowed to participate in the created tasks because the ground truth contains only items from there and they have a better feeling for the currency. Some of the tasks need a voting procedure to determine the final answer. The voters have to mandatorily reason their votes to understand the strength of the selected answer. At the end of every task, the contributors have the possibility to write down a feedback to the requester.
 
 Workers who did the same HIT in the past are excluded from the one in the future. This should prevent that they can commit the same answer twice. Another restriction is that they cannot vote for the own created solution during the voting task. At the beginning of every task, a list of worker IDs is shown and a warning that the answers of them will be rejected. This does not avoid the participation of the listed workers by the system but it works because they will not have a lower approval rate. This solution was easier to implement but another one has to be used for a productive solution.
 \subsubsection{Title}
-The goal of this subtask is to generate a clear and concise title for the auction item with at most eighty characters. The auction platform eBay provides some recommendations for a good title. It should contain the item's brand name, artist, or designer. A specification of the item could also be helpful. The title could include the size, color, condition, and model number, for example. Correct spelling is a must. All these points will be presented to the workers in the instruction section of the task. To make the instructions clear, an example is also listed:
+The goal of this subtask is to generate a clear and concise title for the auction item with at most eighty characters. The auction platform eBay provides some recommendations for a good title. It should contain the item's brand name, artist, or designer. A specification of the item could also be helpful. The title could include the size, colour, condition, and model number, for example. Correct spelling is a must. All these points will be presented to the workers in the instruction section of the task. To make the instructions clear, an example is also listed:
 \begin{table}[H]
 	\begin{center}
 	\begin{tabular}{| p{8cm} p{5cm} |}
@@ -89,7 +89,7 @@ The goal of this subtask is to generate a clear and concise title for the auctio
 \end{table}
 After three titles were created by the crowd, the final title will be elected. If no title receive enough votes, the requester will act as an expert. The expert uses the search engine of the auction platform and decides which title shows more similar items. The turkers will receive \$0.05 for finding a title and \$0.02 for voting.
 \subsubsection{Description}
-This subtask is a bit different than the others. An iterative task design is used (Subsection \ref{iterative}). First, a worker creates an initial description of the item. Then, the second worker can improve the initial solution or create a new one. After that, the crowd decides which description should be kept and which one should be discarded. One iteration includes an improvement and a voting task. Three iterations were used to generate the description of the auction item. The workers should write approximately five sentences and include specific information like size, color, shape, age, manufacture date, company/author/artist, and notable features or markings. TurKit is a Java application to manage iterative approaches. For an improvement of the text a reward of \$0.2 will be paid, \$0.01 for every participant of the voting procedure.
+This subtask is a bit different than the others. An iterative task design is used (Subsection \ref{iterative}). First, a worker creates an initial description of the item. Then, the second worker can improve the initial solution or create a new one. After that, the crowd decides which description should be kept and which one should be discarded. One iteration includes an improvement and a voting task. Three iterations were used to generate the description of the auction item. The workers should write approximately five sentences and include specific information like size, colour, shape, age, manufacture date, company/author/artist, and notable features or markings. TurKit is a Java application to manage iterative approaches. For an improvement of the text a reward of \$0.2 will be paid, \$0.01 for every participant of the voting procedure.
 \subsubsection{Category}
 Based on the provided title, the workers have to find the most suitable eBay category for the auction item. The eBay search engine returns one or many categories for a given title. Then, the worker has to decide which one matches best. For making a contribution, the workers achieve a payment of \$0.05.
 \subsubsection{Price Estimation}
@@ -157,7 +157,7 @@ This section describes the idea of an additional incentive for the workers which
 	\begin{center}
 	\begin{tabular}{| p{3.25cm} | p{3.25cm} | p{3.25cm} | p{3.25cm} |}
 		\hline
-		\textbf{Name of task} & \textbf{Number of assignements (Min)} & \textbf{Number of assignements (Max)} & \textbf{Percentage of commission (in \%)} \\
+		\textbf{Name of task} & \textbf{Number of assignments (Min)} & \textbf{Number of assignments (Max)} & \textbf{Percentage of commission (in \%)} \\
 		\hline
 		Title (Finding) & 1 & 1 & 0.25 \\
 		\hline
@@ -317,7 +317,7 @@ The auction itself is described by the features in this section. The list (Table
 	\label{tab:auction_features}
 \end{table}
 \subsubsection{Seller Specific Features}
-These features (Table \ref{tab:seller_features}) characterise the seller who created the auction. Every user on eBay has the possibility to give a positive, neutral or negative feedback after every transaction. The rating system awards stars with twelve different colors for trustful sellers. After ten positive feedbacks, the user receives a yellow star for example. Therefore, the nominal value has to be converted to an integer.
+These features (Table \ref{tab:seller_features}) characterise the seller who created the auction. Every user on eBay has the possibility to give a positive, neutral or negative feedback after every transaction. The rating system awards stars with twelve different colours for trustful sellers. After ten positive feedbacks, the user receives a yellow star for example. Therefore, the nominal value has to be converted to an integer.
 \begin{table}[h!]
 	\begin{center}
 	\begin{tabular}{| p{2.6cm} | p{2.6cm} | p{2.6cm} | p{2.6cm} | p{2.6cm} |}
